@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>第三课 · AI提问</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: #ffffff; color: #1a1a1a; line-height: 1.65; font-size: 22px; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .layout { display: flex; min-height: 100vh; }
+    .sidebar { width: 220px; flex-shrink: 0; border-right: 1px solid #e9e9e7; padding: 32px 20px; position: sticky; top: 0; height: 100vh; overflow-y: auto; background: #ffffff; }
+    .sidebar-logo { font-size: 14px; font-weight: 600; margin-bottom: 24px; color: #1a1a1a; }
+    .sidebar-logo span { color: #9b9a97; font-weight: 400; }
+    .sidebar-section { margin-bottom: 20px; }
+    .sidebar-title { font-size: 11px; font-weight: 600; color: #9b9a97; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .sidebar-link { display: block; font-size: 14px; color: #1a1a1a; padding: 4px 8px; border-radius: 4px; margin-bottom: 2px; text-decoration: none; }
+    .sidebar-link:hover { background: #f7f6f3; color: #1a1a1a; text-decoration: none; }
+    .sidebar-link.active { color: #1a1a1a; font-weight: 500; background: #f7f6f3; }
+    .main { flex: 1; padding: 64px 80px; max-width: 720px; max-width: 900px; }
+    .page-label { font-size: 13px; color: #9b9a97; margin-bottom: 8px; }
+    h1 { font-size: 40px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 12px; color: #1a1a1a; }
+    .subtitle { font-size: 22px; color: #1a1a1a; margin-bottom: 40px; line-height: 1.5; }
+    h2 { font-size: 24px; font-weight: 600; margin: 52px 0 16px; color: #1a1a1a; padding-top: 40px; border-top: 1px solid #e9e9e7; }
+    p { margin-bottom: 12px; color: #1a1a1a; }
+    .step-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
+    .step-box { border: 1px solid #e9e9e7; border-radius: 6px; padding: 16px; }
+    .step-box h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .step-box p { font-size: 14px; color: #1a1a1a; margin-bottom: 0; }
+    .step-num-circle { width: 28px; height: 28px; border-radius: 4px; background: #d46a2f; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+    .scenario-card { border: 1px solid #e9e9e7; border-radius: 6px; padding: 14px 18px; margin-bottom: 8px; }
+    .scenario-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .scenario-card .role-tag { display: inline-block; padding: 2px 8px; background: #f7f6f3; border-radius: 4px; font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+    .scenario-card p { font-size: 14px; color: #1a1a1a; margin-bottom: 0; }
+    .mistake-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0efe9; }
+    .mistake-item:last-child { border-bottom: none; }
+    .mistake-icon { width: 20px; height: 20px; border-radius: 50%; background: #d46a2f; color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .mistake-item p { font-size: 15px; }
+    .mistake-item strong { font-weight: 600; }
+    .faq-item { padding: 12px 0; border-bottom: 1px solid #f0efe9; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .faq-item p { font-size: 14px; color: #1a1a1a; margin-bottom: 0; }
+    .template-block { background: #f7f6f3; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+    .template-block .label { font-size: 12px; font-weight: 600; color: #9b9a97; margin-bottom: 8px; }
+    .template-block p { font-family: "SF Mono", "Fira Code", "Menlo", monospace; font-size: 14px; color: #1a1a1a; margin-bottom: 0; line-height: 1.7; }
+    .bottom-nav { display: flex; gap: 8px; padding: 40px 0 32px; border-top: 1px solid #e9e9e7; margin-top: 40px; }
+    .bottom-nav a { display: inline-flex; align-items: center; gap: 4px; padding: 8px 16px; border-radius: 4px; font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.15s; }
+    .nav-prev { background: #f7f6f3; color: #1a1a1a; border: 1px solid #e9e9e7; }
+    .nav-prev:hover { background: #f0efe9; text-decoration: none; }
+    .nav-next-alt { background: #f7f6f3; color: #1a1a1a; border: 1px solid #e9e9e7; }
+    .nav-next-alt:hover { background: #f0efe9; text-decoration: none; }
+    .spacer { height: 48px; }
+    .toc { display: none; } /* TOC reserved for larger screens if needed */
+    @media (max-width: 768px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid #e9e9e7; }
+      .main { padding: 32px 20px; }
+      h1 { font-size: 28px; }
+      .step-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo">AI教育培训 <span>· 课程</span></div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">目录</div>
+      <a href="index.html" class="sidebar-link">首页</a>
+      <a href="lesson-01.html" class="sidebar-link">第一课 · Codex入门</a>
+      <a href="lesson-02.html" class="sidebar-link">第二课 · 上手 Codex</a>
+      <a href="lesson-03.html" class="sidebar-link active">第三课 · AI提问</a>
+      <a href="lesson-04.html" class="sidebar-link">第四课 · Agent</a>
+      <a href="lesson-05.html" class="sidebar-link">第五课 · Skills</a>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="page-label">第三课 · 零基础入门</div>
+    <h1>AI提问入门：问得好才能答得好</h1>
+    <p class="subtitle">很多人觉得AI不好用，99%是因为问得不对。这一课，带你用4步提问法把AI用起来。</p>
+
+    <h2 id="sec-method">4步提问法</h2>
+    <p>不管问什么AI，记住这4步：角色 → 任务 → 背景 → 输出</p>
+
+    <div class="step-grid">
+      <div class="step-box">
+        <div class="step-num-circle">1</div>
+        <h4>角色</h4>
+        <p>你希望AI扮演谁？秘书、老师、朋友、专家……定好角色，它就知道用什么语气和方式回答。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">2</div>
+        <h4>任务</h4>
+        <p>你要它做什么？写文章、做表格、解释概念、翻译内容……任务越具体越好。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">3</div>
+        <h4>背景</h4>
+        <p>补充信息：给谁看的、什么场景、有哪些限制。背景越丰富，答案越准确。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">4</div>
+        <h4>输出</h4>
+        <p>你想要什么格式？段落、列表、表格、代码……说清楚格式，AI不会乱给。</p>
+      </div>
+    </div>
+
+    <div class="template-block">
+      <div class="label">万能模板</div>
+      <p>你现在是一名【角色】。请帮我完成【任务】。<br>背景是【背景】。<br>请按【输出格式】输出。</p>
+    </div>
+
+    <h2 id="sec-scenes">3个最常用的场景</h2>
+
+    <div class="scenario-card">
+      <span class="role-tag">写邮件</span>
+      <h4>场景1：写一封正式邮件</h4>
+      <p>你现在是一名【专业秘书】。请帮我写一封英文询价邮件，发给德国采购商。请用正式商务邮件格式，语气专业简洁。</p>
+    </div>
+    <div class="scenario-card">
+      <span class="role-tag">总结</span>
+      <h4>场景2：总结一篇长文章</h4>
+      <p>你现在是一名【学习助手】。请帮我总结这篇AI发展趋势文章的核心观点，输出5个要点。</p>
+    </div>
+    <div class="scenario-card">
+      <span class="role-tag">代码</span>
+      <h4>场景3：生成一段代码</h4>
+      <p>你现在是一名【Python助教】。请写一个数据处理脚本，处理一个3列的CSV文件。输出完整可运行的代码，并加上注释。</p>
+    </div>
+
+    <h2 id="sec-mistakes">4个常见错误</h2>
+
+    <div class="mistake-item">
+      <div class="mistake-icon">×</div>
+      <p><strong>提问太短：</strong>"帮我写一下" — AI不知道写什么、给谁看</p>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-icon">×</div>
+      <p><strong>目标不清：</strong>不知道自己要结果（直接可用）还是思路（解释原理）</p>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-icon">×</div>
+      <p><strong>不给背景：</strong>AI不知道你的读者是谁、在什么场景下用</p>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-icon">×</div>
+      <p><strong>不会追问：</strong>第一轮答案一般不是终稿，多追问才能逼近你想要的结果</p>
+    </div>
+
+    <h2 id="sec-advanced">进阶心法：AI博主都在用的6种Prompt技巧</h2>
+    <p>来自小红书博主"数字生命卡兹克"分享的实战经验，比套模板管用100倍。</p>
+
+    <div class="step-grid">
+      <div class="step-box">
+        <div class="step-num-circle">1</div>
+        <h4>让AI先选角色</h4>
+        <p>不要自己定角色，让AI先判断该用什么领域的专家角色。如果不确定，让它反问你2-3个定位问题再选。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">2</div>
+        <h4>持续追问，直到95%理解</h4>
+        <p>让AI每次追问一个问题，根据你的回答不断完善需求，直到它有95%的信心理解你的真实需求和目标，再出方案。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">3</div>
+        <h4>让AI扮演"反对者"</h4>
+        <p>告诉AI：我的想法可能很局限，你不用完全肯定我。从不同角度"攻击"我的想法，像老师一样直接指出漏洞。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">4</div>
+        <h4>提前预演失败</h4>
+        <p>让AI提前推演可能会在哪里失败、有什么风险，并复盘总结。避免做完才发现大问题。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">5</div>
+        <h4>反向生成Prompt</h4>
+        <p>得到满意成果后，让AI根据这个成果反向生成一个可复用的提示词模板，解释每个部分的作用。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">6</div>
+        <h4>双版本解释</h4>
+        <p>让AI用两种方式回答：小白版（洗脚城大爷都能听懂的大白话）和专业版（面向从业者，不能有事实错误）。</p>
+      </div>
+    </div>
+
+    <div class="template-block">
+      <div class="label">进阶追问模板</div>
+      <p>你先别回答。请你先选出一个最合适的该领域的角色来思考它。<br>
+如果不确定该选谁，可以先反问我2-3个定位问题再选。<br><br>
+第一步先输出：1.你选谁，对应的细分领域 2.为什么这么选，给出3个主要理由</p>
+    </div>
+
+    <h2 id="sec-faq">FAQ</h2>
+
+    <div class="faq-item">
+      <h4>ChatGPT、Claude、Gemini 用哪个提问法都一样吗？</h4>
+      <p>一样。4步提问法是通用的，不管用哪个AI都适用。区别只是各个AI的强项不同。</p>
+    </div>
+    <div class="faq-item">
+      <h4>一定要按顺序用4步吗？</h4>
+      <p>不一定。可以灵活省略某些步，但加上永远比不加好。特别是"背景"和"输出格式"，很多新手容易忽略。</p>
+    </div>
+    <div class="faq-item">
+      <h4>AI回答不好怎么办？</h4>
+      <p>直接追问，把你觉得不对的地方指出来。比如"第三点太复杂了，能不能再简化一下"。AI不怕你纠正。</p>
+    </div>
+    <div class="faq-item">
+      <h4>复杂问题一次问还是分几次问？</h4>
+      <p>建议分步问。先问框架和思路，确认方向对了，再让它展开细节。一步到位容易跑偏。</p>
+    </div>
+
+    <div class="bottom-nav">
+      <a href="lesson-01.html" class="nav-prev">← 第一课：Codex入门</a>
+      <a href="lesson-04.html" class="nav-next-alt">→ 第四课：Agent</a>
+    </div>
+    <footer>正派AIGC 制作 · AI教育培训 · 零基础入门系列</footer>
+    <div class="spacer"></div>
+  
+  <aside class="toc">
+    <div class="toc-title">目录</div>
+    <a href="#sec-method" class="toc-link">4步提问法</a>
+    <a href="#sec-scenes" class="toc-link">3个最常用的场景</a>
+    <a href="#sec-mistakes" class="toc-link">4个常见错误</a>
+    <a href="#sec-advanced" class="toc-link">进阶心法</a>
+    <a href="#sec-faq" class="toc-link">FAQ</a>
+  </aside>
+</main>
+</div>
+</body>
+</html>

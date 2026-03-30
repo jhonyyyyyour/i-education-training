@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>第五课 · Skills</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: #ffffff; color: #1a1a1a; line-height: 1.65; font-size: 22px; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .layout { display: flex; min-height: 100vh; }
+    .sidebar { width: 220px; flex-shrink: 0; border-right: 1px solid #e9e9e7; padding: 32px 20px; position: sticky; top: 0; height: 100vh; overflow-y: auto; background: #ffffff; }
+    .sidebar-logo { font-size: 14px; font-weight: 600; margin-bottom: 24px; color: #1a1a1a; }
+    .sidebar-logo span { color: #9b9a97; font-weight: 400; }
+    .sidebar-section { margin-bottom: 20px; }
+    .sidebar-title { font-size: 11px; font-weight: 600; color: #9b9a97; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .sidebar-link { display: block; font-size: 14px; color: #1a1a1a; padding: 4px 8px; border-radius: 4px; margin-bottom: 2px; text-decoration: none; }
+    .sidebar-link:hover { background: #f7f6f3; color: #1a1a1a; text-decoration: none; }
+    .sidebar-link.active { color: #1a1a1a; font-weight: 500; background: #f7f6f3; }
+    .main { flex: 1; padding: 64px 80px; max-width: 900px; }
+    .page-label { font-size: 13px; color: #9b9a97; margin-bottom: 8px; }
+    h1 { font-size: 40px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 12px; color: #1a1a1a; }
+    .subtitle { font-size: 22px; color: #1a1a1a; margin-bottom: 40px; line-height: 1.5; }
+    h2 { font-size: 24px; font-weight: 600; margin: 52px 0 16px; color: #1a1a1a; padding-top: 40px; border-top: 1px solid #e9e9e7; }
+    h3 { font-size: 18px; font-weight: 600; margin: 28px 0 12px; color: #1a1a1a; }
+    p { margin-bottom: 12px; font-size: 16px; color: #1a1a1a; }
+    .highlight-box { border-left: 3px solid #d46a2f; padding: 12px 16px; margin: 12px 0; background: #fffaf5; border-radius: 0 4px 4px 0; font-size: 15px; }
+    .step-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
+    .step-box { border: 1px solid #e9e9e7; border-radius: 6px; padding: 16px; }
+    .step-box h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .step-box p { font-size: 14px; color: #1a1a1a; margin-bottom: 0; }
+    .step-num-circle { width: 28px; height: 28px; border-radius: 4px; background: #d46a2f; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+    .case-card { border: 1px solid #e9e9e7; border-radius: 6px; padding: 16px 20px; margin-bottom: 12px; }
+    .case-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+    .case-card p { font-size: 14px; color: #1a1a1a; margin-bottom: 0; }
+    .template-block { background: #f7f6f3; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+    .template-block .label { font-size: 12px; font-weight: 600; color: #9b9a97; margin-bottom: 8px; }
+    .template-block p { font-family: "SF Mono", "Fira Code", "Menlo", monospace; font-size: 13px; color: #1a1a1a; margin-bottom: 0; line-height: 1.7; white-space: pre-wrap; }
+    .bottom-nav { display: flex; gap: 8px; padding: 40px 0 32px; border-top: 1px solid #e9e9e7; margin-top: 40px; }
+    .bottom-nav a { display: inline-flex; align-items: center; gap: 4px; padding: 8px 16px; border-radius: 4px; font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.15s; }
+    .nav-prev { background: #f7f6f3; color: #1a1a1a; border: 1px solid #e9e9e7; }
+    .nav-prev:hover { background: #f0efe9; text-decoration: none; }
+    .nav-next-alt { background: #f7f6f3; color: #1a1a1a; border: 1px solid #e9e9e7; }
+    .nav-next-alt:hover { background: #f0efe9; text-decoration: none; }
+    .spacer { height: 48px; }
+    .toc { display: none; }
+    @media (max-width: 768px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid #e9e9e7; }
+      .main { padding: 32px 20px; }
+      h1 { font-size: 28px; }
+      .step-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo">AI教育培训 <span>· 课程</span></div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">目录</div>
+      <a href="index.html" class="sidebar-link">首页</a>
+      <a href="lesson-01.html" class="sidebar-link">第一课 · Codex入门</a>
+      <a href="lesson-02.html" class="sidebar-link">第二课 · 上手 Codex</a>
+      <a href="lesson-03.html" class="sidebar-link">第三课 · AI提问</a>
+      <a href="lesson-04.html" class="sidebar-link">第四课 · Agent</a>
+      <a href="lesson-05.html" class="sidebar-link active">第五课 · Skills</a>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="page-label">第五课 · 进阶技能</div>
+    <h1>Skills是什么？怎么用？</h1>
+    <p class="subtitle">Skills 是今年 AI 圈最火的概念之一。这节课用大白话把它讲清楚，附送实战案例。</p>
+
+    <h2 id="sec-what">一、Skills 到底是什么</h2>
+
+    <p>Skills 翻译过来就是"技能"。给 Agent 用的技能包。</p>
+
+    <div class="highlight-box">
+      <strong>一句话理解：</strong>Skills 就是把一套重复要做的事情，打包成一个"工具箱"。下次要做同样的事，直接调用，不用从头再教一遍。
+    </div>
+
+    <p>举个例子：</p>
+    <p>你每天要刷十几个平台（微博、知乎、小红书、B站…）找热点选题。过去每天要花 2-3 个小时。现在你可以做一个"选题系统"的 Skill，以后每天说一句"开始今日选题"，AI 自动帮你全网抓取、筛选、整理出 TOP10 值得写的选题。</p>
+
+    <h3 id="sec-case">两个真实案例感受一下</h3>
+
+    <div class="case-card">
+      <h4>案例1：AI 选题系统</h4>
+      <p>做一个每天自动采集全网热点的 Skill。先抓取 → 再筛选 → 再审核 → 如果不通过就重新修改 → 直到审核通过为止。整套流程全自动，你只负责看结果。</p>
+    </div>
+
+    <div class="case-card">
+      <h4>案例2：GitHub 整合包生成器</h4>
+      <p>很多 GitHub 项目没有图形界面，小白根本用不了。做一个 Skill，你扔一个项目链接进去，它自动帮你打包成开箱即用的本地软件，一键启动。编程小白也能用上各种大佬的开源工具。</p>
+    </div>
+
+    <h2 id="sec-vs">二、Skills 和 Prompt、MCP 的区别</h2>
+
+    <p>很多人搞不清楚这三个东西有什么区别，用一个故事来解释：</p>
+
+    <div class="highlight-box">
+      <strong>把 AI 当成一个刚入职的实习生</strong><br>
+      · <strong>Prompt</strong> = 你站在他旁边口头交代任务（临时、每次都要说）<br>
+      · <strong>Skills</strong> = 你给他一本 SOP 手册（固化流程，随时调用）<br>
+      · <strong>MCP</strong> = 你给他一张门禁卡（解决"能访问什么"的问题）
+    </div>
+
+    <p>所以：</p>
+    <p><strong>Prompt</strong> 是临时指令，关闭对话就没了；<strong>Skills</strong> 是固化下来的能力包，下次直接用；<strong>MCP</strong> 是让 AI 能连接外部系统的"接口卡"。</p>
+
+    <h2 id="sec-structure">三、Skill 的基本结构</h2>
+
+    <p>Skills 不是一个文本，而是一个<strong>文件夹</strong>。里面可以放很多东西：</p>
+
+    <div class="step-grid">
+      <div class="step-box">
+        <div class="step-num-circle">📄</div>
+        <h4>SKILL.md（必须）</h4>
+        <p>核心文件，包含技能的名称、描述和使用说明。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">📝</div>
+        <h4>Instructions（必须）</h4>
+        <p>详细的工作流程，告诉 AI 每一步该怎么做。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">💡</div>
+        <h4>Examples（可选）</h4>
+        <p>具体的使用案例，展示技能怎么用。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">🔧</div>
+        <h4>脚本/模板（可选）</h4>
+        <p>其他辅助文件，比如参考文档、脚本等。</p>
+      </div>
+    </div>
+
+    <p>SKILL.md 的写法很简单，分两部分：</p>
+
+    <div class="template-block">
+      <div class="label">SKILL.md 标准格式</div>
+      <p>---
+name: skill名称
+description: 简要描述这个技能的功能和使用场景
+---
+# 技能名称
+
+## 指令 (Instructions)
+清晰、逐步的操作指南，告诉 AI 每一步怎么做。
+
+## 示例 (Examples)
+展示具体的使用案例。</p>
+    </div>
+
+    <div class="highlight-box">
+      <strong>注意：</strong>description（描述）特别重要！AI 就是靠这个来判断什么时候该调用这个 Skill。尽量用第三人称、包含触发关键词，且正文控制在 500 行以内效果最好。
+    </div>
+
+    <h2 id="sec-install">四、如何安装 Skills</h2>
+
+    <h3 id="sec-install-official">1. 安装 Claude 官方的 Skills</h3>
+
+    <p>Claude 官方做了一个 Skills 仓库，推荐安装这些：docx、frontend-design、pdf、skill-creator、xlsx。</p>
+
+    <p>在 Codex 里直接发一句 Prompt：</p>
+
+    <div class="template-block">
+      <div class="label">安装 Prompt</div>
+      <p>安装这个 skill，skill 项目地址为: https://github.com/anthropics/skills/tree/main/skills/skill-creator</p>
+    </div>
+
+    <p>发完之后就装好了，特别简单。</p>
+
+    <h3 id="sec-install-manual">2. 手动安装到本地</h3>
+
+    <p>把 Skills 文件夹直接拖到本地目录：</p>
+
+    <div class="step-grid">
+      <div class="step-box">
+        <div class="step-num-circle">💻</div>
+        <h4>Codex / Claude Code</h4>
+        <p>Mac: ~/.claude/skills<br>Windows: 对应用户目录下的 .claude/skills</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">⌨️</div>
+        <h4>OpenCode</h4>
+        <p>Mac: ~/.config/opencode/skill<br>Windows: 对应用户目录下的 .config/opencode/skill</p>
+      </div>
+    </div>
+
+    <p>建议放在<strong>全局目录</strong>，这样在任何项目里都能用。</p>
+
+    <h2 id="sec-progressive">五、一个重要的设计思想：渐进式披露</h2>
+
+    <p>这是做 Skills 时最重要的设计原则之一。简单说就是：</p>
+
+    <div class="highlight-box">
+      <strong>渐进式披露 = 先给目录 → 再给正文 → 最后给附录</strong><br><br>
+      AI 一开始只加载一小段描述，知道"有这个手册、适用范围是什么"。当它判断这次任务真的用得上，再把完整的说明读进来。还不够的话，再按需读取附带的其他文件。
+    </div>
+
+    <p>为什么这么做？因为 AI 和人一样，瞬时记忆区太小。一口气塞太多信息进去，AI 会变笨、效果变差。</p>
+
+    <p>这样做的好处是：既能让 AI 准确执行任务，又能在长对话中<strong>节省大量 Token</strong>，让 AI 保持聪明。</p>
+
+    <h2 id="sec-start">六、一句话总结 + 马上可以做的事</h2>
+
+    <div class="template-block">
+      <div class="label">记住这一句</div>
+      <p>Skills = 把重复要做的事打包成可复用的能力包。<br>
+      价值在于"复用"——你少说一遍废话，AI 多交一份结果。</p>
+    </div>
+
+    <p>今天你可以做的第一件事：把最常用的一个动作固化成一个 Skill。比如：</p>
+
+    <div class="step-grid">
+      <div class="step-box">
+        <div class="step-num-circle">🔍</div>
+        <h4>选题采集</h4>
+        <p>把报错日志丢进去，自动分析问题 + 给出修复方案</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">📋</div>
+        <h4>日报生成</h4>
+        <p>把一堆链接丢进去，自动整理成摘要和观点</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">🐛</div>
+        <h4>Bug 修复</h4>
+        <p>把报错日志丢进去，自动分析问题 + 给出修复方案</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">📝</div>
+        <h4>文章润色</h4>
+        <p>把你写的草稿丢进去，按你的风格模板润色</p>
+      </div>
+    </div>
+
+    <p>做第一个的时候可能会有点麻烦，但当你跑起来的那一刻，你就会真正感受到 Skills 的价值。</p>
+
+    <div class="bottom-nav">
+      <a href="lesson-04.html" class="nav-prev">← 第四课：Agent</a>
+    </div>
+    <footer>正派AIGC 制作 · AI教育培训 · 零基础入门系列</footer>
+    <div class="spacer"></div>
+
+  <aside class="toc">
+    <div class="toc-title">目录</div>
+    <a href="#sec-what" class="toc-link">Skills 到底是什么</a>
+    <a href="#sec-case" class="toc-link">两个真实案例</a>
+    <a href="#sec-vs" class="toc-link">与 Prompt、MCP 的区别</a>
+    <a href="#sec-structure" class="toc-link">Skill 的基本结构</a>
+    <a href="#sec-install" class="toc-link">如何安装 Skills</a>
+    <a href="#sec-progressive" class="toc-link">渐进式披露设计</a>
+    <a href="#sec-start" class="toc-link">马上可以做的事</a>
+  </aside>
+</main>
+</div>
+</body>
+</html>

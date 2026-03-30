@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>第一课 · Codex 入门</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.65;
+      font-size: 22px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .layout { display: flex; min-height: 100vh; }
+
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      border-right: 1px solid #e9e9e7;
+      padding: 32px 20px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      background: #ffffff;
+    }
+    .sidebar-logo { font-size: 14px; font-weight: 600; margin-bottom: 24px; color: #1a1a1a; }
+    .sidebar-logo span { color: #9b9a97; font-weight: 400; }
+    .sidebar-section { margin-bottom: 20px; }
+    .sidebar-title { font-size: 11px; font-weight: 600; color: #9b9a97; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .sidebar-link { display: block; font-size: 14px; color: #6b6b6b; padding: 4px 8px; border-radius: 4px; margin-bottom: 2px; text-decoration: none; }
+    .sidebar-link:hover { background: #f7f6f3; color: #1a1a1a; text-decoration: none; }
+    .sidebar-link.active { color: #1a1a1a; font-weight: 500; background: #f7f6f3; }
+
+    .main { flex: 1; padding: 56px 72px; max-width: 900px; }
+
+    .page-label { font-size: 13px; color: #9b9a97; margin-bottom: 8px; }
+    h1 { font-size: 40px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 12px; }
+    .subtitle { font-size: 22px; color: #1a1a1a; margin-bottom: 40px; line-height: 1.5; }
+
+    h2 { font-size: 24px; font-weight: 600; margin: 48px 0 16px; color: #1a1a1a; padding-top: 40px; border-top: 1px solid #e9e9e7; }
+
+    p { margin-bottom: 12px; }
+
+    .card { border: 1px solid #e9e9e7; border-radius: 6px; padding: 16px 20px; margin-bottom: 8px; }
+    .card h4 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+    .card p { font-size: 15px; color: #1a1a1a; margin-bottom: 0; }
+
+    .highlight-box { border-left: 3px solid #d46a2f; padding: 12px 16px; margin: 12px 0; background: #fffaf5; border-radius: 0 4px 4px 0; font-size: 15px; }
+
+    .bottom-nav { display: flex; gap: 8px; padding: 40px 0 32px; border-top: 1px solid #e9e9e7; margin-top: 40px; }
+    .bottom-nav a { display: inline-flex; align-items: center; gap: 4px; padding: 8px 16px; border-radius: 4px; font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.15s; }
+    .nav-next-alt { background: #f7f6f3; color: #1a1a1a; border: 1px solid #e9e9e7; }
+    .nav-next-alt:hover { background: #f0efe9; text-decoration: none; }
+
+    .spacer { height: 48px; }
+    img { max-width: 100%; border-radius: 8px; }
+    @media (max-width: 768px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid #e9e9e7; }
+      .main { padding: 32px 20px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo">AI教育培训 <span>· 课程</span></div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">目录</div>
+      <a href="index.html" class="sidebar-link">首页</a>
+      <a href="lesson-01.html" class="sidebar-link active">第一课 · Codex入门</a>
+      <a href="lesson-02.html" class="sidebar-link">第二课 · 上手 Codex</a>
+      <a href="lesson-03.html" class="sidebar-link">第三课 · AI提问</a>
+      <a href="lesson-04.html" class="sidebar-link">第四课 · Agent</a>
+      <a href="lesson-05.html" class="sidebar-link">第五课 · Skills</a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="page-label">第一课 · 零基础入门</div>
+    <h1>Codex 入门：装好、打开、体验一下</h1>
+    <p class="subtitle">跟着做，30分钟完成。不需要会写代码，不需要懂技术。</p>
+
+    <!-- 第一部分：Codex是什么 -->
+    <h2>一、Codex 是什么</h2>
+
+    <p style="margin-bottom: 14px; font-size: 16px;">先做个小小的科普，因为很多朋友可能完全没听过这个东西。</p>
+
+    <p style="margin-bottom: 14px; font-size: 16px;">相信很多朋友都知道 Claude Code 和大龙虾 Clawdbot 对吧？简单说，这俩都是一个叫 <strong>Agent</strong> 的东西——你可以理解为一种特别能干的 AI 助手，它不只能聊天，还能帮你真正动手做事情，比如写代码、改文件、跑程序。</p>
+
+    <p style="margin-bottom: 14px; font-size: 16px;"><strong>Codex，就是 OpenAI 出的 Claude Code</strong>，对标 Anthropic 家的产品。都是编程 Agent，都能帮你真正把事情做成。</p>
+
+    <p style="margin-bottom: 14px; font-size: 16px;">顺便说一下，Codex 和 Claude Code 都是工具，它们还需要背后的"大脑"——也就是模型。比如 GPT-5.3-codex 是 OpenAI 专门为编程优化的模型，在创作写作、查资料这些方面反而不太行，所以 OpenAI 没有把它放到普通 ChatGPT 里给大家用。</p>
+
+    <div style="margin: 20px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e9e9e7; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+      <img src="screenshots/codex-landing-dark.png" alt="Codex 官网" style="width: 100%; display: block;">
+    </div>
+
+    <!-- 第二部分：他能干什么 -->
+    <h2>二、Codex 能干什么</h2>
+
+    <div class="card">
+      <h4>🖥️ 做网页和小工具</h4>
+      <p>告诉它你想做什么样的网页，它直接帮你写好代码、跑起来。不需要会 HTML、CSS、JavaScript。</p>
+    </div>
+    <div class="card">
+      <h4>📄 写各种文档和文案</h4>
+      <p>商业邮件、方案文档、工作总结——告诉它你的需求，它帮你写出专业的中文文案。</p>
+    </div>
+    <div class="card">
+      <h4>📊 处理数据和分析</h4>
+      <p>批量重命名文件、整理表格、统计数据——那些费时费力的重复性工作，告诉 Codex，它帮你做完。</p>
+    </div>
+    <div class="card">
+      <h4>🔍 读懂代码、解释内容</h4>
+      <p>把一段代码、一篇文章丢给 Codex，让它帮你解释、分析、总结要点。用你能看懂的话讲给你听。</p>
+    </div>
+
+    <h4 style="margin: 24px 0 10px; font-size: 16px;">和 ChatGPT 有什么区别？</h4>
+
+    <div class="card">
+      <h4>ChatGPT — 军师，给你建议和答案</h4>
+      <p>你问它答，适合聊天、写作、分析。但最终动手的事情——写代码、生成文件——还得你自己来。</p>
+    </div>
+    <div class="card">
+      <h4>Codex — 助理，帮你把事情做完</h4>
+      <p>你说需求，它直接帮你做出来。生成代码、运行程序、生成文件——你看到的是可以直接用的结果。</p>
+    </div>
+
+    <div class="highlight-box">
+      <strong>本质区别：</strong>ChatGPT 告诉你答案，Codex 帮你把事情做成。
+    </div>
+
+    <!-- 第三部分：下载与安装 + 注意事项 -->
+    <h2>三、下载与安装</h2>
+
+    <!-- ⚠️ VPN注意事项 -->
+    <div style="border-left: 4px solid #d46a2f; background: #fffaf5; border-radius: 0 6px 6px 0; padding: 14px 18px; margin-bottom: 24px;">
+      <div style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">⚠️ 国内用户需要先准备 VPN（必须用美国节点）</div>
+      <ul style="font-size: 15px; color: #1a1a1a; margin: 0; padding-left: 18px; line-height: 1.9;">
+        <li>openai.com 和 Mac App Store <strong>在国内打不开</strong>，需要 VPN 才能访问</li>
+        <li><strong>必须用美国节点</strong>（其他地区节点可能无法注册/登录 OpenAI）</li>
+        <li>Mac 用户还需要一个<strong>美国区 Apple ID</strong>才能在 App Store 下载</li>
+        <li>便宜的 VPN 推荐：<a href="https://xn--mes358aby2apfg.com/" target="_blank" style="color: #d46a2f; font-weight: 600;">点击购买</a>（够便宜，买了挂美国节点就能用）</li>
+      </ul>
+    </div>
+
+    <!-- 三种安装方式概览图 -->
+    <div style="margin: 20px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e9e9e7; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+      <img src="screenshots/codex-app-mac.png" alt="Codex 界面概览" style="width: 100%; display: block;">
+    </div>
+
+    <!-- 安装步骤先介绍 -->
+    <div style="margin-bottom: 24px;">
+      <div style="font-size: 16px; font-weight: 700; margin-bottom: 12px;">安装步骤</div>
+      <div style="border: 1px solid #e9e9e7; border-radius: 6px; padding: 16px 20px;">
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 16px; padding: 10px 0; border-bottom: 1px solid #f0efe9; align-items: center;">
+          <span style="width: 28px; height: 28px; border-radius: 50%; background: #d46a2f; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</span>
+          <div>
+            <div style="font-size: 15px; color: #1a1a1a; margin-bottom: 8px;">开 VPN，确保能访问 openai.com</div>
+            <img src="screenshots/vpn-blocked.png" alt="openai.com 国内无法访问" style="width: 100%; max-width: 400px; border-radius: 6px; border: 1px solid #e9e9e7;">
+          </div>
+        </div>
+        <div style="display: flex; gap: 16px; padding: 10px 0; border-bottom: 1px solid #f0efe9;">
+          <span style="width: 28px; height: 28px; border-radius: 50%; background: #d46a2f; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</span>
+          <div style="font-size: 15px; color: #1a1a1a;">选一种方式下载安装（见下方）</div>
+        </div>
+        <div style="display: flex; gap: 16px; padding: 10px 0; border-bottom: 1px solid #f0efe9;">
+          <span style="width: 28px; height: 28px; border-radius: 50%; background: #d46a2f; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</span>
+          <div style="font-size: 15px; color: #1a1a1a;">打开 App，用 ChatGPT 账号登录</div>
+        </div>
+        <div style="padding: 12px 0;">
+          <span style="width: 28px; height: 28px; border-radius: 50%; background: #d46a2f; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-left: 0; margin-right: 16px; float: left;">4</span>
+          <div style="font-size: 15px; color: #1a1a1a; margin-bottom: 6px;">开始用中文描述你的需求，Codex 帮你完成！</div>
+          <div style="margin-left: 44px; font-size: 14px; color: #444444; margin-top: 4px;">没有账号？<a href="https://chatgpt.com" target="_blank" style="color: #d46a2f; font-weight: 600;">去 chatgpt.com 注册</a>（免费），或在闲鱼买 Plus 账号合租（约10-15元/月）。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 方式一：App（Mac + Windows） -->
+    <div style="margin-bottom: 24px;">
+      <div style="font-size: 16px; font-weight: 700; margin-bottom: 10px;">方式一：桌面客户端（新手推荐 ⭐）</div>
+
+      <!-- Mac -->
+      <div style="border: 1px solid #e9e9e7; border-radius: 8px; padding: 20px; background: #f7f6f3; margin-bottom: 12px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <span style="font-size: 18px;">🍎</span>
+          <span style="font-size: 15px; font-weight: 600;">Mac 用户</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center;">
+          <div>
+            <p style="font-size: 15px; color: #1a1a1a; margin-bottom: 12px;">像普通软件一样安装，点开就能用，有图形界面，操作最简单。</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <a href="https://openai.com/zh-Hans-CN/codex/" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #1a1a1a; color: #fff; border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;">
+                🌐 官网下载
+              </a>
+              <a href="https://apps.apple.com/app/openai-codex/id6737667053" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #007ecc; color: #fff; border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;">
+                🍎 Mac App Store
+              </a>
+            </div>
+          </div>
+          <div style="background: #fff; border-radius: 8px; overflow: hidden; text-align: center;">
+            <img src="screenshots/codex-app-mac.png" alt="Codex Mac 应用界面" style="width: 100%; display: block;">
+          </div>
+        </div>
+      </div>
+
+      <!-- Windows -->
+      <div style="border: 1px solid #e9e9e7; border-radius: 8px; padding: 20px; background: #f7f6f3;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <span style="font-size: 18px;">🪟</span>
+          <span style="font-size: 15px; font-weight: 600;">Windows 用户</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center;">
+          <div>
+            <p style="font-size: 15px; color: #1a1a1a; margin-bottom: 12px;">Codex 已推出 Windows 原生客户端，下载安装后登录即可使用，和 Mac 版体验一致。</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <a href="https://openai.com/zh-Hans-CN/codex/" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #1a1a1a; color: #fff; border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;">
+                🌐 官网下载
+              </a>
+              <a href="https://github.com/openai/codex" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #24292e; color: #fff; border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;">
+                🐙 GitHub
+              </a>
+            </div>
+          </div>
+          <div style="background: #fff; border-radius: 8px; overflow: hidden; text-align: center;">
+            <img src="screenshots/codex-windows.png" alt="Codex Windows 界面" style="width: 100%; display: block;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 方式二：编辑器 -->
+    <div style="margin-bottom: 24px;">
+      <div style="font-size: 16px; font-weight: 700; margin-bottom: 10px;">方式二：VS Code 编辑器插件</div>
+      <div style="border: 1px solid #e9e9e7; border-radius: 8px; padding: 20px; background: #f7f6f3;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center;">
+          <div>
+            <p style="font-size: 15px; color: #1a1a1a; margin-bottom: 12px;">如果你已经在用 VS Code，可以直接装 Codex 插件，在编辑器里用，不需要下载额外软件。</p>
+            <a href="https://openai.com/zh-Hans-CN/codex/" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #007acc; color: #fff; border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;">
+              🔌 在你的 IDE 中试用
+            </a>
+          </div>
+          <div style="background: #fff; border-radius: 8px; overflow: hidden;">
+            <img src="screenshots/codex-ext.png" alt="Codex VS Code 插件" style="width: 100%; display: block;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 方式三：命令行 -->
+    <div style="margin-bottom: 24px;">
+      <div style="font-size: 16px; font-weight: 700; margin-bottom: 10px;">方式三：命令行（适合有基础的）</div>
+      <div style="border: 1px solid #e9e9e7; border-radius: 8px; padding: 20px; background: #f7f6f3;">
+          <div>
+            <p style="font-size: 15px; color: #1a1a1a; margin-bottom: 10px;">打开终端，输入以下命令安装：</p>
+            <p style="font-size: 13px; color: #9b9a97; margin-bottom: 8px;">Mac 用户：</p>
+            <div style="background: #1a1a1a; border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+              <div style="font-family: 'SF Mono', 'Menlo', monospace; font-size: 12px; color: #cccccc; line-height: 2;">
+                <div><span style="color: #10A37F;">➜</span>  <span style="color: #e8d5b7;">~</span>  <span style="color: #6b6b6b;">brew install --cask openai-codex</span></div>
+                <div style="margin-top: 4px;"><span style="color: #10A37F;">➜</span>  <span style="color: #e8d5b7;">~</span>  <span style="color: #6b6b6b;">open -a Codex</span></div>
+              </div>
+            </div>
+            <p style="font-size: 13px; color: #9b9a97; margin-bottom: 8px;">Windows 用户先运行 <code style="background:#e9e9e7;padding:2px 6px;border-radius:4px;">wsl --install</code> 装好 WSL 再执行：</p>
+            <div style="background: #1a1a1a; border-radius: 8px; padding: 16px;">
+              <div style="font-family: 'SF Mono', 'Menlo', monospace; font-size: 12px; color: #cccccc; line-height: 2;">
+                <div><span style="color: #10A37F;">➜</span>  <span style="color: #e8d5b7;">~</span>  <span style="color: #6b6b6b;">npm install -g @openai/codex</span></div>
+                <div style="color: #6b6b6b; padding-left: 20px;">added 1 package in 2.3s</div>
+                <div style="margin-top: 4px;"><span style="color: #10A37F;">➜</span>  <span style="color: #e8d5b7;">~</span>  <span style="color: #6b6b6b;">codex</span></div>
+                <div style="color: #10A37F; padding-left: 20px;">✓ Codex 已启动</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-nav">
+      <a href="lesson-02.html" class="nav-next-alt">→ 第二课：上手 Codex</a>
+    </div>
+
+    <footer>正派AIGC 制作 · AI教育培训 · 零基础入门系列</footer>
+    <div class="spacer"></div>
+  </main>
+</div>
+
+</body>
+</html>
