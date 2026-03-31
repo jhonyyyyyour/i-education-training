@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>第七课 · 大模型对比</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f8f7f4; color: #1a1a1a; line-height: 1.65; font-size: 22px; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: none; }
+    .layout { display: flex; min-height: 100vh; }
+    .sidebar { width: 244px; flex-shrink: 0; border-right: 1px solid #e9e9e7; padding: 32px 20px; position: sticky; top: 0; height: 100vh; overflow-y: auto; background: #ffffff; }
+    .sidebar-logo { font-size: 14px; font-weight: 600; margin-bottom: 24px; color: #1a1a1a; padding: 6px 0; }
+    .sidebar-logo span { color: #9b9a97; font-weight: 400; }
+    .sidebar-section { margin-bottom: 20px; }
+    .sidebar-title { font-size: 11px; font-weight: 600; color: #9b9a97; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .sidebar-link { display: block; font-size: 14px; color: #555555; padding: 6px 10px; border-radius: 6px; margin-bottom: 2px; text-decoration: none; transition: background 0.15s, color 0.15s; }
+    .sidebar-link:hover { background: #f0ede8; color: #1a1a1a; text-decoration: none; }
+    .sidebar-link.active { color: #d46a2f; font-weight: 600; background: #fff5ee; }
+    .main { flex: 1; padding: 64px 80px; max-width: 960px; }
+    .page-label { font-size: 12px; font-weight: 600; color: #d46a2f; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+    h1 { font-size: 42px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 14px; color: #1a1a1a; }
+    .subtitle { font-size: 20px; color: #666666; margin-bottom: 44px; line-height: 1.6; }
+    h2 { font-size: 22px; font-weight: 700; margin: 52px 0 18px; color: #1a1a1a; padding-top: 44px; border-top: 1px solid #e9e9e7; letter-spacing: -0.01em; }
+    h3 { font-size: 18px; font-weight: 700; margin: 30px 0 14px; color: #1a1a1a; }
+    p { margin-bottom: 12px; font-size: 16px; color: #1a1a1a; }
+    .highlight-box { border-left: 4px solid #d46a2f; padding: 14px 18px; margin: 14px 0; background: linear-gradient(to right, #fffaf5, #fffcf9); border-radius: 0 8px 8px 0; font-size: 15px; box-shadow: 0 1px 4px rgba(212,106,47,0.06); }
+    .section-intro { font-size: 15px; color: #888888; margin-bottom: 20px; }
+    .model-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 18px 0; }
+    .model-card { border: 1px solid #e9e9e7; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; background: #ffffff; transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s; }
+    .model-card:hover { border-color: #d4b8a0; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .model-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 7px; color: #1a1a1a; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+    .model-card h4 .country-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; flex-shrink: 0; letter-spacing: 0.02em; }
+    .model-card h4 .country-tag.cn { background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; }
+    .model-card h4 .country-tag.us { background: #eff6ff; border: 1px solid #bfdbfe; color: #2563eb; }
+    .model-card h4 .country-tag.other { background: #f0fdf4; border: 1px solid #bbf7d0; color: #16a34a; }
+    .model-card p { font-size: 14px; color: #666666; margin-bottom: 0; line-height: 1.65; }
+    .model-card .use-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+    .model-card .use-tag { display: inline-block; font-size: 11px; padding: 2px 9px; background: #f7f6f3; border: 1px solid #e9e9e7; border-radius: 20px; color: #888888; font-weight: 500; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; }
+    .compare-table th { text-align: left; padding: 10px 14px; background: #f7f6f3; border: 1px solid #e9e9e7; font-weight: 700; color: #1a1a1a; font-size: 13px; }
+    .compare-table td { padding: 10px 14px; border: 1px solid #e9e9e7; color: #555555; vertical-align: top; line-height: 1.6; }
+    .compare-table tr:hover td { background: #fffef8; }
+    .scenario-card { border: 1px solid #e9e9e7; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; background: #ffffff; transition: box-shadow 0.2s, border-color 0.2s; }
+    .scenario-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.06); border-color: #d4b8a0; }
+    .scenario-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 7px; display: flex; align-items: center; gap: 8px; }
+    .scenario-card .scene-tag { display: inline-block; padding: 3px 9px; background: linear-gradient(135deg, #f7f6f3, #f0ede8); border: 1px solid #e0ddd8; border-radius: 20px; font-size: 11px; font-weight: 600; color: #888888; }
+    .scenario-card p { font-size: 14px; color: #666666; margin-bottom: 0; line-height: 1.65; }
+    .scenario-card .model-hint { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+    .scenario-card .model-pill { display: inline-block; font-size: 11px; padding: 2px 10px; border-radius: 20px; font-weight: 600; }
+    .model-pill.cn { background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; }
+    .model-pill.us { background: #eff6ff; border: 1px solid #bfdbfe; color: #2563eb; }
+    .model-pill.both { background: #f5f3ff; border: 1px solid #ddd6fe; color: #7c3aed; }
+    .bottom-nav { display: flex; gap: 8px; padding: 40px 0 32px; border-top: 1px solid #e9e9e7; margin-top: 44px; }
+    .bottom-nav a { display: inline-flex; align-items: center; gap: 4px; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.15s, transform 0.15s; }
+    .nav-prev { background: #ffffff; color: #1a1a1a; border: 1px solid #e9e9e7; }
+    .nav-prev:hover { background: #f7f6f3; transform: translateX(-2px); text-decoration: none; }
+    .nav-next-alt { background: #ffffff; color: #1a1a1a; border: 1px solid #e9e9e7; }
+    .nav-next-alt:hover { background: #f7f6f3; transform: translateX(2px); text-decoration: none; }
+    .spacer { height: 48px; }
+    footer { padding: 28px 0; border-top: 1px solid #e9e9e7; font-size: 13px; color: #b0aaa0; text-align: center; }
+    @media (max-width: 768px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid #e9e9e7; }
+      .main { padding: 32px 20px; }
+      h1 { font-size: 28px; }
+      .model-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo">AI教育培训 <span>· 课程</span></div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">目录</div>
+      <a href="index.html" class="sidebar-link">首页</a>
+      <a href="lesson-01.html" class="sidebar-link">第一课 · Codex入门</a>
+      <a href="lesson-02.html" class="sidebar-link">第二课 · 上手 Codex</a>
+      <a href="lesson-03.html" class="sidebar-link">第三课 · AI提问</a>
+      <a href="lesson-04.html" class="sidebar-link">第四课 · Agent</a>
+      <a href="lesson-05.html" class="sidebar-link">第五课 · Skills</a>
+      <a href="lesson-06.html" class="sidebar-link">第六课 · 学习渠道</a>
+      <a href="lesson-07.html" class="sidebar-link active">第七课 · 模型对比</a>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="page-label">第七课 · 模型对比</div>
+    <h1>国产 vs 国外大模型<br>一文搞懂各模型擅长什么</h1>
+    <p class="subtitle">模型那么多，到底该用哪个？这节课帮你理清思路，根据场景选对模型，不花冤枉钱。</p>
+
+    <h2 id="sec-overview">先搞清楚：大模型能做什么</h2>
+
+    <p style="margin-bottom: 14px; font-size: 16px;">不管国产还是国外，所有大模型本质上都是"超级大脑"，能做的事都差不多——聊天、写文章、写代码、分析数据、翻译……</p>
+    <p style="margin-bottom: 14px; font-size: 16px;">区别在于：<strong>每个模型的侧重点不同</strong>。有的推理能力特别强，有的中文理解特别好，有的性价比超高，有的生态最完善。</p>
+
+    <div class="highlight-box">
+      <strong>选模型的核心思路：</strong>先看场景，再看预算，最后看生态。不用追最强，只选最合适。
+    </div>
+
+    <h2 id="sec-foreign">国外大模型</h2>
+    <p class="section-intro">先说国外，因为大部分"最强"的模型还是来自美国公司。但要注意：大部分需要 VPN，且部分服务在国内受限。</p>
+
+    <div class="model-card">
+      <h4>
+        <span class="country-tag us">🇺🇸 美国</span>
+        Claude（Anthropic）
+        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">claude.ai</span>
+      </h4>
+      <p>目前公认最"聪明"的模型之一。逻辑推理极强，长文本处理优秀，对复杂任务理解深入。擅长深度分析、代码审查、长文档总结。特别适合需要严密推理的工作。</p>
+      <div class="use-tags">
+        <span class="use-tag">深度推理</span>
+        <span class="use-tag">代码审查</span>
+        <span class="use-tag">长文本分析</span>
+        <span class="use-tag">复杂任务拆解</span>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <h4>
+        <span class="country-tag us">🇺🇸 美国</span>
+        GPT-4o / o1 / o3（OpenAI）
+        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">chatgpt.com</span>
+      </h4>
+      <p>生态最完善的模型，Plugins、Codex、Sora、API全面覆盖。GPT-4o主打多模态和速度，o1/o3主打深度推理。适合需要强生态、API调用、快速原型开发的使用者。</p>
+      <div class="use-tags">
+        <span class="use-tag">生态应用</span>
+        <span class="use-tag">API开发</span>
+        <span class="use-tag">多模态</span>
+        <span class="use-tag">深度推理</span>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <h4>
+        <span class="country-tag us">🇺🇸 美国</span>
+        Gemini（Google）
+        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">gemini.google.com</span>
+      </h4>
+      <p>Google亲儿子，和Google生态（搜索、Workspace、GCP）无缝集成。多模态能力突出，可以处理文字、图片、视频、音频。免费版体验已经很好，适合已经用Google全家桶的用户。</p>
+      <div class="use-tags">
+        <span class="use-tag">Google生态</span>
+        <span class="use-tag">多模态</span>
+        <span class="use-tag">搜索增强</span>
+        <span class="use-tag">免费使用</span>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <h4>
+        <span class="country-tag us">🇺🇸 美国</span>
+        Grok（xAI / Elon Musk）
+        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">x.com/grok</span>
+      </h4>
+      <p>Elon Musk旗下xAI的模型，主打"反觉醒"立场和实时信息获取（接入了X平台数据）。风格直接犀利，适合需要快速获取新闻资讯、不喜欢过度"安全过滤"的使用者。</p>
+      <div class="use-tags">
+        <span class="use-tag">实时资讯</span>
+        <span class="use-tag">X平台整合</span>
+        <span class="use-tag">犀利风格</span>
+      </div>
+    </div>
+
+    <h2 id="sec-domestic">国产大模型</h2>
+    <p class="section-intro">国产模型近年来进步飞速，部分领域已接近甚至超越国外水平，且在国内访问无障碍，中文理解普遍更好。</p>
+
+    <div class="model-card">
+      <h4>
+        <span class="country-tag cn">🇨🇳 中国</span>
+        DeepSeek（深度求索）
+        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">deepseek.com</span>
+      </h4>
+      <p>2024-2025年最火爆的国产模型。推理能力极强（DeepSeek-R1直接对标OpenAI o1），开源+便宜，中文理解出色。特别适合需要强推理但预算有限的用户。API价格是GPT-4的几十分之一。</p>
+      <div class="use-tags">
+        <span class="use-tag">强推理</span>
+        <span class="use-tag">开源免费</span>
+        <span class="use-tag">性价比极高</span>
+        <span class="use-tag">中文</span>
+        <span class="use-tag">API开发</span>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <h4>
+        <span class="country-tag cn">🇨🇳 中国</span>
+        百度文心一言（ERNIE Bot）
+        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">yiyan.baidu.com</span>
+      </h4>
+      <p>百度基于ERNIE 4.0大模型，和百度搜索、文库、地图等生态深度绑定。中文创作能力强，政府和企业客户多。适合需要中文内容创作、且已有百度生态依赖的用户。</p>
+      <div class="use-tags">
+        <span class="use-tag">中文创作</span>
+        <span class="use-tag">百度生态</span>
+        <span class="use-tag">企业用户</span>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <h4>
+        <span class="country-tag cn">🇨🇳 中国</span>
+        阿里通义千问（Qwen）
+        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">tongyi.aliyun.com</span>
+      </h4>
+      <p>阿里自研大模型，开源力度很大（Qwen系列开源模型在全球下载量很高）。多模态能力强，支持图片、视频、代码。适合需要开源模型做二次开发、或者在阿里云上做应用开发的企业用户。</p>
+      <div class="use-tags">
+        <span class="use-tag">开源模型</span>
+        <span class="use-tag">阿里云集成</span>
+        <span class="use-tag">多模态</span>
+        <span class="use-tag">二次开发</span>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <h4>
+        <span class="country-tag cn">🇨🇳 中国</span>
+        腾讯混元（Hunyuan）
+        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">hunyuan.tencent.com</span>
+      </h4>
+      <p>腾讯自研大模型，和微信、腾讯文档、企业微信、腾讯云深度整合。适合已有腾讯办公生态（企业微信、TIM、腾讯会议）的企业用户，实现无缝接入。</p>
+      <div class="use-tags">
+        <span class="use-tag">腾讯生态</span>
+        <span class="use-tag">企业微信集成</span>
+        <span class="use-tag">企业用户</span>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <h4>
+        <span class="country-tag cn">🇨🇳 中国</span>
+        字节豆包（Doubao）
+        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">www.doubao.com</span>
+      </h4>
+      <p>字节跳动（抖音/TikTok母公司）出品，免费使用额度充足。界面体验好，对话流畅，适合普通用户日常使用。和抖音生态有一定整合，适合内容创作者。</p>
+      <div class="use-tags">
+        <span class="use-tag">免费额度</span>
+        <span class="use-tag">日常使用</span>
+        <span class="use-tag">内容创作</span>
+        <span class="use-tag">抖音生态</span>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <h4>
+        <span class="country-tag cn">🇨🇳 中国</span>
+        Kimi / Moonshot（月之暗面）
+        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">kimi.moonshot.cn</span>
+      </h4>
+      <p>主打超长上下文（支持100万-200万字），非常适合处理长文档分析、长篇小说总结、代码库理解等需要全局视野的场景。早期因为"帮我读论文"功能出圈，学生和研究人员用得多。</p>
+      <div class="use-tags">
+        <span class="use-tag">超长上下文</span>
+        <span class="use-tag">长文档分析</span>
+        <span class="use-tag">论文阅读</span>
+        <span class="use-tag">代码库理解</span>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <h4>
+        <span class="country-tag cn">🇨🇳 中国</span>
+        智谱清言（GLM / ChatGLM）
+        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">chatglm.cn</span>
+      </h4>
+      <p>清华大学技术背景，国产开源模型先驱之一（ChatGLM系列开源）。技术底子扎实，适合研究人员和技术开发者。GLM-4在推理和中文任务上表现均衡。</p>
+      <div class="use-tags">
+        <span class="use-tag">学术研究</span>
+        <span class="use-tag">开源模型</span>
+        <span class="use-tag">技术开发者</span>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <h4>
+        <span class="country-tag cn">🇨🇳 中国</span>
+        阶跃星辰（Step）
+        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">stepchat.com</span>
+      </h4>
+      <p>新兴国产大模型公司，Step系列模型在多模态和推理上表现亮眼。专注于多模态理解与生成，和微软有合作。适合需要尝试最新国产技术、关注前沿发展的用户。</p>
+      <div class="use-tags">
+        <span class="use-tag">多模态</span>
+        <span class="use-tag">前沿技术</span>
+        <span class="use-tag">推理</span>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <h4>
+        <span class="country-tag cn">🇨🇳 中国</span>
+        MiniMax（海螺AI）
+        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">hailuoai.com</span>
+      </h4>
+      <p>主打AI内容创作，尤其是视频生成和语音合成。和字节豆包定位类似，面向普通用户和创作者，提供免费额度，日常使用体验流畅。</p>
+      <div class="use-tags">
+        <span class="use-tag">视频生成</span>
+        <span class="use-tag">语音合成</span>
+        <span class="use-tag">内容创作</span>
+        <span class="use-tag">免费使用</span>
+      </div>
+    </div>
+
+    <h2 id="sec-compare">核心对比表</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="width: 100px;">模型</th>
+          <th>核心优势</th>
+          <th>最佳场景</th>
+          <th style="width: 80px;">中文</th>
+          <th style="width: 80px;">免费</th>
+          <th style="width: 80px;">国内访问</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Claude</strong></td>
+          <td>推理最强，逻辑严谨</td>
+          <td>深度分析、代码审查、长文档</td>
+          <td>★★★</td>
+          <td>有限</td>
+          <td>需VPN</td>
+        </tr>
+        <tr>
+          <td><strong>GPT-4o</strong></td>
+          <td>生态最完善，插件多</td>
+          <td>API开发、多模态、Plugins</td>
+          <td>★★★</td>
+          <td>有限</td>
+          <td>需VPN</td>
+        </tr>
+        <tr>
+          <td><strong>Gemini</strong></td>
+          <td>Google生态，多模态</td>
+          <td>Google用户、搜索增强</td>
+          <td>★★★</td>
+          <td>是</td>
+          <td>需VPN</td>
+        </tr>
+        <tr>
+          <td><strong>Grok</strong></td>
+          <td>实时资讯，风格犀利</td>
+          <td>获取最新新闻资讯</td>
+          <td>★★</td>
+          <td>是</td>
+          <td>需VPN</td>
+        </tr>
+        <tr>
+          <td><strong>DeepSeek</strong></td>
+          <td>推理强，性价比极高</td>
+          <td>推理任务、API开发、预算有限</td>
+          <td>★★★★★</td>
+          <td>开源免费</td>
+          <td>直达</td>
+        </tr>
+        <tr>
+          <td><strong>文心一言</strong></td>
+          <td>中文创作，百度生态</td>
+          <td>中文内容、百度系用户</td>
+          <td>★★★★★</td>
+          <td>有限</td>
+          <td>直达</td>
+        </tr>
+        <tr>
+          <td><strong>通义千问</strong></td>
+          <td>开源模型丰富，阿里云集成</td>
+          <td>企业开发、阿里云用户</td>
+          <td>★★★★★</td>
+          <td>有限</td>
+          <td>直达</td>
+        </tr>
+        <tr>
+          <td><strong>腾讯混元</strong></td>
+          <td>腾讯生态，企业集成</td>
+          <td>企业微信用户、腾讯系产品</td>
+          <td>★★★★★</td>
+          <td>有限</td>
+          <td>直达</td>
+        </tr>
+        <tr>
+          <td><strong>豆包</strong></td>
+          <td>免费额度足，抖音整合</td>
+          <td>日常使用、内容创作者</td>
+          <td>★★★★★</td>
+          <td>充足</td>
+          <td>直达</td>
+        </tr>
+        <tr>
+          <td><strong>Kimi</strong></td>
+          <td>超长上下文</td>
+          <td>长文档分析、论文、代码库</td>
+          <td>★★★★★</td>
+          <td>有限</td>
+          <td>直达</td>
+        </tr>
+        <tr>
+          <td><strong>智谱清言</strong></td>
+          <td>学术背景，开源贡献</td>
+          <td>研究人员、技术开发者</td>
+          <td>★★★★★</td>
+          <td>有限</td>
+          <td>直达</td>
+        </tr>
+        <tr>
+          <td><strong>海螺AI</strong></td>
+          <td>视频生成、语音合成</td>
+          <td>内容创作、日常助手</td>
+          <td>★★★★★</td>
+          <td>充足</td>
+          <td>直达</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="sec-scenario">根据场景选模型</h2>
+    <p class="section-intro">不用记所有模型，只需要记住你常用的2-3个。下面的场景帮你快速定位。</p>
+
+    <div class="scenario-card">
+      <h4>
+        <span class="scene-tag">学生/研究者</span>
+        读论文、做研究
+      </h4>
+      <p>需要处理大量PDF和英文文献，要求理解准确、逻辑清晰。</p>
+      <div class="model-hint">
+        <span class="model-pill us">Claude</span>
+        <span class="model-pill cn">Kimi（长文档）</span>
+        <span class="model-pill cn">智谱清言</span>
+      </div>
+    </div>
+
+    <div class="scenario-card">
+      <h4>
+        <span class="scene-tag">开发者</span>
+        写代码、API开发
+      </h4>
+      <p>需要强推理、低成本、API稳定，想自己搭应用。</p>
+      <div class="model-hint">
+        <span class="model-pill us">Claude（代码审查）</span>
+        <span class="model-pill cn">DeepSeek（性价比）</span>
+        <span class="model-pill us">GPT-4o（生态）</span>
+      </div>
+    </div>
+
+    <div class="scenario-card">
+      <h4>
+        <span class="scene-tag">职场人士</span>
+        写邮件、做PPT、写报告
+      </h4>
+      <p>中文内容为主，需要稳定可靠，不想折腾。</p>
+      <div class="model-hint">
+        <span class="model-pill cn">DeepSeek（推理强）</span>
+        <span class="model-pill cn">豆包（免费流畅）</span>
+        <span class="model-pill us">Claude（深度分析）</span>
+      </div>
+    </div>
+
+    <div class="scenario-card">
+      <h4>
+        <span class="scene-tag">企业用户</span>
+        对接内部系统、客服、数据分析
+      </h4>
+      <p>需要稳定API、企业合规、和现有系统集成。</p>
+      <div class="model-hint">
+        <span class="model-pill cn">DeepSeek（API便宜）</span>
+        <span class="model-pill cn">通义千问（阿里云）</span>
+        <span class="model-pill cn">混元（腾讯云）</span>
+        <span class="model-pill us">Claude（企业版）</span>
+      </div>
+    </div>
+
+    <div class="scenario-card">
+      <h4>
+        <span class="scene-tag">内容创作者</span>
+        写文案、脚本、爆款内容
+      </h4>
+      <p>需要创意足、中文好、能跟上热点、免费更好。</p>
+      <div class="model-hint">
+        <span class="model-pill cn">豆包（抖音热点）</span>
+        <span class="model-pill cn">文心一言（中文创作）</span>
+        <span class="model-pill us">GPT-4o（多模态）</span>
+      </div>
+    </div>
+
+    <div class="scenario-card">
+      <h4>
+        <span class="scene-tag">预算有限</span>
+        想省钱、想用开源
+      </h4>
+      <p>不想花钱订阅，想自己部署或者用免费API。</p>
+      <div class="model-hint">
+        <span class="model-pill cn">DeepSeek（开源+便宜API）</span>
+        <span class="model-pill cn">通义千问（开源）</span>
+        <span class="model-pill us">Gemini（免费版强）</span>
+        <span class="model-pill cn">豆包（免费额度足）</span>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <strong>一句话总结：</strong><br>
+      <strong>推理和代码</strong> → DeepSeek / Claude / GPT-4o<br>
+      <strong>中文日常</strong> → 豆包 / Kimi / DeepSeek<br>
+      <strong>企业生态</strong> → 腾讯混元 / 通义千问 / 文心一言<br>
+      <strong>长文档处理</strong> → Kimi / Claude<br>
+      <strong>省钱开源</strong> → DeepSeek / 通义千问（开源版）
+    </div>
+
+    <h2 id="sec-choice">选模型的3个问题</h2>
+
+    <div class="model-card" style="margin-bottom: 10px;">
+      <h4>1. 你在国内还是国外？</h4>
+      <p>国内 → 优先选国产模型（DeepSeek、豆包、Kimi），访问无障碍。<br>
+      国外 → Claude、GPT-4o、Gemini 依然是第一梯队。</p>
+    </div>
+
+    <div class="model-card" style="margin-bottom: 10px;">
+      <h4>2. 你主要做什么？</h4>
+      <p>推理/代码 → DeepSeek、Claude<br>
+      中文内容创作 → 豆包、文心一言、DeepSeek<br>
+      长文档分析 → Kimi、Claude<br>
+      企业集成 → 通义千问、混元</p>
+    </div>
+
+    <div class="model-card">
+      <h4>3. 你的预算是多少？</h4>
+      <p>免费 → 豆包、DeepSeek开源版、Gemini<br>
+      低成本 → DeepSeek API（极便宜）<br>
+      无所谓 → Claude / GPT-4o Plus</p>
+    </div>
+
+    <div class="bottom-nav">
+      <a href="lesson-06.html" class="nav-prev">← 第六课：学习渠道</a>
+    </div>
+    <footer>正派AIGC 制作 · AI教育培训 · 零基础入门系列</footer>
+    <div class="spacer"></div>
+  </main>
+</div>
+</body>
+</html>
