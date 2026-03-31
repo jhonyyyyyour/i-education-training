@@ -41,9 +41,13 @@
     .course-item:hover .course-arrow { color: #d46a2f; transform: translateX(3px); }
     .course-left { display: flex; align-items: center; gap: 16px; }
     .course-num { font-size: 12px; font-weight: 700; color: #d46a2f; background: #fff5ee; padding: 3px 8px; border-radius: 4px; }
+    .course-num.non-lesson-num { color: #b0aaa0; background: #f5f4f0; }
     .course-title { font-size: 15px; font-weight: 600; margin-bottom: 3px; transition: color 0.15s; color: #1a1a1a; }
     .course-desc { font-size: 13px; color: #999999; }
     .course-arrow { font-size: 16px; color: #ccc; transition: color 0.15s, transform 0.15s; }
+    .non-lesson .course-title { color: #555555; }
+    .course-arrow-link { font-size: 18px; color: #ccc; transition: color 0.15s; padding: 4px 8px; }
+    .course-item:hover .course-arrow-link { color: #d46a2f; }
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
     .grid-card { border: 1px solid #e9e9e7; border-radius: 10px; padding: 18px 20px; background: #ffffff; transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s; }
     .grid-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); border-color: #d4b8a0; }
@@ -71,14 +75,17 @@
   <aside class="sidebar">
     <div class="sidebar-logo">AI教育培训 <span>· 课程</span></div>
     <div class="sidebar-section">
-      <div class="sidebar-title">目录</div>
+      <div class="sidebar-title">课程</div>
       <a href="index.html" class="sidebar-link active">首页</a>
       <a href="lesson-01.html" class="sidebar-link">第一课 · Codex入门</a>
       <a href="lesson-02.html" class="sidebar-link">第二课 · 上手 Codex</a>
       <a href="lesson-03.html" class="sidebar-link">第三课 · AI提问</a>
       <a href="lesson-04.html" class="sidebar-link">第四课 · Agent</a>
       <a href="lesson-05.html" class="sidebar-link">第五课 · Skills</a>
-      <a href="lesson-06.html" class="sidebar-link">第六课 · 学习渠道</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">资源</div>
+      <a href="lesson-06.html" class="sidebar-link">学习渠道</a>
     </div>
   </aside>
   <main class="main">
@@ -167,16 +174,17 @@
       </div>
       <span class="course-arrow">→</span>
     </a>
-    <a href="lesson-06.html" class="course-item">
+
+    <div class="course-item non-lesson">
       <div class="course-left">
-        <span class="course-num">06</span>
+        <span class="course-num non-lesson-num">✦</span>
         <div>
-          <div class="course-title">中文世界AI学习渠道推荐</div>
-          <div class="course-desc">公众号 · B站UP主 · 学习平台推荐</div>
+          <div class="course-title">学习渠道推荐</div>
+          <div class="course-desc">公众号 · B站UP主 · 学习平台</div>
         </div>
       </div>
-      <span class="course-arrow">→</span>
-    </a>
+      <a href="lesson-06.html" class="course-arrow-link">↗</a>
+    </div>
 
     <h2>你将学到</h2>
     <div class="grid-2">
