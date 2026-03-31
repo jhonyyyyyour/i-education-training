@@ -82,7 +82,21 @@
       "Bash(osascript -e 'tell application \"\"System Events\"\" to keystroke return')",
       "Bash(open \"https://github.com/login/device\")",
       "Bash(curl -s -o /tmp/gh-login.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-30%2FMiniMax-M2.7%2F2032733064890687709%2F9a38bdecb7a7ce4d728840ec41c1315e781bf385086c8edd9be7e527f3a648bd..png?Expires=1774943338&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=AJNMFAUBim%2FHhn5vX9I5l%2FZ%2F6QQ%3D\")",
-      "Bash(gh repo:*)"
+      "Bash(gh repo:*)",
+      "Bash(curl -s -o /tmp/netlify1.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-30%2FMiniMax-M2.7%2F2032733064890687709%2F8b990bc70d70cce530a7e2809b19d0b51059d71eb0fdb73f037b4b9a3e692619..png?Expires=1774943694&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=YX6f%2BOQaXy2VuH00FBYcocuinBs%3D\")",
+      "Bash(curl -s -o /tmp/netlify2.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-30%2FMiniMax-M2.7%2F2032733064890687709%2F39829fbc12405f8550aea571e8eafba6375f3ee81376ea5b86a0137bf1d2d499..png?Expires=1774945565&OSSAccessKeyId=LTAI5tGLnRTkBJLuYPjNcKQ8&Signature=vd78VA%2BgEYFCPVtcCyacjYCj540%3D\")",
+      "WebFetch(domain:zhuanlan.zhihu.com)",
+      "WebFetch(domain:www.zhihu.com)",
+      "WebFetch(domain:microsoft.github.io)",
+      "WebFetch(domain:www.datalearner.com)",
+      "WebFetch(domain:www.aliyun.com)",
+      "WebFetch(domain:www.aiavt.com.cn)",
+      "WebFetch(domain:www.51cto.com)",
+      "WebFetch(domain:juejin.cn)",
+      "WebFetch(domain:aistudio.baidu.com)",
+      "WebFetch(domain:www.datasciencecentral.com)",
+      "WebFetch(domain:aibusiness.techradar.com)",
+      "WebFetch(domain:blog.csdn.net)"
     ],
     "additionalDirectories": [
       "/Users/zhangshuquan/.claude",

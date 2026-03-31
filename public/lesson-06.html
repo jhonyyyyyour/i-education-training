@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>第六课 · AI学习渠道</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: #ffffff; color: #1a1a1a; line-height: 1.65; font-size: 22px; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .layout { display: flex; min-height: 100vh; }
+    .sidebar { width: 220px; flex-shrink: 0; border-right: 1px solid #e9e9e7; padding: 32px 20px; position: sticky; top: 0; height: 100vh; overflow-y: auto; background: #ffffff; }
+    .sidebar-logo { font-size: 14px; font-weight: 600; margin-bottom: 24px; color: #1a1a1a; }
+    .sidebar-logo span { color: #9b9a97; font-weight: 400; }
+    .sidebar-section { margin-bottom: 20px; }
+    .sidebar-title { font-size: 11px; font-weight: 600; color: #9b9a97; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .sidebar-link { display: block; font-size: 14px; color: #1a1a1a; padding: 4px 8px; border-radius: 4px; margin-bottom: 2px; text-decoration: none; }
+    .sidebar-link:hover { background: #f7f6f3; color: #1a1a1a; text-decoration: none; }
+    .sidebar-link.active { color: #1a1a1a; font-weight: 500; background: #f7f6f3; }
+    .main { flex: 1; padding: 64px 80px; max-width: 900px; }
+    .page-label { font-size: 13px; color: #9b9a97; margin-bottom: 8px; }
+    h1 { font-size: 40px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 12px; color: #1a1a1a; }
+    .subtitle { font-size: 22px; color: #1a1a1a; margin-bottom: 40px; line-height: 1.5; }
+    h2 { font-size: 24px; font-weight: 600; margin: 52px 0 16px; color: #1a1a1a; padding-top: 40px; border-top: 1px solid #e9e9e7; }
+    p { margin-bottom: 12px; font-size: 16px; color: #1a1a1a; }
+    .section-intro { font-size: 15px; color: #555; margin-bottom: 20px; }
+    .resource-card { border: 1px solid #e9e9e7; border-radius: 6px; padding: 14px 18px; margin-bottom: 10px; transition: border-color 0.15s; }
+    .resource-card:hover { border-color: #d46a2f; }
+    .resource-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: #1a1a1a; }
+    .resource-card h4 .platform-tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 6px; background: #f7f6f3; border: 1px solid #e9e9e7; border-radius: 3px; color: #9b9a97; margin-right: 8px; }
+    .resource-card p { font-size: 14px; color: #444; margin-bottom: 0; }
+    .highlight-box { border-left: 3px solid #d46a2f; padding: 12px 16px; margin: 12px 0 24px; background: #fffaf5; border-radius: 0 4px 4px 0; font-size: 15px; }
+    .bottom-nav { display: flex; gap: 8px; padding: 40px 0 32px; border-top: 1px solid #e9e9e7; margin-top: 40px; }
+    .bottom-nav a { display: inline-flex; align-items: center; gap: 4px; padding: 8px 16px; border-radius: 4px; font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.15s; }
+    .nav-prev { background: #f7f6f3; color: #1a1a1a; border: 1px solid #e9e9e7; }
+    .nav-prev:hover { background: #f0efe9; text-decoration: none; }
+    .spacer { height: 48px; }
+    @media (max-width: 768px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid #e9e9e7; }
+      .main { padding: 32px 20px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo">AI教育培训 <span>· 课程</span></div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">目录</div>
+      <a href="index.html" class="sidebar-link">首页</a>
+      <a href="lesson-01.html" class="sidebar-link">第一课 · Codex入门</a>
+      <a href="lesson-02.html" class="sidebar-link">第二课 · 上手 Codex</a>
+      <a href="lesson-03.html" class="sidebar-link">第三课 · AI提问</a>
+      <a href="lesson-04.html" class="sidebar-link">第四课 · Agent</a>
+      <a href="lesson-05.html" class="sidebar-link">第五课 · Skills</a>
+      <a href="lesson-06.html" class="sidebar-link active">第六课 · 学习渠道</a>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="page-label">第六课 · 资源推荐</div>
+    <h1>中文世界AI学习渠道推荐</h1>
+    <p class="subtitle">学AI，光靠课程不够，需要持续的信息输入。这里整理了真正有价值的公众号、B站博主和网站。</p>
+
+    <h2>公众号推荐</h2>
+
+    <div class="resource-card">
+      <h4><span class="platform-tag">公众号</span>机器之心</h4>
+      <p>业界最权威的AI科技媒体，每日推送前沿论文解读与行业动态。专业度高、覆盖面广，AI从业者每天必看。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">公众号</span>量子位</h4>
+      <p>AI行业深度报道，覆盖技术、产品、商业化全链条。内容深度与广度兼顾，既有热点追踪，也有系统性科普。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">公众号</span>PaperWeekly</h4>
+      <p>专注AI学术论文分享与社区讨论的论文解读号。聚合大量paper阅读笔记，适合想跟踪前沿研究的工程师。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">公众号</span>新智元</h4>
+      <p>AI与前沿科技深度媒体，侧重技术与商业结合的分析。视角宏观，常有行业趋势洞察，适合管理层和研究人员。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">公众号</span>数字生命卡兹克</h4>
+      <p>实战派AI博主，以Vibe Coding和Agent落地为核心，分享大量实操经验和工具推荐。语言通俗，干货密集。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">公众号</span>逛逛GitHub</h4>
+      <p>分享GitHub优质AI开源项目与实用工具。每期推荐热门repo，帮助发现好用的AI开源库和项目。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">公众号</span>AI科技大本营</h4>
+      <p>CSDN旗下AI技术号，推送实战教程与代码实现。技术文章偏实战，含大量项目案例和踩坑经验。</p>
+    </div>
+
+    <h2>B站UP主推荐</h2>
+
+    <div class="resource-card">
+      <h4><span class="platform-tag">B站</span>李沐</h4>
+      <p>亚马逊首席科学家，深度解读AI论文 + 实战项目讲解。沐神本身是顶级研究者，讲论文深入浅出，配有代码实战，B站AI学习天花板。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">B站</span>同济子豪兄</h4>
+      <p>AI知识区头部UP主，讲解通俗、幽默、系统。从Python到机器学习到论文带读，内容体系完整，极适合入门。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">B站</span>3Blue1Brown</h4>
+      <p>用精美数学动画讲解神经网络等AI数学基础。视觉冲击力极强，把复杂数学概念讲得直观易懂，是理解AI原理的最佳入口。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">B站</span>稚晖君</h4>
+      <p>"野生技术博主"，AI+硬件结合的硬核创作。把AI模型嵌入硬件项目（机械臂、自动驾驶），展示AI落地的完整工程链路。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">B站</span>吴恩达 Andrew Ng</h4>
+      <p>斯坦福教授，机器学习/深度学习经典课程搬运。系统性最强，最经典的ML/DL课程之一，配合中文字幕，零基础可上手。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">B站</span>黄宏老师AI课</h4>
+      <p>AI绘画、大模型应用等实操课程。主攻AIGC（AI生成内容）实操，手把手教学，紧贴当下热点。</p>
+    </div>
+
+    <h2>学习平台推荐</h2>
+
+    <div class="resource-card">
+      <h4><span class="platform-tag">网站</span>DataWhale</h4>
+      <p>开源组织，提供完全免费的AI学习笔记和课程。全部开源，社区驱动，笔记质量极高（如"吃透"系列），零成本学习利器。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">网站</span>魔搭社区（阿里达摩院）</h4>
+      <p>国内最大的开源模型平台，汇聚大量中文大模型。可以直接在线体验各种LLM和CV模型，模型即服务。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">网站</span>飞桨AI Studio（百度）</h4>
+      <p>免费的GPU算力 + 体系化AI课程 + 项目实践。解决本地跑模型硬件门槛，高质量开源模型丰富。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">网站</span>OpenBayes</h4>
+      <p>国内版HuggingFace，提供免费算力和模型分享。模型hub体验好，免费额度充足，国内访问速度快。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">网站</span>知乎</h4>
+      <p>中文最高质量的知识问答社区，AI话题下深度讨论丰富。聚集大量从业者和研究者，精华内容多，需善用搜索。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">网站</span>Kaggle</h4>
+      <p>全球最活跃的数据科学竞赛平台。通过竞赛驱动学习，有真实数据集，适合想通过实战提升的开发者。</p>
+    </div>
+
+    <div class="highlight-box">
+      <strong>建议：</strong>不用全关注，选2-3个适合自己的就行。比如：公众号看机器之心 + 量子位保持信息输入，B站跟李沐或子豪兄打基础，有问题去知乎搜答案。持续输入比囤积资源更重要。
+    </div>
+
+    <div class="bottom-nav">
+      <a href="lesson-05.html" class="nav-prev">← 第五课：Skills</a>
+    </div>
+    <footer>正派AIGC 制作 · AI教育培训 · 零基础入门系列</footer>
+    <div class="spacer"></div>
+  </main>
+</div>
+</body>
+</html>
