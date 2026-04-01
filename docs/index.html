@@ -141,6 +141,7 @@
     <div class="sidebar-section">
       <div class="sidebar-title">资源</div>
       <a href="lesson-07.html" class="sidebar-link">学习渠道</a>
+      <a href="rtk-install-guide.html" class="sidebar-link">RTK 安装与配置教程</a>
     </div>
     <button class="search-trigger" id="searchBtn">
       🔍 搜索课程
@@ -242,6 +243,16 @@
         </div>
       </div>
       <span class="course-arrow">→</span>
+    </a>
+    <a href="rtk-install-guide.html" class="course-item non-lesson">
+      <div class="course-left">
+        <span class="course-num non-lesson-num">工具</span>
+        <div>
+          <div class="course-title">RTK 安装与配置教程</div>
+          <div class="course-desc">重点讲 Windows · 二进制安装 · Claude Code 初始化</div>
+        </div>
+      </div>
+      <span class="course-arrow-link">↗</span>
     </a>
     <h2>你将学到</h2>
     <div class="grid-2">
@@ -347,7 +358,8 @@ if(sidebar) sidebar.querySelector(".sidebar-logo").onclick = () => sidebar.class
     {n:4, t:"Agent是什么？为什么一定要做？", d:"通俗解释 · 面向零基础 · 无技术术语", u:"lesson-04.html"},
     {n:5, t:"Skills是什么？怎么用？", d:"Skills入门 · 实战案例 · 安装与使用", u:"lesson-05.html"},
     {n:6, t:"国产 vs 国外大模型对比", d:"2026年3月最新 · 各模型优势 · 推荐场景 · 选型指南", u:"lesson-06.html"},
-    {n:"R", t:"学习渠道", d:"公众号 · B站UP主 · 学习平台推荐", u:"lesson-07.html"},
+    {n:"资源", t:"学习渠道", d:"公众号 · B站UP主 · 学习平台推荐", u:"lesson-07.html"},
+    {n:"工具", t:"RTK 安装与配置教程", d:"重点讲 Windows · 二进制安装 · Claude Code 初始化", u:"rtk-install-guide.html"},
   ];
 
   function openSearch() {
@@ -366,7 +378,7 @@ if(sidebar) sidebar.querySelector(".sidebar-logo").onclick = () => sidebar.class
     for(var i=0;i<lessons.length;i++) {
       var l = lessons[i];
       if(l.t.toLowerCase().indexOf(lc) !== -1 || l.d.toLowerCase().indexOf(lc) !== -1) {
-        var tag = l.n === 'R' ? '<span class="result-num resource">资源</span>' : '<span class="result-num">0'+l.n+'</span>';
+        var tag = typeof l.n === 'number' ? '<span class="result-num">0'+l.n+'</span>' : '<span class="result-num resource">'+l.n+'</span>';
         html += '<a href="'+l.u+'" class="search-result-item" onclick="closeSearch()">'+tag+'<div><div class="result-title">'+l.t+'</div><div class="result-type">'+l.d+'</div></div></a>';
       }
     }
