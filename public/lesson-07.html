@@ -3,43 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>第七课 · 大模型对比</title>
+  <title>第七课 · AI学习渠道</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    .model-card { border: 1px solid #e9e9e7; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; background: #ffffff; transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s; }
-    .model-card:hover { border-color: #d4b8a0; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
-    .model-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 7px; color: #1a1a1a; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
-    .model-card h4 .country-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; flex-shrink: 0; letter-spacing: 0.02em; }
-    .model-card h4 .country-tag.cn { background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; }
-    .model-card h4 .country-tag.us { background: #eff6ff; border: 1px solid #bfdbfe; color: #2563eb; }
-    .model-card h4 .country-tag.other { background: #f0fdf4; border: 1px solid #bbf7d0; color: #16a34a; }
-    .model-card p { font-size: 14px; color: #666666; margin-bottom: 0; line-height: 1.65; }
-    .model-card .use-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
-    .model-card .use-tag { display: inline-block; font-size: 11px; padding: 2px 9px; background: #f7f6f3; border: 1px solid #e9e9e7; border-radius: 20px; color: #888888; font-weight: 500; }
-    .compare-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; }
-    .compare-table th { text-align: left; padding: 10px 14px; background: #f7f6f3; border: 1px solid #e9e9e7; font-weight: 700; color: #1a1a1a; font-size: 13px; }
-    .compare-table td { padding: 10px 14px; border: 1px solid #e9e9e7; color: #555555; vertical-align: top; line-height: 1.6; }
-    .compare-table tr:hover td { background: #fffef8; }
-    .scenario-card { border: 1px solid #e9e9e7; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; background: #ffffff; transition: box-shadow 0.2s, border-color 0.2s; }
-    .scenario-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.06); border-color: #d4b8a0; }
-    .scenario-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 7px; display: flex; align-items: center; gap: 8px; }
-    .scenario-card .scene-tag { display: inline-block; padding: 3px 9px; background: linear-gradient(135deg, #f7f6f3, #f0ede8); border: 1px solid #e0ddd8; border-radius: 20px; font-size: 11px; font-weight: 600; color: #888888; }
-    .scenario-card p { font-size: 14px; color: #666666; margin-bottom: 0; line-height: 1.65; }
-    .scenario-card .model-hint { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
-    .scenario-card .model-pill { display: inline-block; font-size: 11px; padding: 2px 10px; border-radius: 20px; font-weight: 600; }
-    .model-pill.cn { background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; }
-    .model-pill.us { background: #eff6ff; border: 1px solid #bfdbfe; color: #2563eb; }
-    .model-pill.both { background: #f5f3ff; border: 1px solid #ddd6fe; color: #7c3aed; }
-    .model-card .beta-tag { font-size: 10px; background: #fffbeb; border: 1px solid #fde68a; color: #d97706; padding: 1px 6px; border-radius: 20px; font-weight: 600; }
-    .model-card .new-tag { font-size: 10px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #16a34a; padding: 1px 6px; border-radius: 20px; font-weight: 600; }
-    .model-card .upcoming-tag { font-size: 10px; background: #f5f3ff; border: 1px solid #ddd6fe; color: #7c3aed; padding: 1px 6px; border-radius: 20px; font-weight: 600; }
+    .resource-card:hover { border-color: #d46a2f; box-shadow: 0 4px 16px rgba(212,106,47,0.12); }
+    .highlight-box { margin: 14px 0 28px; }
   </style>
 </head>
 <body>
 <div class="layout">
   <aside class="sidebar">
     <div class="sidebar-logo">AI教育培训 <span>· 课程</span></div>
-    <div class="sidebar-section">
+        <div class="sidebar-section">
       <div class="sidebar-title">课程</div>
       <a href="index.html" class="sidebar-link">首页</a>
       <a href="lesson-01.html" class="sidebar-link">第一课 · Codex入门</a>
@@ -47,481 +22,110 @@
       <a href="lesson-03.html" class="sidebar-link">第三课 · AI提问</a>
       <a href="lesson-04.html" class="sidebar-link">第四课 · Agent</a>
       <a href="lesson-05.html" class="sidebar-link">第五课 · Skills</a>
-      <a href="lesson-07.html" class="sidebar-link active">第七课 · 模型对比</a>
+      <a href="lesson-06.html" class="sidebar-link">第七课 · 模型对比</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-title">资源</div>
-      <a href="lesson-06.html" class="sidebar-link">学习渠道</a>
+      <a href="lesson-07.html" class="sidebar-link active">第七课 · 学习渠道</a>
     </div>
   </aside>
   <main class="main">
     <div style="margin-bottom: 16px;"><a href="index.html" style="font-size: 14px; color: #999; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">← 返回首页</a></div>
-    <div class="page-label">第七课 · 模型对比</div>
-    <h1>国产 vs 国外大模型<br>一文搞懂各模型擅长什么</h1>
-    <p class="subtitle">2026年3月最新数据更新，附各模型版本号。选对模型，不花冤枉钱。</p>
+    <div class="page-label">第七课 · 学习渠道</div>
+    <h1>中文世界AI学习渠道推荐</h1>
+    <p class="subtitle">学AI，光靠课程不够，需要持续的信息输入。这里整理了真正有价值的公众号、B站博主和网站。</p>
 
-    <h2 id="sec-overview">先搞清楚：大模型能做什么</h2>
+    <h2>公众号推荐</h2>
 
-    <p style="margin-bottom: 14px; font-size: 16px;">不管国产还是国外，所有大模型本质上都是"超级大脑"，能做的事都差不多——聊天、写文章、写代码、分析数据、翻译……</p>
-    <p style="margin-bottom: 14px; font-size: 16px;">区别在于：<strong>每个模型的侧重点不同</strong>。有的推理能力特别强，有的中文理解特别好，有的性价比超高，有的生态最完善。</p>
-
-    <div class="highlight-box">
-      <strong>选模型的核心思路：</strong>先看场景，再看预算，最后看生态。不用追最强，只选最合适。<br>
-      <strong style="margin-top:8px;display:block;">重要提示：</strong>本文信息为2026年3月最新，模型版本更迭很快，下半年可能又出新版本，建议关注各模型官网获取实时数据。
+    <div class="resource-card">
+      <h4><span class="platform-tag">公众号</span>机器之心</h4>
+      <p>业界最权威的AI科技媒体，每日推送前沿论文解读与行业动态。专业度高、覆盖面广，AI从业者每天必看。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">公众号</span>量子位</h4>
+      <p>AI行业深度报道，覆盖技术、产品、商业化全链条。内容深度与广度兼顾，既有热点追踪，也有系统性科普。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">公众号</span>PaperWeekly</h4>
+      <p>专注AI学术论文分享与社区讨论的论文解读号。聚合大量paper阅读笔记，适合想跟踪前沿研究的工程师。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">公众号</span>新智元</h4>
+      <p>AI与前沿科技深度媒体，侧重技术与商业结合的分析。视角宏观，常有行业趋势洞察，适合管理层和研究人员。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">公众号</span>数字生命卡兹克</h4>
+      <p>实战派AI博主，以Vibe Coding和Agent落地为核心，分享大量实操经验和工具推荐。语言通俗，干货密集。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">公众号</span>逛逛GitHub</h4>
+      <p>分享GitHub优质AI开源项目与实用工具。每期推荐热门repo，帮助发现好用的AI开源库和项目。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">公众号</span>AI科技大本营</h4>
+      <p>CSDN旗下AI技术号，推送实战教程与代码实现。技术文章偏实战，含大量项目案例和踩坑经验。</p>
     </div>
 
-    <h2 id="sec-foreign">国外大模型</h2>
-    <p class="section-intro">先说国外，因为"最强"梯队目前仍以美国公司为主。但注意：大部分需要 VPN。</p>
+    <h2>B站UP主推荐</h2>
 
-    <div class="model-card">
-      <h4>
-        <span class="country-tag us">🇺🇸 美国</span>
-        GPT-5.4 系列（OpenAI）
-        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">chatgpt.com</span>
-        <span class="new-tag">2026年3月最新</span>
-      </h4>
-      <p>OpenAI 最新旗舰模型（GPT-5.4，2026年3月发布）。内置思考模式，能自动选择快速推理或深度思考。同期还有 GPT-5.4 mini/nano（2026年3月17日）主打性价比，GPT-5.3-Codex（2026年2月）专注代码代理。生态全家桶覆盖 Operator（AI操作网页）、Sora（视频生成）、Deep Research（AI搜索研究）。</p>
-      <div class="use-tags">
-        <span class="use-tag">GPT-5.4</span>
-        <span class="use-tag">Agent全家桶</span>
-        <span class="use-tag">Operator</span>
-        <span class="use-tag">Sora</span>
-        <span class="use-tag">Deep Research</span>
-        <span class="use-tag">API开发</span>
-      </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">B站</span><a href="https://space.bilibili.com/3546578281302248" target="_blank">正派青年Official <span class="link-icon">↗</span></a></h4>
+      <p>本站由我们团队制作与整理，课程内容也会结合我们在 B 站「正派青年Official」持续更新的AI认知、工具实操和项目演示内容，方便学员课后继续跟进学习。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">B站</span><a href="https://space.bilibili.com/1567748478" target="_blank">李沐 <span class="link-icon">↗</span></a></h4>
+      <p>亚马逊首席科学家，深度解读AI论文 + 实战项目讲解。沐神本身是顶级研究者，讲论文深入浅出，配有代码实战，B站AI学习天花板。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">B站</span><a href="https://space.bilibili.com/1900783" target="_blank">同济子豪兄 <span class="link-icon">↗</span></a></h4>
+      <p>AI知识区头部UP主，讲解通俗、幽默、系统。从Python到机器学习到论文带读，内容体系完整，极适合入门。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">B站</span><a href="https://space.bilibili.com/88461692" target="_blank">3Blue1Brown <span class="link-icon">↗</span></a></h4>
+      <p>用精美数学动画讲解神经网络等AI数学基础。视觉冲击力极强，把复杂数学概念讲得直观易懂，是理解AI原理的最佳入口。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">B站</span><a href="https://space.bilibili.com/20259914" target="_blank">稚晖君 <span class="link-icon">↗</span></a></h4>
+      <p>"野生技术博主"，AI+硬件结合的硬核创作。把AI模型嵌入硬件项目（机械臂、自动驾驶），展示AI落地的完整工程链路。</p>
+    </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">B站</span><a href="https://space.bilibili.com/3546592940394904" target="_blank">吴恩达 AndrewNg <span class="link-icon">↗</span></a></h4>
+      <p>DeepLearning.AI创始人，Coursera联合创始人。吴恩达老师的机器学习课程是全球最经典的AI入门课，B站有官方搬运的中文版。</p>
     </div>
 
-    <div class="model-card">
-      <h4>
-        <span class="country-tag us">🇺🇸 美国</span>
-        Claude 4.6 系列（Anthropic）
-        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">claude.ai</span>
-        <span class="new-tag">2026年2月更新</span>
-      </h4>
-      <p>Anthropic 2026年2月发布 Claude Sonnet 4.6 和 Opus 4.6，是 Claude 4 系列（2025年5月发布）的重大升级。Sonnet 4.6 在编码、计算机操作、长推理、Agent 规划等方面全面提升，被认为是当前最好用的编码模型之一。Opus 4.6 主打最强推理能力。另有 Haiku 4.5 主打轻量快速。适合深度分析、代码审查、长文档。</p>
-      <div class="use-tags">
-        <span class="use-tag">Claude Opus 4.6</span>
-        <span class="use-tag">Claude Sonnet 4.6</span>
-        <span class="use-tag">Claude Code</span>
-        <span class="use-tag">深度推理</span>
-        <span class="use-tag">代码审查</span>
-        <span class="use-tag">长文本分析</span>
-      </div>
+    <h2>学习平台推荐</h2>
+
+    <div class="resource-card">
+      <h4><span class="platform-tag">网站</span><a href="https://datawhale.cn" target="_blank">DataWhale <span class="link-icon">↗</span></a></h4>
+      <p>开源组织，提供完全免费的AI学习笔记和课程。全部开源，社区驱动，笔记质量极高（如"吃透"系列），零成本学习利器。</p>
     </div>
-
-    <div class="model-card">
-      <h4>
-        <span class="country-tag us">🇺🇸 美国</span>
-        Gemini 3.1 系列（Google）
-        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">gemini.google.com</span>
-        <span class="new-tag">2026年2月预览</span>
-      </h4>
-      <p>Google 2026年2月发布 Gemini 3.1 Pro Preview，是 Gemini 3 系列的首个迭代版本，主打原生多模态推理（同一模型处理文字、图片、视频、音频）。和 Google 搜索、Workspace（Gmail/Docs/Meet）、Google Cloud 无缝集成。Gemini Live（2026年3月升级）对话保持上下文能力翻倍，反应更快。</p>
-      <div class="use-tags">
-        <span class="use-tag">Gemini 3.1</span>
-        <span class="use-tag">原生多模态</span>
-        <span class="use-tag">Google生态</span>
-        <span class="use-tag">Gemini Live</span>
-        <span class="use-tag">搜索增强</span>
-        <span class="use-tag">免费使用</span>
-      </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">网站</span><a href="https://www.modelscope.cn" target="_blank">魔搭社区（阿里达摩院） <span class="link-icon">↗</span></a></h4>
+      <p>国内最大的开源模型平台，汇聚大量中文大模型。可以直接在线体验各种LLM和CV模型，模型即服务。</p>
     </div>
-
-    <div class="model-card">
-      <h4>
-        <span class="country-tag us">🇺🇸 美国</span>
-        Grok 4.1（xAI / Elon Musk）
-        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">grok.com</span>
-        <span class="new-tag">Beta可用</span>
-      </h4>
-      <p>xAI 最新主力 Grok 4（Grok 4.20 Beta，2026年2月）。Grok 4.1 全面开放（2025年11月），支持实时获取 X 平台资讯。Grok 5 原计划 Q1 2026 发布，但截至2026年3月仍未发布。Grok 4 优势在于实时信息获取（接 X/Twitter 数据）、直接犀利风格，以及免费版可用。</p>
-      <div class="use-tags">
-        <span class="use-tag">Grok 4.20 Beta</span>
-        <span class="use-tag">实时资讯</span>
-        <span class="use-tag">X平台整合</span>
-        <span class="use-tag">免费可用</span>
-      </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">网站</span><a href="https://aistudio.baidu.com" target="_blank">飞桨AI Studio（百度） <span class="link-icon">↗</span></a></h4>
+      <p>免费的GPU算力 + 体系化AI课程 + 项目实践。解决本地跑模型硬件门槛，高质量开源模型丰富。</p>
     </div>
-
-    <h2 id="sec-domestic">国产大模型</h2>
-    <p class="section-intro">国产模型近年来进步飞速，部分领域已接近甚至超越国外水平，在国内访问无障碍，中文理解普遍更好。</p>
-
-    <div class="model-card">
-      <h4>
-        <span class="country-tag cn">🇨🇳 中国</span>
-        DeepSeek-V3.2 / R1（深度求索）
-        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">deepseek.com</span>
-        <span class="new-tag">API可用</span>
-      </h4>
-      <p>DeepSeek R1（2025年1月发布）让全球震动，以极低成本接近 o1 推理水平。DeepSeek-V3.2 为当前最新主力版本。R2 正在开发中（可能因华为芯片问题有所延迟）。DeepSeek 的核心优势：开源免费（可本地部署）+ API 价格极低（是 GPT-5 的几十分之一），中文推理能力强。适合预算有限的开发者和技术研究者。</p>
-      <div class="use-tags">
-        <span class="use-tag">开源免费</span>
-        <span class="use-tag">API极便宜</span>
-        <span class="use-tag">强推理</span>
-        <span class="use-tag">中文</span>
-        <span class="use-tag">本地部署</span>
-      </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">网站</span><a href="https://openbayes.com" target="_blank">OpenBayes <span class="link-icon">↗</span></a></h4>
+      <p>国内版HuggingFace，提供免费算力和模型分享。模型hub体验好，免费额度充足，国内访问速度快。</p>
     </div>
-
-    <div class="model-card">
-      <h4>
-        <span class="country-tag cn">🇨🇳 中国</span>
-        通义千问 Qwen3（阿里）
-        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">tongyi.aliyun.com</span>
-        <span class="new-tag">2026年2月新版</span>
-      </h4>
-      <p>阿里 2026年2月发布 Qwen3（v3.5），参数 397B-A17B，在数 T 多模态 token 上做早期融合训练，在推理、编程、Agent 及视觉理解基准测试中表现突出。Qwen 系列是全球下载量最高的开源模型之一（开源社区 Hugging Face 下载量巨大）。和阿里云深度集成，适合企业开发者做二次开发。</p>
-      <div class="use-tags">
-        <span class="use-tag">Qwen3</span>
-        <span class="use-tag">开源最强</span>
-        <span class="use-tag">阿里云集成</span>
-        <span class="use-tag">多模态</span>
-        <span class="use-tag">企业开发</span>
-      </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">网站</span><a href="https://www.zhihu.com" target="_blank">知乎 <span class="link-icon">↗</span></a></h4>
+      <p>中文最高质量的知识问答社区，AI话题下深度讨论丰富。聚集大量从业者和研究者，精华内容多，需善用搜索。</p>
     </div>
-
-    <div class="model-card">
-      <h4>
-        <span class="country-tag cn">🇨🇳 中国</span>
-        Kimi K2.5（月之暗面 / Moonshot AI）
-        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">kimi.moonshot.cn</span>
-        <span class="new-tag">2026年1月发布</span>
-      </h4>
-      <p>月之暗面 2026年1月发布 Kimi K2.5，号称"最智能的模型"。主打超长上下文（支持百万级汉字），长文档分析、论文阅读、代码库全局理解能力突出。Moonshot AI 正处于考虑港股 IPO 早期阶段（2026年3月彭博爆料），已与中金、高盛初步接触。Kimi 凭借早期"帮我读论文"功能出圈，学生和研究人员使用最多。</p>
-      <div class="use-tags">
-        <span class="use-tag">Kimi K2.5</span>
-        <span class="use-tag">超长上下文</span>
-        <span class="use-tag">长文档分析</span>
-        <span class="use-tag">论文阅读</span>
-        <span class="use-tag">IPO筹备中</span>
-      </div>
-    </div>
-
-    <div class="model-card">
-      <h4>
-        <span class="country-tag cn">🇨🇳 中国</span>
-        百度文心大模型 4.0（ERNIE Bot）
-        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">yiyan.baidu.com</span>
-      </h4>
-      <p>百度文心一言 4.0，和百度搜索、文库、地图等生态深度绑定。中文理解能力在国产模型中口碑较好（2026年3月实测中文细腻度领先），金融法律等专业内容创作有优势。适合已经重度依赖百度系产品（百度搜索、文库、网盘）的用户，以及需要专业中文写作的职场人士。</p>
-      <div class="use-tags">
-        <span class="use-tag">ERNIE 4.0</span>
-        <span class="use-tag">中文创作</span>
-        <span class="use-tag">百度生态</span>
-        <span class="use-tag">企业用户</span>
-        <span class="use-tag">金融法律</span>
-      </div>
-    </div>
-
-    <div class="model-card">
-      <h4>
-        <span class="country-tag cn">🇨🇳 中国</span>
-        字节豆包（Doubao）
-        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">www.doubao.com</span>
-      </h4>
-      <p>字节跳动（抖音/TikTok 母公司）出品。免费额度充足，界面流畅，和抖音生态有一定整合。适合普通用户日常使用、内容创作者快速获取热点资讯。中文字生成质量稳定，是国产免费模型中体验最流畅的选择之一。</p>
-      <div class="use-tags">
-        <span class="use-tag">免费额度足</span>
-        <span class="use-tag">日常使用</span>
-        <span class="use-tag">内容创作</span>
-        <span class="use-tag">抖音生态</span>
-      </div>
-    </div>
-
-    <div class="model-card">
-      <h4>
-        <span class="country-tag cn">🇨🇳 中国</span>
-        腾讯混元（Hunyuan）
-        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">hunyuan.tencent.com</span>
-      </h4>
-      <p>腾讯自研大模型，和微信、腾讯文档、企业微信、腾讯云深度整合。适合已有腾讯办公生态（企业微信、TIM、腾讯会议）的企业用户，实现无缝接入。API 稳定，企业合规性较好。</p>
-      <div class="use-tags">
-        <span class="use-tag">腾讯生态</span>
-        <span class="use-tag">企业微信集成</span>
-        <span class="use-tag">企业用户</span>
-        <span class="use-tag">腾讯云</span>
-      </div>
-    </div>
-
-    <div class="model-card">
-      <h4>
-        <span class="country-tag cn">🇨🇳 中国</span>
-        阶跃星辰 Step（StepFun）
-        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">stepchat.com</span>
-      </h4>
-      <p>新兴国产大模型公司，Step 系列在多模态和推理上表现亮眼，专注于多模态理解与生成，和微软有合作。适合需要尝试最新国产技术、关注前沿发展的用户。</p>
-      <div class="use-tags">
-        <span class="use-tag">多模态</span>
-        <span class="use-tag">前沿技术</span>
-        <span class="use-tag">微软合作</span>
-      </div>
-    </div>
-
-    <div class="model-card">
-      <h4>
-        <span class="country-tag cn">🇨🇳 中国</span>
-        海螺AI / MiniMax
-        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">hailuoai.com</span>
-      </h4>
-      <p>主打 AI 内容创作，尤其是视频生成和语音合成能力。和字节豆包定位类似，面向普通用户和创作者，提供免费额度，日常使用流畅。</p>
-      <div class="use-tags">
-        <span class="use-tag">视频生成</span>
-        <span class="use-tag">语音合成</span>
-        <span class="use-tag">内容创作</span>
-        <span class="use-tag">免费使用</span>
-      </div>
-    </div>
-
-    <div class="model-card">
-      <h4>
-        <span class="country-tag cn">🇨🇳 中国</span>
-        智谱清言（GLM / ChatGLM）
-        <span style="font-size: 12px; color: #9b9a97; font-weight: 400;">chatglm.cn</span>
-      </h4>
-      <p>清华大学技术背景，国产开源模型先驱之一（ChatGLM 系列开源）。技术底子扎实，适合研究人员和技术开发者。在推理和中文任务上表现均衡。</p>
-      <div class="use-tags">
-        <span class="use-tag">学术研究</span>
-        <span class="use-tag">开源模型</span>
-        <span class="use-tag">技术开发者</span>
-        <span class="use-tag">清华大学</span>
-      </div>
-    </div>
-
-    <h2 id="sec-compare">核心对比表</h2>
-
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th style="width: 100px;">模型</th>
-          <th>最新版本</th>
-          <th>核心优势</th>
-          <th>最佳场景</th>
-          <th>免费</th>
-          <th>国内访问</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>GPT-5.4</strong></td>
-          <td>2026年3月</td>
-          <td>Agent全家桶、生态最完整</td>
-          <td>Operator、Sora、API开发</td>
-          <td>有限</td>
-          <td>需VPN</td>
-        </tr>
-        <tr>
-          <td><strong>Claude Opus 4.6</strong></td>
-          <td>2026年2月</td>
-          <td>推理最强，编码优秀</td>
-          <td>深度分析、代码、长文档</td>
-          <td>有限</td>
-          <td>需VPN</td>
-        </tr>
-        <tr>
-          <td><strong>Gemini 3.1</strong></td>
-          <td>2026年2月预览</td>
-          <td>原生多模态、Google生态</td>
-          <td>Google用户、搜索增强</td>
-          <td>是</td>
-          <td>需VPN</td>
-        </tr>
-        <tr>
-          <td><strong>Grok 4</strong></td>
-          <td>4.20 Beta（2026年2月）</td>
-          <td>实时资讯，风格直接</td>
-          <td>X资讯、免费聊天</td>
-          <td>是</td>
-          <td>需VPN</td>
-        </tr>
-        <tr>
-          <td><strong>DeepSeek-V3.2</strong></td>
-          <td>2025年底/2026年</td>
-          <td>开源免费、API极便宜</td>
-          <td>推理任务、API开发、预算有限</td>
-          <td>开源免费</td>
-          <td>直达</td>
-        </tr>
-        <tr>
-          <td><strong>Qwen3（v3.5）</strong></td>
-          <td>2026年2月</td>
-          <td>开源最强、阿里云集成</td>
-          <td>企业开发、阿里云用户</td>
-          <td>有限</td>
-          <td>直达</td>
-        </tr>
-        <tr>
-          <td><strong>Kimi K2.5</strong></td>
-          <td>2026年1月</td>
-          <td>超长上下文</td>
-          <td>长文档分析、论文、代码库</td>
-          <td>有限</td>
-          <td>直达</td>
-        </tr>
-        <tr>
-          <td><strong>文心一言 4.0</strong></td>
-          <td>4.0</td>
-          <td>中文创作、百度生态</td>
-          <td>中文内容、百度系用户</td>
-          <td>有限</td>
-          <td>直达</td>
-        </tr>
-        <tr>
-          <td><strong>豆包</strong></td>
-          <td>最新版</td>
-          <td>免费额度足、抖音整合</td>
-          <td>日常使用、内容创作者</td>
-          <td>充足</td>
-          <td>直达</td>
-        </tr>
-        <tr>
-          <td><strong>腾讯混元</strong></td>
-          <td>最新版</td>
-          <td>腾讯生态，企业集成</td>
-          <td>企业微信用户、腾讯系产品</td>
-          <td>有限</td>
-          <td>直达</td>
-        </tr>
-        <tr>
-          <td><strong>海螺AI</strong></td>
-          <td>最新版</td>
-          <td>视频生成、语音合成</td>
-          <td>内容创作、日常助手</td>
-          <td>充足</td>
-          <td>直达</td>
-        </tr>
-        <tr>
-          <td><strong>智谱清言</strong></td>
-          <td>最新版</td>
-          <td>学术背景，开源贡献</td>
-          <td>研究人员、技术开发者</td>
-          <td>有限</td>
-          <td>直达</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2 id="sec-scenario">根据场景选模型</h2>
-
-    <div class="scenario-card">
-      <h4>
-        <span class="scene-tag">学生/研究者</span>
-        读论文、做研究
-      </h4>
-      <p>需要处理大量 PDF 和英文文献，要求理解准确、逻辑清晰。</p>
-      <div class="model-hint">
-        <span class="model-pill us">Claude Opus 4.6</span>
-        <span class="model-pill cn">Kimi K2.5（长文档）</span>
-        <span class="model-pill us">GPT-5.4 + Deep Research</span>
-      </div>
-    </div>
-
-    <div class="scenario-card">
-      <h4>
-        <span class="scene-tag">开发者</span>
-        写代码、API开发
-      </h4>
-      <p>需要强推理、低成本、API 稳定，想自己搭应用。</p>
-      <div class="model-hint">
-        <span class="model-pill us">Claude Sonnet 4.6（编码首选）</span>
-        <span class="model-pill cn">DeepSeek（性价比极致）</span>
-        <span class="model-pill us">GPT-5.4（生态最全）</span>
-      </div>
-    </div>
-
-    <div class="scenario-card">
-      <h4>
-        <span class="scene-tag">职场人士</span>
-        写邮件、做 PPT、写报告
-      </h4>
-      <p>中文内容为主，需要稳定可靠，不想折腾。</p>
-      <div class="model-hint">
-        <span class="model-pill cn">DeepSeek（推理强+免费）</span>
-        <span class="model-pill cn">豆包（免费流畅）</span>
-        <span class="model-pill us">Claude Sonnet 4.6（英文报告）</span>
-      </div>
-    </div>
-
-    <div class="scenario-card">
-      <h4>
-        <span class="scene-tag">企业用户</span>
-        对接内部系统、客服、数据分析
-      </h4>
-      <p>需要稳定 API、企业合规、和现有系统集成。</p>
-      <div class="model-hint">
-        <span class="model-pill cn">DeepSeek（API最便宜）</span>
-        <span class="model-pill cn">Qwen3（阿里云）</span>
-        <span class="model-pill cn">混元（腾讯云）</span>
-        <span class="model-pill us">Claude（企业版合规）</span>
-      </div>
-    </div>
-
-    <div class="scenario-card">
-      <h4>
-        <span class="scene-tag">内容创作者</span>
-        写文案、脚本、爆款内容
-      </h4>
-      <p>需要创意足、中文好、能跟上热点、免费更好。</p>
-      <div class="model-hint">
-        <span class="model-pill cn">豆包（抖音热点整合）</span>
-        <span class="model-pill cn">文心一言（中文创作）</span>
-        <span class="model-pill us">GPT-5.4 + Sora（视频脚本）</span>
-      </div>
-    </div>
-
-    <div class="scenario-card">
-      <h4>
-        <span class="scene-tag">预算有限</span>
-        想省钱、想用开源
-      </h4>
-      <p>不想花钱订阅，想自己部署或者用免费 API。</p>
-      <div class="model-hint">
-        <span class="model-pill cn">DeepSeek（最强性价比，开源免费）</span>
-        <span class="model-pill cn">Qwen3（全球最强开源之一）</span>
-        <span class="model-pill us">Gemini（免费版很强）</span>
-        <span class="model-pill cn">豆包（国产免费首选）</span>
-      </div>
+    <div class="resource-card">
+      <h4><span class="platform-tag">网站</span><a href="https://www.kaggle.com" target="_blank">Kaggle <span class="link-icon">↗</span></a></h4>
+      <p>全球最活跃的数据科学竞赛平台。通过竞赛驱动学习，有真实数据集，适合想通过实战提升的开发者。</p>
     </div>
 
     <div class="highlight-box">
-      <strong>一句话总结：</strong><br>
-      <strong>最强推理/编码</strong> → Claude Opus 4.6 / Claude Sonnet 4.6<br>
-      <strong>最强生态/Agent</strong> → GPT-5.4（Operator + Sora + Deep Research）<br>
-      <strong>省钱开源</strong> → DeepSeek-V3.2 / Qwen3<br>
-      <strong>中文日常免费</strong> → 豆包 / DeepSeek<br>
-      <strong>超长文档</strong> → Kimi K2.5<br>
-      <strong>企业国内生态</strong> → 混元（腾讯）/ Qwen3（阿里）
-    </div>
-
-    <h2 id="sec-choice">选模型的3个问题</h2>
-
-    <div class="model-card" style="margin-bottom: 10px;">
-      <h4>1. 你在国内还是国外？</h4>
-      <p>国内 → 优先选国产模型（DeepSeek、豆包、Kimi），访问无障碍。<br>
-      国外 → GPT-5.4、Claude 4.6、Gemini 3.1 依然是第一梯队。</p>
-    </div>
-
-    <div class="model-card" style="margin-bottom: 10px;">
-      <h4>2. 你主要做什么？</h4>
-      <p>推理/代码 → Claude Sonnet 4.6 / DeepSeek<br>
-      中文内容创作 → 豆包、文心一言、DeepSeek<br>
-      长文档分析 → Kimi K2.5 / Claude Opus 4.6<br>
-      企业集成 → Qwen3（阿里云）/ 混元（腾讯）<br>
-      Agent/操作网页 → GPT-5.4 + Operator</p>
-    </div>
-
-    <div class="model-card">
-      <h4>3. 你的预算是多少？</h4>
-      <p>免费 → DeepSeek（开源）/ Qwen3（开源）/ Gemini / 豆包<br>
-      低成本 → DeepSeek API（极便宜）<br>
-      无所谓 → Claude / GPT-5.4 Plus</p>
-    </div>
-
-    <div class="highlight-box">
-      <strong>注意：</strong>本页面信息为 2026年3月实时调研。AI 模型版本更新极快，GPT-6、Grok 5、Claude 5 等新一代随时可能发布。建议收藏本课但定期回来看更新，或直接访问各模型官网查看最新动态。
+      <strong>建议：</strong>不用全关注，选2-3个适合自己的就行。比如：公众号看机器之心 + 量子位保持信息输入，B站跟李沐或子豪兄打基础，有问题去知乎搜答案。持续输入比囤积资源更重要。
     </div>
 
     <div class="bottom-nav">
-      <a href="lesson-06.html" class="nav-prev">← 第六课：学习渠道</a>
+      <a href="lesson-06.html" class="nav-prev">← 第六课：模型对比</a>
     </div>
     <footer>正派AIGC 制作 · AI教育培训 · 零基础入门系列</footer>
     <div class="spacer"></div>
@@ -530,7 +134,7 @@
 
 
     <div id="lesson-complete-btn" style="text-align:center;padding:36px 0 20px;border-top:1px solid var(--line);margin-top:44px;">
-      <button onclick="markComplete(7)" id="completeBtn" style="background:linear-gradient(135deg,#d46a2f,#e07a42);color:#fff;border:none;border-radius:50px;padding:14px 36px;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(212,106,47,0.35);transition:all 0.2s;">
+      <button onclick="markComplete(6)" id="completeBtn" style="background:linear-gradient(135deg,#d46a2f,#e07a42);color:#fff;border:none;border-radius:50px;padding:14px 36px;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(212,106,47,0.35);transition:all 0.2s;">
         ✅ 标记为已学习
       </button>
       <p id="complete-tip" style="font-size:12px;color:#c0b8b0;margin-top:10px;margin-bottom:0;"></p>
@@ -539,7 +143,7 @@
     (function(){
       var TOTAL=7,key='ai-course-progress';
       var done=JSON.parse(localStorage.getItem(key)||'[]');
-      var num=7;
+      var num=6;
       var btn=document.getElementById('completeBtn');
       var tip=document.getElementById('complete-tip');
       if(done.includes(num)){
