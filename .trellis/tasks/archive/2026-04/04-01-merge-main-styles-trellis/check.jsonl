@@ -1,0 +1,6 @@
+{"file": ".claude/commands/trellis/finish-work.md", "reason": "Finish work checklist"}
+{"file": ".claude/commands/trellis/check-frontend.md", "reason": "Frontend check spec"}
+{"file": ".trellis/spec/frontend/component-guidelines.md", "reason": "Shared page/layout and styling patterns for static course pages"}
+{"file": ".trellis/spec/frontend/quality-guidelines.md", "reason": "Frontend verification and docs/public sync requirements"}
+{"file": ".trellis/spec/frontend/directory-structure.md", "reason": "public is source of truth and docs is deployment mirror"}
+{"file": ".trellis/spec/guides/code-reuse-thinking-guide.md", "reason": "Need to reconcile repeated page patterns and shared styles"}

@@ -1,0 +1,5 @@
+{"file": ".claude/commands/trellis/finish-work.md", "reason": "Finish work checklist"}
+{"file": ".claude/commands/trellis/check-frontend.md", "reason": "Frontend check spec"}
+{"file": ".trellis/spec/frontend/component-guidelines.md", "reason": "Homepage and repeated page structure patterns"}
+{"file": ".trellis/spec/frontend/quality-guidelines.md", "reason": "public/docs sync and page update checklist"}
+{"file": ".trellis/spec/frontend/hook-guidelines.md", "reason": "Inline script and repeated page sync behavior"}

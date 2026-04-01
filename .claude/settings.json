@@ -1,164 +1,81 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(npm search:*)",
-      "Bash(npm show:*)",
-      "Read(//usr/local/lib/node_modules/minimax-mcp-js/**)",
-      "Read(//Users/zhangshuquan/.claude/**)",
-      "Read(//Users/zhangshuquan/**)",
-      "Bash(ls ~/.claude/mcp*)",
-      "Bash(echo MINIMAX_API_KEY=$MINIMAX_API_KEY)",
-      "Bash(open \"https://platform.minimaxi.com/user-center/basic-information/interface-key\")",
-      "Bash(MINIMAX_API_HOST=\"https://api.minimax.chat\" MINIMAX_API_KEY=\"sk-cp-NLri7No7ZAcEQcT0PjRUQJS6osV0kzSbvYkfUd5JjtkPcqK_go9TlysqLJovk5JYSdwxvJd-OohAbfLvPCbguVSudixMhlwOUb74eaisWEYJAyH1RYGv9pc\" MINIMAX_MCP_BASE_PATH=\"/Users/zhangshuquan/Desktop\" npx -y minimax-mcp-js)",
-      "Bash(MINIMAX_API_HOST=\"https://api.minimax.chat\" MINIMAX_API_KEY=\"sk-cp-NLri7No7ZAcEQcT0PjRUQJS6osV0kzSbvYkfUd5JjtkPcqK_go9TlysqLJovk5JYSdwxvJd-OohAbfLvPCbguVSudixMhlwOUb74eaisWEYJAyH1RYGv9pc\" MINIMAX_MCP_BASE_PATH=\"/Users/zhangshuquan/Desktop\" npx -y minimax-mcp-js list_voices)",
-      "Bash(MINIMAX_API_HOST=\"https://api.minimax.chat\" MINIMAX_API_KEY=\"sk-cp-NLri7No7ZAcEQcT0PjRUQJS6osV0kzSbvYkfUd5JjtkPcqK_go9TlysqLJovk5JYSdwxvJd-OohAbfLvPCbguVSudixMhlwOUb74eaisWEYJAyH1RYGv9pc\" MINIMAX_MCP_BASE_PATH=\"/Users/zhangshuquan/Desktop\" node /usr/local/lib/node_modules/minimax-mcp-js/build/index.js)",
-      "Bash(curl -s -X POST \"https://api.minimax.chat/v1/t2a_v2\" -H \"Authorization: Bearer sk-cp-NLri7No7ZAcEQcT0PjRUQJS6osV0kzSbvYkfUd5JjtkPcqK_go9TlysqLJovk5JYSdwxvJd-OohAbfLvPCbguVSudixMhlwOUb74eaisWEYJAyH1RYGv9pc\" -H \"Content-Type: application/json\" -d '{\"\"\"\"model\"\"\"\":\"\"\"\"speech-02-hd\"\"\"\",\"\"\"\"text\"\"\"\":\"\"\"\"测试\"\"\"\",\"\"\"\"stream\"\"\"\":false}')",
-      "Bash(curl -s -X POST \"https://api.minimax.chat/v1/t2a_v2\" -H \"Authorization: Bearer sk-cp-NLri7No7ZAcEQcT0PjRUQJS6osV0kzSbvYkfUd5JjtkPcqK_go9TlysqLJovk5JYSdwxvJd-OohAbfLvPCbguVSudixMhlwOUb74eaisWEYJAyH1RYGv9pc\" -H \"Content-Type: application/json\" -d '{\"\"\"\"model\"\"\"\":\"\"\"\"speech-02-hd\"\"\"\",\"\"\"\"text\"\"\"\":\"\"\"\"测试一下API是否正常\"\"\"\",\"\"\"\"voice_id\"\"\"\":\"\"\"\"male-qn-qingse\"\"\"\",\"\"\"\"stream\"\"\"\":false}')",
-      "Bash(curl -s -X POST \"https://api.minimax.chat/v1/t2a_v2\" -H \"Authorization: Bearer sk-cp-NLri7No7ZAcEQcT0PjRUQJS6osV0kzSbvYkfUd5JjtkPcqK_go9TlysqLJovk5JYSdwxvJd-OohAbfLvPCbguVSudixMhlwOUb74eaisWEYJAyH1RYGv9pc\" -H \"Content-Type: application/json\" -d '{\"\"\"\"model\"\"\"\":\"\"\"\"speech-02-hd\"\"\"\",\"\"\"\"text\"\"\"\":\"\"\"\"测试一下API是否正常\"\"\"\",\"\"\"\"voice_id\"\"\"\":\"\"\"\"male-qn-qingse\"\"\"\"}')",
-      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d\\)\")",
-      "Bash(curl -s \"https://api.minimax.chat/v1/t2a_v2\" -H \"Authorization: Bearer sk-cp-NLri7No7ZAcEQcT0PjRUQJS6osV0kzSbvYkfUd5JjtkPcqK_go9TlysqLJovk5JYSdwxvJd-OohAbfLvPCbguVSudixMhlwOUb74eaisWEYJAyH1RYGv9pc\" -H \"Content-Type: application/json\" -d '{\"\"\"\"model\"\"\"\":\"\"\"\"speech-02-hd\"\"\"\",\"\"\"\"text\"\"\"\":\"\"\"\"测试\"\"\"\",\"\"\"\"voice_id\"\"\"\":\"\"\"\"male-qn-qingse\"\"\"\"}')",
-      "Bash(curl -s -X POST \"https://api.minimax.chat/v1/images/generations\" -H \"Authorization: Bearer sk-cp-NLri7No7ZAcEQcT0PjRUQJS6osV0kzSbvYkfUd5JjtkPcqK_go9TlysqLJovk5JYSdwxvJd-OohAbfLvPCbguVSudixMhlwOUb74eaisWEYJAyH1RYGv9pc\" -H \"Content-Type: application/json\" -d '{\"\"\"\"model\"\"\"\":\"\"\"\"image-01\"\"\"\",\"\"\"\"prompt\"\"\"\":\"\"\"\"a cute cat\"\"\"\",\"\"\"\"n\"\"\"\":1}')",
-      "Bash(curl -s \"https://api.minimax.chat/v1/text/chatcompletion_v2\" -H \"Authorization: Bearer sk-cp-NLri7No7ZAcEQcT0PjRUQJS6osV0kzSbvYkfUd5JjtkPcqK_go9TlysqLJovk5JYSdwxvJd-OohAbfLvPCbguVSudixMhlwOUb74eaisWEYJAyH1RYGv9pc\" -H \"Content-Type: application/json\" -d '{\"\"\"\"model\"\"\"\":\"\"\"\"MiniMax-Text-01\"\"\"\",\"\"\"\"messages\"\"\"\":[{\"\"\"\"role\"\"\"\":\"\"\"\"user\"\"\"\",\"\"\"\"content\"\"\"\":\"\"\"\"say hi\"\"\"\"}],\"\"\"\"max_tokens\"\"\"\":10}')",
-      "Bash(mdfind -onlyin ~ \"kMDItemDisplayName == ''''*ego*''''cd\")",
-      "Bash(mdfind \"kMDItemDisplayName == ''''*ego*'''' && kMDItemFSName == ''''*.ppt*''''\")",
-      "Bash(find ~ -maxdepth 6 -iname *ego*.ppt* -o -iname *ego*.pptx*)",
-      "Bash(find ~ -maxdepth 8 \\\\\\(-iname *ego*.pptx -o -iname *ego*.ppt \\\\\\))",
-      "Bash(find ~/Desktop ~/Documents ~/Downloads -maxdepth 4 \\\\\\(-iname *ego* -o -iname *Ego* \\\\\\))",
-      "Bash(mdfind -name *ego*)",
-      "Bash(open \"http://127.0.0.1:3000/\")",
-      "WebFetch(domain:minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com)",
-      "Bash(curl -L -o codex-folders-tree.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-29%2FMiniMax-M2.7%2F2032733064890687709%2Ff6d201484d4263e4b2ad68e07caf89fe3d99e3d8fdac19be3c936dd8de368e7e..png?Expires=1774854966&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=0mUbxZgI1TSUwAEqK%2Bc12g2XVhQ%3D\")",
-      "Bash(curl -L -o codex-add-folder.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-29%2FMiniMax-M2.7%2F2032733064890687709%2Fb699562734ddcc40a58b439ff8a7901fac2425ec21ffe68b2c76a5030223b16f..png?Expires=1774855157&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=bwDguzKqa4UY4%2FC4yVXNCMyJuII%3D\")",
-      "Bash(curl -L -o codex-settings-1.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-29%2FMiniMax-M2.7%2F2032733064890687709%2Fdb258e8984bea350ca0e22bcf8a257be44218dad58dbc5e0d7667bd0e850a39a..png?Expires=1774855391&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=FBuYphFav%2Btj3S4MTQlntR44ib0%3D\")",
-      "Bash(curl -L -o codex-settings-2.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-29%2FMiniMax-M2.7%2F2032733064890687709%2F96578cf7dd9b7f11861a945256bef1c066f2223816209e27dd7dd10e73b627ca..png?Expires=1774855391&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=%2FBw5DuY7nUvqMSjTPs59U%2BO4oQ4%3D\")",
-      "Bash(curl -L -o codex-plan-mode.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-29%2FMiniMax-M2.7%2F2032733064890687709%2F73c367069e114115126db813c2975832630581e27daceb45d47c551f023ea9bb..png?Expires=1774855498&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=Cl%2F3R%2B9j%2FJ8U0E5l0xaE74quNIQ%3D\")",
-      "Bash(python3 /Users/zhangshuquan/.agents/skills/wechat-summary/scripts/fetch_article.py \"https://mp.weixin.qq.com/s/OYRJ7Q5RmjK9XrDzUvi77g\")",
-      "Bash(npm list:*)",
-      "Bash(netlify deploy:*)",
-      "Bash(netlify login:*)",
-      "Bash(open \"https://app.netlify.com/authorize?response_type=ticket&ticket=581c9f8b3f49475301a5f6b698acaab4\")",
-      "Bash(netlify sites:list)",
-      "Bash(netlify link:*)",
-      "Bash(netlify unlink:*)",
-      "WebFetch(domain:chatgpt.com)",
-      "WebFetch(domain:openai.com)",
-      "Bash(bb-browser --help)",
-      "WebFetch(domain:developers.openai.com)",
-      "WebFetch(domain:platform.openai.com)",
-      "WebFetch(domain:www.producthunt.com)",
-      "Bash(for i:*)",
-      "Bash(do echo:*)",
-      "Bash(done)",
-      "Bash(curl -s -o codex-ph-1.jpg \"https://ph-files.imgix.net/f13f6325-d169-413c-89e7-6b48ccfb45c3.jpeg?auto=format&fit=crop\")",
-      "Bash(curl -s -o codex-ph-2.jpg \"https://ph-files.imgix.net/2c52bda6-d98d-460a-ab1c-88a1e462e9e7.jpeg?auto=format&fit=crop\")",
-      "Bash(curl -L -o codex-skills.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-29%2FMiniMax-M2.7%2F2032733064890687709%2Fde4a4043e61b04566211d50c50a37069ce8302b7796d71258d52b0291adf7430..png?Expires=1774858003&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=VdR5YKaCxyO4yCsds4vXBMkoZuU%3D\")",
-      "Bash(python3 /Users/zhangshuquan/.agents/skills/wechat-summary/scripts/fetch_article.py \"https://mp.weixin.qq.com/s/nRVVqPaGxWdNqNrUcurSXg\")",
-      "Bash(open \"macappstore://apps.apple.com/app/id836500024?mt=12\")",
-      "Bash(brew install:*)",
-      "Bash(brew link:*)",
-      "Bash(npm root:*)",
-      "Read(//opt/homebrew/lib/node_modules/**)",
-      "Read(//opt/homebrew/**)",
-      "Read(//usr/local/lib/node_modules/@openai/codex/node_modules/**)",
-      "Read(//usr/local/lib/node_modules/@openai/codex/**)",
-      "Bash(find ~/Library -maxdepth 4 -name codex*)",
-      "Bash(codex --version)",
-      "Bash(osascript -e 'tell application \"\"Visual Studio Code\"\" to reload window')",
-      "Bash(open -a \"Visual Studio Code\")",
-      "Bash(code --list-extensions)",
-      "Bash(gh auth:*)",
-      "Bash(curl -s -o /tmp/gh-token-check.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-30%2FMiniMax-M2.7%2F2032733064890687709%2Fefdff1fcc1465b586fae1cf51d756564a3c6a3b1a55699a644a3f5fed7748759..png?Expires=1774941334&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=E%2Fauw5Fhu1GVtO7wIeVmN%2FywyOc%3D\")",
-      "Read(//tmp/**)",
-      "Bash(curl -s -o /tmp/gh-token.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-30%2FMiniMax-M2.7%2F2032733064890687709%2F0844fe81a72992c4a8a9a0125ff1e64919f876013fc1f284c32170957567f202..png?Expires=1774941353&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=lVFGzsoKzP%2B1p%2FSggR7XsBZzk9k%3D\")",
-      "Bash(curl -s -o /tmp/gh-token2.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-30%2FMiniMax-M2.7%2F2032733064890687709%2Ff90c97f8e2b8fbe5b7ee596bb9252c3f723d7549122cb8082a285d6590402640..png?Expires=1774941459&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=bgmh0eb%2FQ7%2BP1DZZICSm0jE6ilw%3D\")",
-      "Bash(curl -s -o /tmp/gh-token3.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-30%2FMiniMax-M2.7%2F2032733064890687709%2F01271089a9e1018e733c1c9aa1d7e52cccb17287a4c02b5d03402e824c804ec7..png?Expires=1774941545&OSSAccessKeyId=LTAI5tGLnRTkBJLuYPjNcKQ8&Signature=YqngsE3qHrVWYrNWGtcQ6Piz1dA%3D\")",
-      "Bash(curl -s -o /tmp/gh-token4.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-30%2FMiniMax-M2.7%2F2032733064890687709%2Fd88eaace643623d9bd3263c8e085bef0aeddccaad8d0a84e14773ffd0cdddce5..png?Expires=1774941718&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=71RwhU64Av75JAaMfG45xC4LrnI%3D\")",
-      "Bash(curl -s -o /tmp/gh-token5.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-30%2FMiniMax-M2.7%2F2032733064890687709%2F0aaca97b6fc4bdf4a24b6d3e3d5fd3d4ecf5b28ea71ecf12bed36b7729de4643..png?Expires=1774941960&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=xsbf8enbi9BCcWmNKr3qtqa4yMk%3D\")",
-      "Bash(curl -s -o /tmp/gh-repo.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-30%2FMiniMax-M2.7%2F2032733064890687709%2F9f9a312fa9467ccb347e2f50066abcb157057c394a7dc1a03cf74d0e18c4b30b..png?Expires=1774942263&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=7FKwToJPKtlcL%2FAaEiJFsrPdlpQ%3D\")",
-      "Bash(curl -s -o /tmp/gh-token6.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-30%2FMiniMax-M2.7%2F2032733064890687709%2Faa269e0121736f669462447475803b5354fa83c7f2732751dee077d2d863b556..png?Expires=1774942899&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=dpJ8JAdBy6JETbqMMDU97hbDgso%3D\")",
-      "Bash(curl -s -o /tmp/gh-token7.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-30%2FMiniMax-M2.7%2F2032733064890687709%2F8913ba73e76ea9f5ae2aa906bda9668562975ab3e92f845ab39f46cee90dd3b5..png?Expires=1774942918&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=vUZYxGaE5qo9F7esbKoXJ0jPXkQ%3D\")",
-      "Bash(gh --version)",
-      "Bash(security find-internet-password:*)",
-      "Bash(osascript -e 'tell application \"\"System Events\"\" to keystroke return')",
-      "Bash(open \"https://github.com/login/device\")",
-      "Bash(curl -s -o /tmp/gh-login.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-30%2FMiniMax-M2.7%2F2032733064890687709%2F9a38bdecb7a7ce4d728840ec41c1315e781bf385086c8edd9be7e527f3a648bd..png?Expires=1774943338&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=AJNMFAUBim%2FHhn5vX9I5l%2FZ%2F6QQ%3D\")",
-      "Bash(gh repo:*)",
-      "Bash(curl -s -o /tmp/netlify1.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-30%2FMiniMax-M2.7%2F2032733064890687709%2F8b990bc70d70cce530a7e2809b19d0b51059d71eb0fdb73f037b4b9a3e692619..png?Expires=1774943694&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=YX6f%2BOQaXy2VuH00FBYcocuinBs%3D\")",
-      "Bash(curl -s -o /tmp/netlify2.png \"https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-03-30%2FMiniMax-M2.7%2F2032733064890687709%2F39829fbc12405f8550aea571e8eafba6375f3ee81376ea5b86a0137bf1d2d499..png?Expires=1774945565&OSSAccessKeyId=LTAI5tGLnRTkBJLuYPjNcKQ8&Signature=vd78VA%2BgEYFCPVtcCyacjYCj540%3D\")",
-      "WebFetch(domain:zhuanlan.zhihu.com)",
-      "WebFetch(domain:www.zhihu.com)",
-      "WebFetch(domain:microsoft.github.io)",
-      "WebFetch(domain:www.datalearner.com)",
-      "WebFetch(domain:www.aliyun.com)",
-      "WebFetch(domain:www.aiavt.com.cn)",
-      "WebFetch(domain:www.51cto.com)",
-      "WebFetch(domain:juejin.cn)",
-      "WebFetch(domain:aistudio.baidu.com)",
-      "WebFetch(domain:www.datasciencecentral.com)",
-      "WebFetch(domain:aibusiness.techradar.com)",
-      "WebFetch(domain:blog.csdn.net)",
-      "WebFetch(domain:search.bilibili.com)",
-      "Bash(curl -s \"https://api.bilibili.com/x/web-interface/search/type?search_type=upuser&keyword=%E6%9D%8E%E6%B2%90&order=search_rank&platform=web&jsonp=jsonp\")",
-      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(u[''''uname''''], u[''''mid''''], u[''''usign'''']\\) for u in d[''''data''''][''''result''''][:5]]\")",
-      "Bash(open -a \"Visual Studio Code\" \"/Users/zhangshuquan/项目工作台/项目工作区/项目-OpenClaw/\")",
-      "Bash(curl -s \"https://api.bilibili.com/x/web-interface/search/type?search_type=upuser&keyword=%E6%9D%8E%E6%B2%90&order=search_rank&platform=web&page_size=5\")",
-      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); results=d.get\\(''''data'''',{}\\).get\\(''''result'''',[]\\); print\\(''''李沐 results:''''\\); [print\\(f''''  {u[\"\"uname\"\"]} | mid={u[\"\"mid\"\"]} | fans={u.get\\(\"\"fans\"\", \"\"N/A\"\"\\)}''''\\) for u in results[:5]]\")",
-      "Bash(curl -s -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" \"https://api.bilibili.com/x/web-interface/search/type?search_type=upuser&keyword=%E5%90%8C%E6%B5%8E%E5%AD%90%E8%B1%90%E5%85%84&order=fans&platform=web&page_size=5\")",
-      "Bash(python3 -c \":*)",
-      "Bash(curl -s -L --max-time 10 -o /dev/null -w \"%{http_code}\" \"https://www.bilibili.com\")",
-      "WebFetch(domain:space.bilibili.com)",
-      "Bash(curl -v -s --max-time 15 -H \"User-Agent: Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" -H \"Referer: https://www.bilibili.com\" -H \"Origin: https://www.bilibili.com\" \"https://api.bilibili.com/x/web-interface/search/type?search_type=upuser&keyword=%E5%90%8C%E6%B5%8E%E5%AD%90%E8%B1%90%E5%85%84&order=fans&platform=web&page_size=5\")",
-      "WebFetch(domain:www.google.com)",
-      "WebFetch(domain:www.bing.com)",
-      "WebFetch(domain:cn.bing.com)",
-      "WebFetch(domain:www.baidu.com)",
-      "Bash(curl -s --max-time 15 -H \"User-Agent: Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" -H \"Referer: https://www.bilibili.com\" -H \"Cookie: SESSDATA=abc\" \"https://space.bilibili.com/28179430\")",
-      "WebFetch(domain:baike.baidu.com)",
-      "WebFetch(domain:en.wikipedia.org)",
-      "WebFetch(domain:zh.wikipedia.org)",
-      "WebFetch(domain:duckduckgo.com)",
-      "WebFetch(domain:www.sogou.com)",
-      "WebFetch(domain:36kr.com)",
-      "WebFetch(domain:www.36kr.com)",
-      "WebFetch(domain:www.uisdc.com)",
-      "WebFetch(domain:www.yuque.com)",
-      "WebFetch(domain:www.woshipm.com)",
-      "WebFetch(domain:www.aliyundrive.com)",
-      "WebFetch(domain:www.bilibili.com)",
-      "WebFetch(domain:www.lesikai.com)",
-      "Bash(opencli --help)",
-      "Bash(curl -s --user-agent \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" \"https://api.bilibili.com/x/web-interface/search/type?search_type=upuser&keyword=%E6%9D%8E%E6%B2%90&order=search_rank&platform=web&jsonp=jsonp\")",
-      "Bash(curl -sL --user-agent \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" \"https://api.bilibili.com/x/web-interface/search/type?search_type=upuser&keyword=%E6%9D%8E%E6%B2%90&order=search_rank&platform=web\")",
-      "Bash(opencli search:*)",
-      "Bash(opencli cascade:*)",
-      "Bash(opencli probe:*)",
-      "WebFetch(domain:so.360.cn)",
-      "WebFetch(domain:www.so.com)",
-      "Bash(opencli list:*)",
-      "WebFetch(domain:so.bing.ws)",
-      "Bash(opencli --version)",
-      "Bash(opencli bilibili:*)",
-      "Bash(gh run:*)",
-      "Bash(netlify status:*)",
-      "Bash(netlify deploys:*)",
-      "Bash(netlify api:*)",
-      "WebFetch(domain:mellifluous-mooncake-9f7c3c.netlify.app)",
-      "WebFetch(domain:69cbb20f299c732ee6a6e5e2--mellifluous-mooncake-9f7c3c.netlify.app)",
-      "WebFetch(domain:weixin.sogou.com)",
-      "WebFetch(domain:www.jiqizhixin.com)",
-      "WebFetch(domain:www.qbitai.com)",
-      "WebFetch(domain:paperweekly.site)",
-      "WebFetch(domain:www.aim.cafe)",
-      "WebFetch(domain:www.wechat.com)",
-      "Bash(curl -s \"https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI3OTUwMzQxNA==\" -o /dev/null -w \"%{http_code}\")",
-      "Bash(curl -sL \"https://weixin.sogou.com/weixin?type=1&query=%E6%9C%BA%E5%99%A8%E4%B9%8B%E5%BF%83&ie=utf8\" -H \"User-Agent: Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36\")",
-      "WebFetch(domain:weixin.qq.com)",
-      "Bash(curl -sL \"https://weixin.sogou.com/weixin?type=1&query=%E6%9C%BA%E5%99%A8%E4%B9%8B%E5%BF%83&ie=utf8\" -H \"User-Agent: Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\")",
-      "Bash(curl -sL \"https://weixin.sogou.com/weixin?type=2&query=%E6%9C%BA%E5%99%A8%E4%B9%8B%E5%BF%83&ie=utf8\" -H \"User-Agent: Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36\")"
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/session-start.py",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/session-start.py",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/session-start.py",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "start",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/session-start.py",
+            "timeout": 10
+          }
+        ]
+      }
     ],
-    "additionalDirectories": [
-      "/Users/zhangshuquan/.claude",
-      "/Users/zhangshuquan/项目工作台/项目工作区/项目 ai教育培训/node_modules"
+    "PreToolUse": [
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/inject-subagent-context.py",
+            "timeout": 30
+          }
+        ]
+      },
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/inject-subagent-context.py",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "check",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/ralph-loop.py",
+            "timeout": 10
+          }
+        ]
+      }
     ]
-  }
+  },
+  "enabledPlugins": {}
 }

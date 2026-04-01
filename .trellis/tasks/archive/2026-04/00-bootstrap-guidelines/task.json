@@ -1,0 +1,35 @@
+{
+  "id": "00-bootstrap-guidelines",
+  "name": "Bootstrap Guidelines",
+  "description": "Fill in project development guidelines for AI agents based on the current repository",
+  "status": "completed",
+  "dev_type": "docs",
+  "priority": "P1",
+  "creator": "hywlzx",
+  "assignee": "hywlzx",
+  "createdAt": "2026-04-01",
+  "completedAt": "2026-04-01",
+  "commit": null,
+  "subtasks": [
+    {
+      "name": "Fill backend guidelines",
+      "status": "pending"
+    },
+    {
+      "name": "Fill frontend guidelines",
+      "status": "pending"
+    },
+    {
+      "name": "Add code examples",
+      "status": "pending"
+    }
+  ],
+  "children": [],
+  "parent": null,
+  "relatedFiles": [
+    ".trellis/spec/backend/",
+    ".trellis/spec/frontend/"
+  ],
+  "notes": "Bootstrap task reconstructed from the existing repository because the task directory was present but empty.",
+  "meta": {}
+}

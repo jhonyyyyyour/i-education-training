@@ -1,0 +1,24 @@
+<svg width="1120" height="260" viewBox="0 0 1120 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="brandAccent" x1="46" y1="34" x2="204" y2="198" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8894F"/>
+      <stop offset="1" stop-color="#CF642A"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="40" y="34" width="170" height="170" rx="30" fill="#18212B"/>
+  <rect x="52" y="46" width="146" height="146" rx="22" stroke="#2A3440" stroke-width="2"/>
+  <rect x="58" y="52" width="48" height="48" rx="14" fill="url(#brandAccent)"/>
+  <path d="M83 66L93 76L83 86L73 76L83 66Z" fill="#FFF8F1"/>
+  <path d="M82 109H161L145 127H114L160 127L101 179H161L145 196H79L138 144H101L82 163V109Z" fill="#F8F4EE"/>
+  <rect x="150" y="60" width="22" height="22" rx="8" fill="#F2E6D8"/>
+
+  <text x="252" y="110" fill="#18212B" font-size="58" font-weight="800" font-family="PingFang SC, Microsoft YaHei, sans-serif" letter-spacing="-0.03em">正派青年AIGC</text>
+  <text x="255" y="151" fill="#576170" font-size="20" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" letter-spacing="0.18em">ZHENGPAI YOUTH AIGC EDUCATION</text>
+  <rect x="255" y="174" width="318" height="3" rx="1.5" fill="#D9C7B6"/>
+  <text x="255" y="211" fill="#7E6959" font-size="19" font-weight="600" font-family="PingFang SC, Microsoft YaHei, sans-serif">零基础也能上手 · 让AI真正走进更多人的生活</text>
+  <text x="748" y="90" fill="#9AA3AE" font-size="14" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" letter-spacing="0.22em">OFFICIAL BRAND</text>
+  <rect x="748" y="107" width="244" height="1.5" rx="0.75" fill="#E5DED5"/>
+  <text x="748" y="141" fill="#2A313A" font-size="26" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">让每个人都能体验AI的魅力</text>
+  <text x="748" y="182" fill="#7C848E" font-size="16" font-weight="500" font-family="PingFang SC, Microsoft YaHei, sans-serif">从看得懂、学得会，到真正用得上</text>
+</svg>
