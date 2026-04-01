@@ -101,3 +101,35 @@ Created the /trellis:generate-page command in Claude and Cursor command director
 ### Next Steps
 
 - None - task complete
+
+
+## Session 4: 新增 close-task 收尾命令
+
+**Date**: 2026-04-01
+**Task**: 新增 close-task 收尾命令
+
+### Summary
+
+新增 /trellis:close-task 命令，整合任务归档、worktree 清理、规范检查、commit 与 session 记录流程，并补充 workflow.md 命令列表。
+
+### Main Changes
+
+
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `e84d01a` | (see git log) |
+
+### Testing
+
+- [OK] (Add test results)
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
