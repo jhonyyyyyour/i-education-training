@@ -4,48 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>第六课 · AI学习渠道</title>
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f8f7f4; color: #1a1a1a; line-height: 1.65; font-size: 22px; -webkit-font-smoothing: antialiased; }
-    a { color: inherit; text-decoration: none; }
-    a:hover { text-decoration: none; }
-    .layout { display: flex; min-height: 100vh; }
-    .sidebar { width: 244px; flex-shrink: 0; border-right: 1px solid #e9e9e7; padding: 32px 20px; position: sticky; top: 0; height: 100vh; overflow-y: auto; background: #ffffff; }
-    .sidebar-logo { font-size: 14px; font-weight: 600; margin-bottom: 24px; color: #1a1a1a; padding: 6px 0; }
-    .sidebar-logo span { color: #9b9a97; font-weight: 400; }
-    .sidebar-section { margin-bottom: 20px; }
-    .sidebar-title { font-size: 11px; font-weight: 600; color: #9b9a97; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
-    .sidebar-link { display: block; font-size: 14px; color: #555555; padding: 6px 10px; border-radius: 6px; margin-bottom: 2px; text-decoration: none; transition: background 0.15s, color 0.15s; }
-    .sidebar-link:hover { background: #f0ede8; color: #1a1a1a; text-decoration: none; }
-    .sidebar-link.active { color: #d46a2f; font-weight: 600; background: #fff5ee; }
-    .main { flex: 1; padding: 64px 80px; max-width: 960px; }
-    .page-label { font-size: 12px; font-weight: 600; color: #d46a2f; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
-    h1 { font-size: 42px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 14px; color: #1a1a1a; }
-    .subtitle { font-size: 20px; color: #666666; margin-bottom: 44px; line-height: 1.6; }
-    h2 { font-size: 22px; font-weight: 700; margin: 52px 0 18px; color: #1a1a1a; padding-top: 44px; border-top: 1px solid #e9e9e7; letter-spacing: -0.01em; }
-    p { margin-bottom: 12px; font-size: 16px; color: #1a1a1a; }
-    .section-intro { font-size: 15px; color: #888888; margin-bottom: 20px; }
-    .resource-card { border: 1px solid #e9e9e7; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; background: #ffffff; transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s; }
-    .resource-card:hover { border-color: #d46a2f; box-shadow: 0 4px 16px rgba(212,106,47,0.12); transform: translateY(-2px); }
-    .resource-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 7px; color: #1a1a1a; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
-    .resource-card h4 .platform-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; background: linear-gradient(135deg, #f7f6f3, #f0ede8); border: 1px solid #e0ddd8; border-radius: 20px; color: #888888; flex-shrink: 0; letter-spacing: 0.02em; }
-    .resource-card h4 .link-icon { font-size: 12px; color: #d46a2f; flex-shrink: 0; }
-    .resource-card h4 a { color: #1a1a1a; text-decoration: none; transition: color 0.15s; }
-    .resource-card h4 a:hover { color: #d46a2f; text-decoration: underline; }
-    .resource-card p { font-size: 14px; color: #666666; margin-bottom: 0; line-height: 1.65; }
-    .highlight-box { border-left: 4px solid #d46a2f; padding: 14px 18px; margin: 14px 0 28px; background: linear-gradient(to right, #fffaf5, #fffcf9); border-radius: 0 8px 8px 0; font-size: 15px; box-shadow: 0 1px 4px rgba(212,106,47,0.06); }
-    .bottom-nav { display: flex; gap: 8px; padding: 40px 0 32px; border-top: 1px solid #e9e9e7; margin-top: 44px; }
-    .bottom-nav a { display: inline-flex; align-items: center; gap: 4px; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.15s, transform 0.15s; }
-    .nav-prev { background: #ffffff; color: #1a1a1a; border: 1px solid #e9e9e7; }
-    .nav-prev:hover { background: #f7f6f3; transform: translateX(-2px); text-decoration: none; }
-    .spacer { height: 48px; }
-    footer { padding: 28px 0; border-top: 1px solid #e9e9e7; font-size: 13px; color: #b0aaa0; text-align: center; }
-    @media (max-width: 768px) {
-      .layout { flex-direction: column; }
-      .sidebar { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid #e9e9e7; }
-      .main { padding: 32px 20px; }
-      h1 { font-size: 28px; }
-    }
+    .resource-card:hover { border-color: #d46a2f; box-shadow: 0 4px 16px rgba(212,106,47,0.12); }
+    .highlight-box { margin: 14px 0 28px; }
   </style>
 </head>
 <body>
@@ -68,6 +30,7 @@
     </div>
   </aside>
   <main class="main">
+    <div style="margin-bottom: 16px;"><a href="index.html" style="font-size: 14px; color: #999; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">← 返回首页</a></div>
     <div class="page-label">第六课 · 资源推荐</div>
     <h1>中文世界AI学习渠道推荐</h1>
     <p class="subtitle">学AI，光靠课程不够，需要持续的信息输入。这里整理了真正有价值的公众号、B站博主和网站。</p>
@@ -105,6 +68,10 @@
 
     <h2>B站UP主推荐</h2>
 
+    <div class="resource-card">
+      <h4><span class="platform-tag">B站</span><a href="https://space.bilibili.com/3546578281302248" target="_blank">正派青年Official <span class="link-icon">↗</span></a></h4>
+      <p>本站由我们团队制作与整理，课程内容也会结合我们在 B 站「正派青年Official」持续更新的AI认知、工具实操和项目演示内容，方便学员课后继续跟进学习。</p>
+    </div>
     <div class="resource-card">
       <h4><span class="platform-tag">B站</span><a href="https://space.bilibili.com/1567748478" target="_blank">李沐 <span class="link-icon">↗</span></a></h4>
       <p>亚马逊首席科学家，深度解读AI论文 + 实战项目讲解。沐神本身是顶级研究者，讲论文深入浅出，配有代码实战，B站AI学习天花板。</p>
@@ -164,5 +131,34 @@
     <div class="spacer"></div>
   </main>
 </div>
+
+
+    <div id="lesson-complete-btn" style="text-align:center;padding:36px 0 20px;border-top:1px solid var(--line);margin-top:44px;">
+      <button onclick="markComplete(6)" id="completeBtn" style="background:linear-gradient(135deg,#d46a2f,#e07a42);color:#fff;border:none;border-radius:50px;padding:14px 36px;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(212,106,47,0.35);transition:all 0.2s;">
+        ✅ 标记为已学习
+      </button>
+      <p id="complete-tip" style="font-size:12px;color:#c0b8b0;margin-top:10px;margin-bottom:0;"></p>
+    </div>
+    <script>
+    (function(){
+      var TOTAL=7,key='ai-course-progress';
+      var done=JSON.parse(localStorage.getItem(key)||'[]');
+      var num=6;
+      var btn=document.getElementById('completeBtn');
+      var tip=document.getElementById('complete-tip');
+      if(done.includes(num)){
+        if(btn){btn.textContent='✓ 已学习';btn.style.opacity='0.7';btn.style.cursor='default';}
+        if(tip)tip.textContent='你已完成这一课！';
+      }
+      window.markComplete=function(n){
+        var d=JSON.parse(localStorage.getItem(key)||'[]');
+        if(!d.includes(n)){d.push(n);localStorage.setItem(key,JSON.stringify(d));}
+        if(btn){btn.textContent='✓ 已学习';btn.style.opacity='0.7';btn.style.cursor='default';}
+        if(tip)tip.textContent='✓ 已记录！去首页看看你的进度吧 🎉';
+      };
+    })();
+    </script>
+
+<script>const sidebar=document.querySelector('.sidebar');if(sidebar)sidebar.querySelector('.sidebar-logo').onclick=()=>sidebar.classList.toggle('expanded');</script>
 </body>
 </html>
