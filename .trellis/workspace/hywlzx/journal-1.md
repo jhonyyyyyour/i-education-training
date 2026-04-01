@@ -165,3 +165,35 @@ Merged the latest main branch style refresh into a new integration branch, prese
 ### Next Steps
 
 - None - task complete
+
+
+## Session 6: Sync homepage latest updates with generate-page workflow
+
+**Date**: 2026-04-01
+**Task**: Sync homepage latest updates with generate-page workflow
+
+### Summary
+
+Updated the homepage latest-updates section to feature the RTK guide and revised both generate-page command docs so future page generation also checks and syncs homepage latest updates.
+
+### Main Changes
+
+
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `b7a06ee` | (see git log) |
+
+### Testing
+
+- [OK] (Add test results)
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
