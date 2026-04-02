@@ -106,3 +106,38 @@ Migrated the homepage and lessons 01-06 into the shared Eleventy layout/data flo
 ### Next Steps
 
 - None - task complete
+
+
+## Session 4: Migrate resource pages into Eleventy
+
+**Date**: 2026-04-02
+**Task**: Migrate resource pages into Eleventy
+
+### Summary
+
+Migrated remaining resource and standalone pages into the Eleventy pipeline and verified the new pages with Playwright.
+
+### Main Changes
+
+- Migrated `lesson-07.html`, `rtk-install-guide.html`, `student-guide.html`, and `codex-first-lesson.html` from passthrough `public/` pages into Eleventy `site/` sources.
+- Removed old passthrough handling in `.eleventy.js` for those pages and updated centralized content metadata plus shared search label logic for non-lesson entries.
+- Rebuilt `docs/` output, smoke-tested the migrated pages with Playwright, and archived the completed `04-02-migrate-resource-pages` Trellis task.
+
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `c51fa71` | (see git log) |
+
+### Testing
+
+- [OK] (Add test results)
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
