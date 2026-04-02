@@ -212,3 +212,39 @@ Archived the parent static-site refactor task, removed legacy public page source
 ### Next Steps
 
 - None - task complete
+
+
+## Session 7: Fix learning channels page semantics
+
+**Date**: 2026-04-02
+**Task**: Fix learning channels page semantics
+
+### Summary
+
+Restored learning channels as a resource page and tightened generate-page rules.
+
+### Main Changes
+
+- removed the incorrect prompt-advanced lesson and restored the site to a 6-course + resource structure
+- renamed the learning channels page from a lesson-style slug to `learning-channels.html` so it no longer occupies a numbered lesson slot or progress entry
+- updated frontend specs and generate-page command docs to forbid exposing internal retrieval/generation caveats inside end-user page content
+- rebuilt Eleventy output and verified generated docs no longer reference the removed lesson page
+
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `d446c75` | (see git log) |
+
+### Testing
+
+- [OK] (Add test results)
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
