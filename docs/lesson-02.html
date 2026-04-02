@@ -408,7 +408,7 @@ if(sidebarToggle) sidebarToggle.onclick = () => sidebar.classList.toggle('expand
       var title = entry.title || '';
       var description = entry.description || '';
       if(title.toLowerCase().indexOf(lc) !== -1 || description.toLowerCase().indexOf(lc) !== -1) {
-        var tagClass = typeof entry.badge === 'number' ? 'result-num' : 'result-num resource';
+        var tagClass = entry.contentType === 'lesson' ? 'result-num' : 'result-num resource';
         var tag = '<span class="' + tagClass + '">' + entry.displayBadge + '</span>';
         html += '<a href="' + entry.url + '" class="search-result-item">' + tag + '<div><div class="result-title">' + title + '</div><div class="result-type">' + description + '</div></div></a>';
       }

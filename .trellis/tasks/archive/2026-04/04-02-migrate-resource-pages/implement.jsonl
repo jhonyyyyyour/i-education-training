@@ -1,0 +1,9 @@
+{"file": ".trellis/workflow.md", "reason": "Project workflow and conventions"}
+{"file": ".trellis/spec/frontend/index.md", "reason": "Frontend development guide"}
+{"file": ".trellis/spec/frontend/component-guidelines.md", "reason": "Reuse shared layout and page-local style patterns for migrated pages"}
+{"file": ".trellis/spec/frontend/hook-guidelines.md", "reason": "Keep inline page scripts simple and aligned with existing search/progress patterns"}
+{"file": ".trellis/spec/frontend/quality-guidelines.md", "reason": "Edit site sources, preserve flat URLs, and verify build output behavior"}
+{"file": ".trellis/spec/guides/code-reuse-thinking-guide.md", "reason": "Reuse existing Eleventy patterns and centralized metadata instead of duplicating page logic"}
+{"file": "site/_includes/layouts/course-shell.njk", "reason": "Follow current course-page Eleventy shell for lesson-style pages"}
+{"file": "site/_data/contentIndex.js", "reason": "Update centralized navigation/search/progress metadata for migrated pages"}
+{"file": ".eleventy.js", "reason": "Remove passthrough fallbacks once pages are migrated into site sources"}

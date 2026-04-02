@@ -5,6 +5,7 @@ description: Preview page for centralized Eleventy metadata and shared includes.
 permalink: metadata-preview.html
 currentPageUrl: lesson-01.html
 ---
+{% set sidebarEntryCount = contentIndex.sidebarGroups[0].items.length + contentIndex.sidebarGroups[1].items.length %}
 <div class="back-link"><a href="index.html">← 返回首页</a></div>
 {% set label = "共享数据预览" %}
 {% include "partials/page-label.njk" %}
@@ -14,7 +15,7 @@ currentPageUrl: lesson-01.html
 <section class="card" style="padding: 24px; margin-bottom: 24px;">
   <h2 style="margin-bottom: 12px;">共享索引摘要</h2>
   <ul style="padding-left: 24px; color: #666666;">
-    <li>Sidebar entries: <strong>{{ contentIndex.entries.length }}</strong></li>
+    <li>Sidebar entries: <strong>{{ sidebarEntryCount }}</strong></li>
     <li>Progress total: <strong>{{ progress.total }}</strong></li>
     <li>Catalog entries: <strong>{{ homepage.catalogItems.length }}</strong></li>
     <li>Latest updates: <strong>{{ homepage.latestUpdates.length }}</strong></li>

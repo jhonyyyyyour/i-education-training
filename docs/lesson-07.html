@@ -1,39 +1,62 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>学习渠道 · AI教育培训</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>学习渠道 · AI教育培训</title>
+    
+    <meta name="description" content="学AI，光靠课程不够，需要持续的信息输入。这里整理了真正有价值的公众号、B站博主和网站。" />
+    
+    <link rel="stylesheet" href="styles.css" />
+    
+<style>
     .resource-card:hover { border-color: #d46a2f; box-shadow: 0 4px 16px rgba(212,106,47,0.12); }
     .highlight-box { margin: 14px 0 28px; }
-  </style>
-</head>
-<body>
-<div class="layout">
-  <aside class="sidebar">
-    <div class="sidebar-logo"><a href="index.html" class="sidebar-logo-link" data-home-hint="点击进入首页"><small>正派青年</small>AI教育培训 <span>· 课程</span></a><button class="sidebar-toggle" type="button">菜单</button></div>
-    <div class="sidebar-section">
-      <div class="sidebar-title">课程</div>
-      <a href="lesson-01.html" class="sidebar-link">第一课 · Codex入门</a>
-      <a href="lesson-02.html" class="sidebar-link">第二课 · 上手 Codex</a>
-      <a href="lesson-03.html" class="sidebar-link">第三课 · AI提问</a>
-      <a href="lesson-04.html" class="sidebar-link">第四课 · Agent</a>
-      <a href="lesson-05.html" class="sidebar-link">第五课 · Skills</a>
-      <a href="lesson-06.html" class="sidebar-link">第六课 · 模型对比</a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-title">资源</div>
-      <a href="lesson-07.html" class="sidebar-link active">学习渠道</a>
-      <a href="rtk-install-guide.html" class="sidebar-link">RTK 安装与配置教程</a>
-    </div>
-    <button class="search-trigger" type="button">
-      🔍 搜索课程
-      <span class="kbd">⌘K</span>
-    </button>
-  </aside>
+  
+</style>
+
+    
+  </head>
+  <body>
+    <div class="layout">
+  
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="index.html" class="sidebar-logo-link" data-home-hint="点击进入首页"><small>正派青年</small>AI教育培训 <span>· 课程</span></a><button class="sidebar-toggle" type="button">菜单</button></div>
+  
+  <div class="sidebar-section">
+    <div class="sidebar-title">课程</div>
+    
+    <a href="lesson-01.html" class="sidebar-link">第一课 · Codex入门</a>
+    
+    <a href="lesson-02.html" class="sidebar-link">第二课 · 上手 Codex</a>
+    
+    <a href="lesson-03.html" class="sidebar-link">第三课 · AI提问</a>
+    
+    <a href="lesson-04.html" class="sidebar-link">第四课 · Agent</a>
+    
+    <a href="lesson-05.html" class="sidebar-link">第五课 · Skills</a>
+    
+    <a href="lesson-06.html" class="sidebar-link">第六课 · 模型对比</a>
+    
+  </div>
+  
+  <div class="sidebar-section">
+    <div class="sidebar-title">资源</div>
+    
+    <a href="lesson-07.html" class="sidebar-link active">学习渠道</a>
+    
+    <a href="rtk-install-guide.html" class="sidebar-link">RTK 安装与配置教程</a>
+    
+  </div>
+  
+  <button class="search-trigger" type="button">
+    🔍 搜索课程
+    <span class="kbd">⌘K</span>
+  </button>
+</aside>
+
   <main class="main">
+    
     <div style="margin-bottom: 16px;"><a href="index.html" style="font-size: 14px; color: #999; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">← 返回首页</a></div>
     <div class="page-label">资源 · 学习渠道</div>
     <h1>中文世界AI学习渠道推荐</h1>
@@ -142,39 +165,16 @@
     </div>
     <footer>正派青年AIGC · AI教育培训 · 让每个人都能体验AI的魅力</footer>
     <div class="spacer"></div>
-  </main>
+<div data-progress-scope="7" id="lesson-complete-btn" style="text-align:center;padding:36px 0 20px;border-top:1px solid var(--line);margin-top:44px;">
+  <button onclick="markComplete(7)" id="completeBtn" style="background:linear-gradient(135deg,#d46a2f,#e07a42);color:#fff;border:none;border-radius:50px;padding:14px 36px;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(212,106,47,0.35);transition:all 0.2s;">
+    ✅ 标记为已学习
+  </button>
+  <p id="complete-tip" style="font-size:12px;color:#c0b8b0;margin-top:10px;margin-bottom:0;"></p>
 </div>
 
-
-    <div id="lesson-complete-btn" style="text-align:center;padding:36px 0 20px;border-top:1px solid var(--line);margin-top:44px;">
-      <button onclick="markComplete(7)" id="completeBtn" style="background:linear-gradient(135deg,#d46a2f,#e07a42);color:#fff;border:none;border-radius:50px;padding:14px 36px;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(212,106,47,0.35);transition:all 0.2s;">
-        ✅ 标记为已学习
-      </button>
-      <p id="complete-tip" style="font-size:12px;color:#c0b8b0;margin-top:10px;margin-bottom:0;"></p>
-    </div>
-    <script>
-    (function(){
-      var TOTAL=7,key='ai-course-progress';
-      var done=JSON.parse(localStorage.getItem(key)||'[]');
-      var num=7;
-      var btn=document.getElementById('completeBtn');
-      var tip=document.getElementById('complete-tip');
-      if(done.includes(num)){
-        if(btn){btn.textContent='✓ 已学习';btn.style.opacity='0.7';btn.style.cursor='default';}
-        if(tip)tip.textContent='你已完成这一课！';
-      }
-      window.markComplete=function(n){
-        var d=JSON.parse(localStorage.getItem(key)||'[]');
-        if(!d.includes(n)){d.push(n);localStorage.setItem(key,JSON.stringify(d));}
-        if(btn){btn.textContent='✓ 已学习';btn.style.opacity='0.7';btn.style.cursor='default';}
-        if(tip)tip.textContent='✓ 已记录！去首页看看你的进度吧 🎉';
-      };
-    })();
-    </script>
-
-<script>const sidebar=document.querySelector('.sidebar');const sidebarToggle=sidebar?sidebar.querySelector('.sidebar-toggle'):null;if(sidebarToggle)sidebarToggle.onclick=()=>sidebar.classList.toggle('expanded');</script>
-
-<!-- 搜索弹窗 -->
+  </main>
+  
+</div>
 <div class="search-overlay" id="searchOverlay">
   <div class="search-box">
     <div class="search-input-wrap">
@@ -187,42 +187,105 @@
 </div>
 
 <script>
+const sidebar = document.querySelector('.sidebar');
+const sidebarToggle = sidebar ? sidebar.querySelector('.sidebar-toggle') : null;
+if(sidebarToggle) sidebarToggle.onclick = () => sidebar.classList.toggle('expanded');
+</script>
+
+<script>
 (function(){
-  var lessons = [
-    {n:1, t:"Codex入门：装好、打开、体验一下", d:"Mac/Windows · 跟着做30分钟 · 做出第一个网页", u:"lesson-01.html"},
-    {n:2, t:"上手 Codex：文件夹管理", d:"文件夹 + 线程 · 组织项目 · 实战入门", u:"lesson-02.html"},
-    {n:3, t:"AI提问入门：问得好才能答得好", d:"4步提问法 · 3个实战场景 · 万能模板", u:"lesson-03.html"},
-    {n:4, t:"Agent是什么？为什么一定要做？", d:"通俗解释 · 面向零基础 · 无技术术语", u:"lesson-04.html"},
-    {n:5, t:"Skills是什么？怎么用？", d:"Skills入门 · 实战案例 · 安装与使用", u:"lesson-05.html"},
-    {n:6, t:"国产 vs 国外大模型对比", d:"2026年3月最新 · 各模型优势 · 推荐场景 · 选型指南", u:"lesson-06.html"},
-    {n:"资源", t:"学习渠道", d:"公众号 · B站UP主 · 学习平台推荐", u:"lesson-07.html"},
-    {n:"工具", t:"RTK 安装与配置教程", d:"重点讲 Windows · 二进制安装 · Claude Code 初始化", u:"rtk-install-guide.html"},
-  ];
+  var progressConfig = {"storageKey":"ai-course-progress","total":7,"entries":[{"id":"lesson-01","url":"lesson-01.html","badge":1,"displayBadge":"01","title":"Codex 入门：装好、打开、体验一下"},{"id":"lesson-02","url":"lesson-02.html","badge":2,"displayBadge":"02","title":"上手 Codex：文件夹管理"},{"id":"lesson-03","url":"lesson-03.html","badge":3,"displayBadge":"03","title":"AI提问入门：问得好才能答得好"},{"id":"lesson-04","url":"lesson-04.html","badge":4,"displayBadge":"04","title":"Agent是什么？为什么一定要做？"},{"id":"lesson-05","url":"lesson-05.html","badge":5,"displayBadge":"05","title":"Skills是什么？怎么用？"},{"id":"lesson-06","url":"lesson-06.html","badge":6,"displayBadge":"06","title":"国产 vs 国外大模型对比"},{"id":"lesson-07","url":"lesson-07.html","badge":7,"displayBadge":"资源","title":"学习渠道"}]};
+  var key = progressConfig.storageKey;
+  var total = progressConfig.total;
+  var done = JSON.parse(localStorage.getItem(key) || '[]');
+
+  var progressScope = document.querySelector('[data-progress-scope]');
+  if(progressScope) {
+    var lessonNumber = Number(progressScope.getAttribute('data-progress-scope'));
+    var btn = document.getElementById('completeBtn');
+    var tip = document.getElementById('complete-tip');
+    if(done.includes(lessonNumber)) {
+      if(btn) { btn.textContent = '✓ 已学习'; btn.style.opacity = '0.7'; btn.style.cursor = 'default'; }
+      if(tip) tip.textContent = '你已完成这一课！';
+    }
+    window.markComplete = function(n) {
+      var entries = JSON.parse(localStorage.getItem(key) || '[]');
+      if(!entries.includes(n)) {
+        entries.push(n);
+        localStorage.setItem(key, JSON.stringify(entries));
+      }
+      if(btn) { btn.textContent = '✓ 已学习'; btn.style.opacity = '0.7'; btn.style.cursor = 'default'; }
+      if(tip) tip.textContent = '✓ 已记录！去首页看看你的进度吧 🎉';
+    };
+  }
+
+  var siteProgress = document.getElementById('site-progress');
+  var progressBar = document.getElementById('progress-bar');
+  var progressText = document.getElementById('progress-text');
+  if(siteProgress && progressBar && progressText) {
+    if(done.length > 0) siteProgress.style.display = 'block';
+    var pct = total ? Math.round(done.length / total * 100) : 0;
+    progressBar.style.width = pct + '%';
+    progressText.textContent = done.length + '/' + total + ' 已完成';
+  }
+
+  document.querySelectorAll('.course-item').forEach(function(item) {
+    var href = item.getAttribute('href') || '';
+    var matchedEntry = progressConfig.entries.find(function(entry) {
+      return entry.url === href && typeof entry.badge === 'number';
+    });
+    if(matchedEntry && done.includes(matchedEntry.badge)) {
+      var arrow = item.querySelector('.course-arrow');
+      if(arrow) arrow.textContent = '✅';
+    }
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var entries = [{"id":"lesson-01","url":"lesson-01.html","title":"Codex 入门：装好、打开、体验一下","navTitle":"第一课 · Codex入门","description":"Mac/Windows · 跟着做30分钟 · 做出第一个网页","group":"course","contentType":"lesson","order":1,"badge":1,"displayBadge":"01","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-02","url":"lesson-02.html","title":"上手 Codex：文件夹管理","navTitle":"第二课 · 上手 Codex","description":"文件夹 + 线程 · 组织项目 · 实战入门","group":"course","contentType":"lesson","order":2,"badge":2,"displayBadge":"02","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-03","url":"lesson-03.html","title":"AI提问入门：问得好才能答得好","navTitle":"第三课 · AI提问","description":"4步提问法 · 3个实战场景 · 万能模板","group":"course","contentType":"lesson","order":3,"badge":3,"displayBadge":"03","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-04","url":"lesson-04.html","title":"Agent是什么？为什么一定要做？","navTitle":"第四课 · Agent","description":"通俗解释 · 面向零基础 · 无技术术语","group":"course","contentType":"lesson","order":4,"badge":4,"displayBadge":"04","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-05","url":"lesson-05.html","title":"Skills是什么？怎么用？","navTitle":"第五课 · Skills","description":"Skills入门 · 实战案例 · 安装与使用","group":"course","contentType":"lesson","order":5,"badge":5,"displayBadge":"05","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-06","url":"lesson-06.html","title":"国产 vs 国外大模型对比","navTitle":"第六课 · 模型对比","description":"2026年3月最新 · 各模型优势 · 推荐场景 · 选型指南","group":"course","contentType":"lesson","order":6,"badge":6,"displayBadge":"06","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-07","url":"lesson-07.html","title":"学习渠道","navTitle":"学习渠道","description":"公众号 · B站UP主 · 学习平台推荐","group":"resource","contentType":"resource","order":7,"badge":7,"displayBadge":"资源","trackProgress":true,"showInSidebar":true,"showInCatalog":false,"searchable":true,"catalogVariant":"lesson"},{"id":"rtk-install-guide","url":"rtk-install-guide.html","title":"RTK 安装与配置教程","navTitle":"RTK 安装与配置教程","description":"重点讲 Windows · 二进制安装 · Claude Code 初始化","group":"resource","contentType":"tool","order":8,"badge":"工具","displayBadge":"工具","trackProgress":false,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"non-lesson"}];
 
   function openSearch() {
-    document.getElementById('searchOverlay').classList.add('active');
-    setTimeout(function(){ document.getElementById('searchInput').focus(); }, 50);
+    var overlay = document.getElementById('searchOverlay');
+    var input = document.getElementById('searchInput');
+    if(!overlay) return;
+    overlay.classList.add('active');
+    setTimeout(function(){ if(input) input.focus(); }, 50);
   }
+
   function closeSearch() {
-    document.getElementById('searchOverlay').classList.remove('active');
-    document.getElementById('searchInput').value = '';
-    document.getElementById('searchResults').innerHTML = '';
+    var overlay = document.getElementById('searchOverlay');
+    var input = document.getElementById('searchInput');
+    var results = document.getElementById('searchResults');
+    if(overlay) overlay.classList.remove('active');
+    if(input) input.value = '';
+    if(results) results.innerHTML = '';
   }
-  function renderResults(q) {
+
+  window.closeSearch = closeSearch;
+
+  function renderResults(query) {
     var el = document.getElementById('searchResults');
-    if(!q) { el.innerHTML = ''; return; }
-    var html = '', lc = q.toLowerCase();
-    for(var i=0;i<lessons.length;i++) {
-      var l = lessons[i];
-      if(l.t.toLowerCase().indexOf(lc) !== -1 || l.d.toLowerCase().indexOf(lc) !== -1) {
-        var tag = typeof l.n === 'number' ? '<span class="result-num">0'+l.n+'</span>' : '<span class="result-num resource">'+l.n+'</span>';
-        html += '<a href="'+l.u+'" class="search-result-item" onclick="closeSearch()">'+tag+'<div><div class="result-title">'+l.t+'</div><div class="result-type">'+l.d+'</div></div></a>';
+    if(!el) return;
+    if(!query) { el.innerHTML = ''; return; }
+
+    var html = '';
+    var lc = query.toLowerCase();
+    for(var i = 0; i < entries.length; i++) {
+      var entry = entries[i];
+      var title = entry.title || '';
+      var description = entry.description || '';
+      if(title.toLowerCase().indexOf(lc) !== -1 || description.toLowerCase().indexOf(lc) !== -1) {
+        var tagClass = entry.contentType === 'lesson' ? 'result-num' : 'result-num resource';
+        var tag = '<span class="' + tagClass + '">' + entry.displayBadge + '</span>';
+        html += '<a href="' + entry.url + '" class="search-result-item">' + tag + '<div><div class="result-title">' + title + '</div><div class="result-type">' + description + '</div></div></a>';
       }
     }
+
     el.innerHTML = html || '<div class="search-no-result">没有找到相关课程</div>';
   }
 
-  // 触发按钮
   var overlay = document.getElementById('searchOverlay');
   var input = document.getElementById('searchInput');
   var results = document.getElementById('searchResults');
@@ -242,12 +305,15 @@
   document.querySelectorAll('.search-trigger').forEach(function(trigger){
     trigger.addEventListener('click', openSearch);
   });
-  // 键盘快捷键 Ctrl/Cmd+K
+
   document.addEventListener('keydown', function(e){
-    if((e.ctrlKey||e.metaKey) && e.key==='k') { e.preventDefault(); openSearch(); }
-    if(e.key==='Escape') closeSearch();
+    if((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      openSearch();
+    }
+    if(e.key === 'Escape') closeSearch();
   });
-  // 输入监听
+
   if(input) {
     input.addEventListener('input', function(){
       renderResults(this.value);
@@ -255,5 +321,8 @@
   }
 })();
 </script>
-</body>
+
+
+    
+  </body>
 </html>

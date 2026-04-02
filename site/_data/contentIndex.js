@@ -134,6 +134,40 @@ const entries = [
     showInCatalog: true,
     searchable: true,
     catalogVariant: "non-lesson"
+  },
+  {
+    id: "student-guide",
+    url: "student-guide.html",
+    title: "零基础用 Codex 做你的第一个网页",
+    navTitle: "Codex 学员指南",
+    description: "30分钟完成 · 零基础友好 · 跟着做就行",
+    group: "resource",
+    contentType: "guide",
+    order: 9,
+    badge: "指南",
+    displayBadge: "指南",
+    trackProgress: false,
+    showInSidebar: false,
+    showInCatalog: false,
+    searchable: false,
+    catalogVariant: "non-lesson"
+  },
+  {
+    id: "codex-first-lesson",
+    url: "codex-first-lesson.html",
+    title: "Codex 第一期教学提案",
+    navTitle: "Codex 第一期教学提案",
+    description: "问卷结论 · 预热文案 · 安装方法 · 课程大纲",
+    group: "resource",
+    contentType: "article",
+    order: 10,
+    badge: "提案",
+    displayBadge: "提案",
+    trackProgress: false,
+    showInSidebar: false,
+    showInCatalog: false,
+    searchable: false,
+    catalogVariant: "non-lesson"
   }
 ];
 

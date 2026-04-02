@@ -37,7 +37,6 @@
   "pr_url": null,
   "subtasks": [],
   "children": [
-    "04-02-migrate-resource-pages",
     "04-02-finalize-deploy-cleanup"
   ],
   "parent": null,
