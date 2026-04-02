@@ -7,11 +7,18 @@ const catalogIds = [
   "lesson-04",
   "lesson-05",
   "lesson-06",
+  "lesson-07",
   "rtk-install-guide"
 ];
 
 module.exports = {
   latestUpdates: [
+    {
+      date: "4月2日",
+      category: "新增",
+      text: "第七课 · Skills推荐与使用：整理官方与第三方 Skills 的优先安装顺序和搭配思路",
+      url: "lesson-07.html"
+    },
     {
       date: "4月1日",
       category: "更新",

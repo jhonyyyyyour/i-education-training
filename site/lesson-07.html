@@ -1,0 +1,221 @@
+---
+layout: layouts/course-shell.njk
+title: "第七课 · Skills推荐与使用"
+description: "6类优先安装 · 官方与第三方推荐 · 新手安装顺序"
+currentPageUrl: lesson-07.html
+permalink: lesson-07.html
+tocItems:
+  - href: "#sec-why"
+    label: "为什么单独讲推荐"
+  - href: "#sec-choose"
+    label: "先学会怎么选"
+  - href: "#sec-recommend"
+    label: "优先安装的6类"
+  - href: "#sec-combo"
+    label: "怎么搭配使用"
+  - href: "#sec-order"
+    label: "建议安装顺序"
+  - href: "#sec-rules"
+    label: "最后记住3条"
+inlineStyles: |
+  <style>
+      .skill-card { border: 1px solid #e9e9e7; border-radius: 12px; padding: 18px 20px; margin-bottom: 12px; background: #ffffff; transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s; }
+      .skill-card:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.07); transform: translateY(-2px); border-color: #d4b8a0; }
+      .skill-card h4 { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+      .skill-card p { font-size: 14px; color: #666666; line-height: 1.7; margin-bottom: 0; }
+      .skill-tag { display: inline-flex; align-items: center; justify-content: center; padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.02em; background: #f7f1ea; border: 1px solid #e7d8c7; color: #8f7c6c; }
+      .skill-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+      .skill-links a { display: inline-flex; align-items: center; gap: 4px; padding: 5px 10px; border-radius: 999px; border: 1px solid #e9e9e7; background: #faf9f7; font-size: 12px; color: #4f4a44; text-decoration: none; }
+      .skill-links a:hover { color: #d46a2f; border-color: #d8b79e; background: #fff9f3; }
+      .combo-card { border: 1px solid #e7e1d8; border-radius: 14px; padding: 18px 20px; background: linear-gradient(180deg, #fffdfa, #fffaf6); margin-bottom: 12px; }
+      .combo-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+      .combo-card p { font-size: 14px; color: #666666; margin-bottom: 0; line-height: 1.7; }
+  </style>
+---
+<div style="margin-bottom: 16px;"><a href="index.html" style="font-size: 14px; color: #999; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">← 返回首页</a></div>
+    <div class="page-label">第七课 · Skills推荐</div>
+    <h1>Skills 推荐与使用<br>先装最能立刻省时间的那一批</h1>
+    <p class="subtitle">第五课讲的是 Skills 是什么，这一课直接回答更实际的问题：先装哪些、分别解决什么问题、怎么搭配起来才真正省时间。</p>
+
+    <h2 id="sec-why">为什么要单独讲“推荐与使用”</h2>
+    <p>很多人学完 Skills 的概念，下一步马上就会卡住：知道它有用，但不知道该从哪一个开始装，也不知道哪些 Skill 是“装了就能马上派上用场”的。</p>
+    <p>所以这一课不再停留在概念层，而是直接给你一份更适合新手执行的清单：先讲筛选标准，再给推荐顺序，最后告诉你怎么组合起来用，尽快把收益跑出来。</p>
+
+    <div class="highlight-box">
+      <strong>先记住一句话：</strong>新手不要追求“装很多”，而要优先装那些能立刻减少重复劳动、能直接产出结果、而且你近期就会用到的 Skills。
+    </div>
+
+    <h2 id="sec-choose">先学会怎么选 Skills</h2>
+    <p>一个 Skill 值不值得先装，可以用下面 4 个标准快速判断：</p>
+
+    <div class="step-grid">
+      <div class="step-box">
+        <div class="step-num-circle">1</div>
+        <h4>高频重复</h4>
+        <p>这件事你是不是经常做？如果每周都要重复一次以上，就很值得用 Skill 固化。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">2</div>
+        <h4>结果明确</h4>
+        <p>Skill 最适合那些输入和输出都比较清楚的任务，比如导出文档、整理 PDF、生成表格。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">3</div>
+        <h4>步骤容易忘</h4>
+        <p>如果你每次都要重新想“先做什么、后做什么”，那就说明它适合被写成 Skill。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">4</div>
+        <h4>能直接省时间</h4>
+        <p>优先装那些一上手就能省你 10 分钟、30 分钟，甚至一整段沟通时间的 Skill。</p>
+      </div>
+    </div>
+
+    <div class="template-block">
+      <div class="label">一个简单筛选公式</div>
+      <p>高频 + 结果明确 + 手工重复 + 容易忘步骤 = 值得优先做成 Skill</p>
+    </div>
+
+    <h2 id="sec-recommend">优先安装的 6 类 Skills</h2>
+    <p class="section-intro">下面按“新手最容易立刻用上”的顺序来讲。既有 Claude 官方 Skills，也有适合进一步扩展工作流的第三方选择。</p>
+
+    <div class="skill-card">
+      <h4><span class="skill-tag">官方</span>1. docx：把结果直接导出成 Word 文档</h4>
+      <p>如果你经常要交方案、写总结、写交付说明、写会议纪要，`docx` 是最容易马上产生价值的 Skill 之一。你不用再把 AI 结果手动复制到 Word 里慢慢排版，而是可以直接把结构化结果产出成文档。</p>
+      <div class="skill-links">
+        <a href="https://github.com/anthropics/skills/tree/main/skills/docx" target="_blank" rel="noopener noreferrer">docx ↗</a>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h4><span class="skill-tag">官方</span>2. pptx：把思路整理成演示文稿</h4>
+      <p>如果你需要汇报项目、整理培训材料、做路演大纲，`pptx` 很适合先把内容结构快速成型。对于经常要“先做一版可讲的稿子”再继续细化的人来说，它能省掉大量从零搭框架的时间。</p>
+      <div class="skill-links">
+        <a href="https://github.com/anthropics/skills/tree/main/skills/pptx" target="_blank" rel="noopener noreferrer">pptx ↗</a>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h4><span class="skill-tag">官方</span>3. xlsx：把信息整理成表格</h4>
+      <p>当你要做清单、报价表、对比表、资源汇总、任务分配时，`xlsx` 非常实用。很多本来只能堆成一大段文字的内容，转成表格后立刻更适合交付、复盘和继续加工。</p>
+      <div class="skill-links">
+        <a href="https://github.com/anthropics/skills/tree/main/skills/xlsx" target="_blank" rel="noopener noreferrer">xlsx ↗</a>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h4><span class="skill-tag">官方</span>4. pdf：读 PDF、提炼重点、减少手工摘要</h4>
+      <p>`pdf` 适合处理论文、白皮书、合同、需求文档、培训资料等长文档。它的核心价值不是“能打开 PDF”，而是让 AI 更稳定地围绕 PDF 内容提炼重点、做摘要、找结构、提炼行动项。</p>
+      <div class="skill-links">
+        <a href="https://github.com/anthropics/skills/tree/main/skills/pdf" target="_blank" rel="noopener noreferrer">pdf ↗</a>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h4><span class="skill-tag">官方</span>5. skill-creator：用一个 Skill 去创建下一个 Skill</h4>
+      <p>`skill-creator` 很适合已经感受到 Skills 价值、准备把自己常用流程沉淀下来的人。它的意义不只是“帮你生成文件”，而是帮助你更快地把一个模糊想法整理成一个可复用的工作流。</p>
+      <div class="highlight-box">
+        <strong>推荐理由：</strong>当你已经知道“这个动作以后还会重复很多次”，就可以先用 `skill-creator` 起一个最小版本，再慢慢迭代，而不是每次从空白开始写。
+      </div>
+      <div class="skill-links">
+        <a href="https://github.com/anthropics/skills/tree/main/skills/skill-creator" target="_blank" rel="noopener noreferrer">skill-creator ↗</a>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h4><span class="skill-tag">扩展</span>6. 第三方技能库：MiniMax Skills + OfficeCLI</h4>
+      <p>除了 Claude 官方 Skills，还可以补两类第三方能力：一类是成体系的 Skills 集合，另一类是面向 Office 场景的专项工具。它们更适合在你已经跑通基础工作流之后，用来继续扩展能力边界。</p>
+      <div class="skill-links">
+        <a href="https://github.com/MiniMax-AI/skills/blob/main/README_zh.md" target="_blank" rel="noopener noreferrer">MiniMax Skills ↗</a>
+        <a href="https://github.com/iOfficeAI/OfficeCLI/blob/main/README_zh.md" target="_blank" rel="noopener noreferrer">OfficeCLI ↗</a>
+      </div>
+      <p style="margin-top: 12px;">如果你所在团队经常做 Office 文档处理、表格流转、资料整理，这类第三方 Skill 很可能比单个官方 Skill 更贴近实际业务流程。</p>
+    </div>
+
+    <h2 id="sec-combo">怎么搭配使用，效果比单装一个更好</h2>
+    <p>真正好用的不是某一个 Skill，而是几类 Skill 串起来以后形成完整工作流。</p>
+
+    <div class="combo-card">
+      <h4>组合 1：pdf → docx / pptx</h4>
+      <p>先用 `pdf` 读材料、提炼重点，再把结论输出成 `docx` 文档或 `pptx` 汇报稿。这个组合特别适合做读书会、行业研究、培训复盘和方案汇报。</p>
+    </div>
+
+    <div class="combo-card">
+      <h4>组合 2：skill-creator → 你的个人常用流程</h4>
+      <p>当你已经发现自己经常重复做某件事，比如写周报、整理项目进展、把零散想法变成可执行流程，就可以先用 `skill-creator` 做一个自己的版本，再不断优化细节。</p>
+    </div>
+
+    <div class="combo-card">
+      <h4>组合 3：xlsx → 结构化整理资源与任务</h4>
+      <p>当信息一多，人最容易卡在“看得见、拎不清”。`xlsx` 的价值就在这里：把杂乱内容整理成表格，方便交付、复盘和继续协作，特别适合资源库、清单、课程进度、项目状态、联系人维护等场景。</p>
+    </div>
+
+    <div class="combo-card">
+      <h4>组合 4：官方基础 Skills → 第三方专项扩展</h4>
+      <p>建议先把官方常用 Skills 跑通，再根据你自己的工作场景补充第三方技能库。这样不容易一下子装太多而失控，也更容易判断“这个 Skill 到底值不值得长期保留”。</p>
+    </div>
+
+    <h2 id="sec-order">给新手的建议安装顺序</h2>
+    <p>如果你现在一个都没装，建议按下面顺序来：</p>
+
+    <div class="step-grid">
+      <div class="step-box">
+        <div class="step-num-circle">1</div>
+        <h4>先装 pdf</h4>
+        <p>最容易立刻感受到价值，尤其是处理材料、文档、课程内容的时候。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">2</div>
+        <h4>再装 docx / xlsx / pptx</h4>
+        <p>根据你的交付物类型来选：写文档选 docx，做表格选 xlsx，做汇报选 pptx。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">3</div>
+        <h4>然后装 skill-creator</h4>
+        <p>当你已经体验到“复用”的价值，就该开始沉淀自己的个人 Skill 了。</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num-circle">4</div>
+        <h4>最后补第三方扩展</h4>
+        <p>MiniMax Skills、OfficeCLI 这类扩展更适合在你知道自己缺什么的时候再装。</p>
+      </div>
+    </div>
+
+    <div class="template-block">
+      <div class="label">安装思路</div>
+      <p>不要一次装满。先装一个马上会用到的，连续用 3-5 次，确认它真的省时间，再决定是否继续扩展。</p>
+    </div>
+
+    <h2 id="sec-rules">最后记住 3 条使用原则</h2>
+
+    <div class="card">
+      <h4>原则 1：先解决真实问题，不要为了收藏而安装</h4>
+      <p>如果一个 Skill 你装上后两周都没有真正用过，它大概率不是你当前阶段最需要的。</p>
+    </div>
+
+    <div class="card">
+      <h4>原则 2：先把一个场景跑通，再追求系统化</h4>
+      <p>真正能帮你省时间的，不是“我装了多少个 Skill”，而是“我有没有把一个常见动作稳定地复用起来”。</p>
+    </div>
+
+    <div class="card">
+      <h4>原则 3：把 Skill 当成可迭代的工作流，而不是一次性提示词</h4>
+      <p>先有最小版本，再根据自己的使用习惯慢慢改。会迭代，Skill 才会越来越像你的私人助理。</p>
+    </div>
+
+    <div class="highlight-box">
+      <strong>这一课的核心收获：</strong>先装最能立刻产出结果的 Skills——文档、表格、演示、PDF、Skill 自举、第三方扩展。先跑通一个真实场景，再慢慢把自己的工作流沉淀下来。
+    </div>
+
+    <div class="bottom-nav">
+      <a href="lesson-06.html" class="nav-prev">← 第六课：模型对比</a>
+      <a href="learning-channels.html" class="nav-next-alt">→ 学习渠道</a>
+    </div>
+<div data-progress-scope="7" id="lesson-complete-btn" style="text-align:center;padding:36px 0 20px;border-top:1px solid var(--line);margin-top:44px;">
+      <button onclick="markComplete(7)" id="completeBtn" style="background:linear-gradient(135deg,#d46a2f,#e07a42);color:#fff;border:none;border-radius:50px;padding:14px 36px;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(212,106,47,0.35);transition:all 0.2s;">
+        ✅ 标记为已学习
+      </button>
+      <p id="complete-tip" style="font-size:12px;color:#c0b8b0;margin-top:10px;margin-bottom:0;"></p>
+    </div>
+    <footer>正派青年AIGC · AI教育培训 · 让每个人都能体验AI的魅力</footer>
+    <div class="spacer"></div>

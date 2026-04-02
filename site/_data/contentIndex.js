@@ -103,6 +103,23 @@ const entries = [
   },
   {
     id: "lesson-07",
+    url: "lesson-07.html",
+    title: "Skills 推荐与使用",
+    navTitle: "第七课 · Skills推荐",
+    description: "6类优先安装 · 官方与第三方推荐 · 新手安装顺序",
+    group: "course",
+    contentType: "lesson",
+    order: 7,
+    badge: 7,
+    displayBadge: "07",
+    trackProgress: true,
+    showInSidebar: true,
+    showInCatalog: true,
+    searchable: true,
+    catalogVariant: "lesson"
+  },
+  {
+    id: "learning-channels",
     url: "learning-channels.html",
     title: "学习渠道",
     navTitle: "学习渠道",

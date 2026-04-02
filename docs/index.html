@@ -360,6 +360,8 @@ body { line-height: 1.6; font-size: 18px; }
     
     <a href="lesson-06.html" class="sidebar-link">第六课 · 模型对比</a>
     
+    <a href="lesson-07.html" class="sidebar-link">第七课 · Skills推荐</a>
+    
   </div>
   
   <div class="sidebar-section">
@@ -443,6 +445,12 @@ body { line-height: 1.6; font-size: 18px; }
     <div class="update-col-label">CATEGORY 类别</div>
     <div class="update-col-label">TITLE 标题</div>
   </div>
+  
+  <a href="lesson-07.html" class="update-item">
+    <span class="update-date">4月2日</span>
+    <span class="update-tag">新增</span>
+    <span class="update-text">第七课 · Skills推荐与使用：整理官方与第三方 Skills 的优先安装顺序和搭配思路</span>
+  </a>
   
   <a href="rtk-install-guide.html" class="update-item">
     <span class="update-date">4月1日</span>
@@ -557,6 +565,17 @@ body { line-height: 1.6; font-size: 18px; }
   <span class="course-arrow">→</span>
 </a>
 
+<a href="lesson-07.html" class="course-item">
+  <div class="course-left">
+    <span class="course-num">07</span>
+    <div>
+      <div class="course-title">Skills 推荐与使用</div>
+      <div class="course-desc">6类优先安装 · 官方与第三方推荐 · 新手安装顺序</div>
+    </div>
+  </div>
+  <span class="course-arrow">→</span>
+</a>
+
 <a href="rtk-install-guide.html" class="course-item non-lesson">
   <div class="course-left">
     <span class="course-num non-lesson-num">工具</span>
@@ -638,7 +657,7 @@ if(sidebarToggle) sidebarToggle.onclick = () => sidebar.classList.toggle('expand
 
 <script>
 (function(){
-  var progressConfig = {"storageKey":"ai-course-progress","total":6,"entries":[{"id":"lesson-01","url":"lesson-01.html","badge":1,"displayBadge":"01","title":"Codex 入门：装好、打开、体验一下"},{"id":"lesson-02","url":"lesson-02.html","badge":2,"displayBadge":"02","title":"上手 Codex：文件夹管理"},{"id":"lesson-03","url":"lesson-03.html","badge":3,"displayBadge":"03","title":"AI提问入门：问得好才能答得好"},{"id":"lesson-04","url":"lesson-04.html","badge":4,"displayBadge":"04","title":"Agent是什么？为什么一定要做？"},{"id":"lesson-05","url":"lesson-05.html","badge":5,"displayBadge":"05","title":"Skills是什么？怎么用？"},{"id":"lesson-06","url":"lesson-06.html","badge":6,"displayBadge":"06","title":"国产 vs 国外大模型对比"}]};
+  var progressConfig = {"storageKey":"ai-course-progress","total":7,"entries":[{"id":"lesson-01","url":"lesson-01.html","badge":1,"displayBadge":"01","title":"Codex 入门：装好、打开、体验一下"},{"id":"lesson-02","url":"lesson-02.html","badge":2,"displayBadge":"02","title":"上手 Codex：文件夹管理"},{"id":"lesson-03","url":"lesson-03.html","badge":3,"displayBadge":"03","title":"AI提问入门：问得好才能答得好"},{"id":"lesson-04","url":"lesson-04.html","badge":4,"displayBadge":"04","title":"Agent是什么？为什么一定要做？"},{"id":"lesson-05","url":"lesson-05.html","badge":5,"displayBadge":"05","title":"Skills是什么？怎么用？"},{"id":"lesson-06","url":"lesson-06.html","badge":6,"displayBadge":"06","title":"国产 vs 国外大模型对比"},{"id":"lesson-07","url":"lesson-07.html","badge":7,"displayBadge":"07","title":"Skills 推荐与使用"}]};
   var key = progressConfig.storageKey;
   var total = progressConfig.total;
   var done = JSON.parse(localStorage.getItem(key) || '[]');
@@ -688,7 +707,7 @@ if(sidebarToggle) sidebarToggle.onclick = () => sidebar.classList.toggle('expand
 
 <script>
 (function(){
-  var entries = [{"id":"lesson-01","url":"lesson-01.html","title":"Codex 入门：装好、打开、体验一下","navTitle":"第一课 · Codex入门","description":"Mac/Windows · 跟着做30分钟 · 做出第一个网页","group":"course","contentType":"lesson","order":1,"badge":1,"displayBadge":"01","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-02","url":"lesson-02.html","title":"上手 Codex：文件夹管理","navTitle":"第二课 · 上手 Codex","description":"文件夹 + 线程 · 组织项目 · 实战入门","group":"course","contentType":"lesson","order":2,"badge":2,"displayBadge":"02","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-03","url":"lesson-03.html","title":"AI提问入门：问得好才能答得好","navTitle":"第三课 · AI提问","description":"4步提问法 · 3个实战场景 · 万能模板","group":"course","contentType":"lesson","order":3,"badge":3,"displayBadge":"03","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-04","url":"lesson-04.html","title":"Agent是什么？为什么一定要做？","navTitle":"第四课 · Agent","description":"通俗解释 · 面向零基础 · 无技术术语","group":"course","contentType":"lesson","order":4,"badge":4,"displayBadge":"04","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-05","url":"lesson-05.html","title":"Skills是什么？怎么用？","navTitle":"第五课 · Skills","description":"Skills入门 · 实战案例 · 安装与使用","group":"course","contentType":"lesson","order":5,"badge":5,"displayBadge":"05","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-06","url":"lesson-06.html","title":"国产 vs 国外大模型对比","navTitle":"第六课 · 模型对比","description":"2026年3月最新 · 各模型优势 · 推荐场景 · 选型指南","group":"course","contentType":"lesson","order":6,"badge":6,"displayBadge":"06","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"rtk-install-guide","url":"rtk-install-guide.html","title":"RTK 安装与配置教程","navTitle":"RTK 安装与配置教程","description":"重点讲 Windows · 二进制安装 · Claude Code 初始化","group":"resource","contentType":"tool","order":9,"badge":"工具","displayBadge":"工具","trackProgress":false,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"non-lesson"},{"id":"lesson-07","url":"learning-channels.html","title":"学习渠道","navTitle":"学习渠道","description":"公众号 · B站UP主 · 学习平台推荐","group":"resource","contentType":"resource","order":70,"badge":"资源","displayBadge":"资源","trackProgress":false,"showInSidebar":true,"showInCatalog":false,"searchable":true,"catalogVariant":"non-lesson"}];
+  var entries = [{"id":"lesson-01","url":"lesson-01.html","title":"Codex 入门：装好、打开、体验一下","navTitle":"第一课 · Codex入门","description":"Mac/Windows · 跟着做30分钟 · 做出第一个网页","group":"course","contentType":"lesson","order":1,"badge":1,"displayBadge":"01","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-02","url":"lesson-02.html","title":"上手 Codex：文件夹管理","navTitle":"第二课 · 上手 Codex","description":"文件夹 + 线程 · 组织项目 · 实战入门","group":"course","contentType":"lesson","order":2,"badge":2,"displayBadge":"02","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-03","url":"lesson-03.html","title":"AI提问入门：问得好才能答得好","navTitle":"第三课 · AI提问","description":"4步提问法 · 3个实战场景 · 万能模板","group":"course","contentType":"lesson","order":3,"badge":3,"displayBadge":"03","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-04","url":"lesson-04.html","title":"Agent是什么？为什么一定要做？","navTitle":"第四课 · Agent","description":"通俗解释 · 面向零基础 · 无技术术语","group":"course","contentType":"lesson","order":4,"badge":4,"displayBadge":"04","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-05","url":"lesson-05.html","title":"Skills是什么？怎么用？","navTitle":"第五课 · Skills","description":"Skills入门 · 实战案例 · 安装与使用","group":"course","contentType":"lesson","order":5,"badge":5,"displayBadge":"05","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-06","url":"lesson-06.html","title":"国产 vs 国外大模型对比","navTitle":"第六课 · 模型对比","description":"2026年3月最新 · 各模型优势 · 推荐场景 · 选型指南","group":"course","contentType":"lesson","order":6,"badge":6,"displayBadge":"06","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-07","url":"lesson-07.html","title":"Skills 推荐与使用","navTitle":"第七课 · Skills推荐","description":"6类优先安装 · 官方与第三方推荐 · 新手安装顺序","group":"course","contentType":"lesson","order":7,"badge":7,"displayBadge":"07","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"rtk-install-guide","url":"rtk-install-guide.html","title":"RTK 安装与配置教程","navTitle":"RTK 安装与配置教程","description":"重点讲 Windows · 二进制安装 · Claude Code 初始化","group":"resource","contentType":"tool","order":9,"badge":"工具","displayBadge":"工具","trackProgress":false,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"non-lesson"},{"id":"learning-channels","url":"learning-channels.html","title":"学习渠道","navTitle":"学习渠道","description":"公众号 · B站UP主 · 学习平台推荐","group":"resource","contentType":"resource","order":70,"badge":"资源","displayBadge":"资源","trackProgress":false,"showInSidebar":true,"showInCatalog":false,"searchable":true,"catalogVariant":"non-lesson"}];
 
   function openSearch() {
     var overlay = document.getElementById('searchOverlay');
