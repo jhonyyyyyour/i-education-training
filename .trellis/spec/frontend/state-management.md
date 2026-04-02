@@ -22,8 +22,8 @@ There is no global application store and no server-synced client state.
 
 ### Static content state
 
-Most content is written directly into the HTML files.
-Examples: lesson text, sidebar links, update lists, resource cards.
+Most content is authored in Eleventy page templates and shared data files.
+Examples: lesson text, sidebar links, update lists, resource cards, and shared page metadata.
 
 ### Page-local UI state
 
@@ -31,24 +31,21 @@ Short-lived UI state is handled through DOM operations and class toggles.
 
 Concrete examples from this repo:
 
-- Sidebar expansion on lesson pages toggles `.sidebar.expanded` when clicking the logo.
-  - e.g. `public/lesson-01.html` contains:
-    - `sidebar.querySelector('.sidebar-logo').onclick = () => sidebar.classList.toggle('expanded');`
-- The homepage uses a different class name for the same interaction (`.sidebar.collapsed`).
-  - e.g. `public/index.html` contains:
-    - `sidebar.querySelector(".sidebar-logo").onclick = () => sidebar.classList.toggle("collapsed");`
+- Sidebar open/close state is controlled by the dedicated `.sidebar-toggle` button in shared course/resource layouts
+- Search overlay visibility is toggled by adding or removing the `.active` class from `#searchOverlay`
+- Search results are rendered from centralized Eleventy data injected into the page script
 
-When changing sidebar behavior, search and update both variants.
+When changing shared sidebar or search behavior, update the shared partial scripts rather than patching pages one by one.
 
 ### Persistent browser state
 
 Learning progress is persisted in `localStorage` using the `ai-course-progress` key.
 Examples:
-- lesson completion writes in `public/lesson-01.html` through `public/lesson-07.html`
-- homepage progress rendering in `public/index.html`
+- lesson/resource completion writes in the shared progress script used by Eleventy pages
+- homepage progress rendering reads from the same key and total defined by shared data
 
-When progress is shown in multiple places, keep the total lesson/resource count consistent across every page that reads or writes the same key.
-If a resource page is counted as part of the learning path, update both the homepage summary and the per-page completion scripts together.
+When progress is shown in multiple places, keep the total lesson/resource count consistent across the shared data and every page that reads or writes the same key.
+If a resource page is counted as part of the learning path, update the centralized progress entries and homepage summary together.
 
 ---
 
@@ -72,7 +69,7 @@ There is no client-side server state cache.
 The site does not fetch JSON or remote content at runtime.
 The backend only serves static files.
 
-Any content updates are made by editing the HTML files directly.
+Any content updates are made by editing Eleventy source templates/data or shared assets directly.
 
 ---
 

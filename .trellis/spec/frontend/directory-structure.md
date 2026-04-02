@@ -11,8 +11,8 @@ The frontend is a static site built from plain HTML, CSS, and inline JavaScript.
 
 During the Eleventy migration:
 
-- `public/` remains the legacy hand-authored page source and asset source.
-- `site/` is the Eleventy template source for newly migrated pages, layouts, includes, and shared data.
+- `public/` remains the shared asset source and optional legacy reference area.
+- `site/` is the Eleventy template source for deployable pages, layouts, includes, and shared data.
 - `docs/` is the generated deployment output for GitHub Pages.
 
 Do not treat `docs/` as a hand-edited source directory once a page is generated through Eleventy.
@@ -89,8 +89,8 @@ Avoid creating framework-style folders such as `components/`, `hooks/`, or `page
 
 ## Examples
 
-- Shared course-page structure: `public/lesson-01.html`, `public/lesson-03.html`, `public/lesson-06.html`
-- Home page using the same overall layout with more custom sections: `public/index.html`
-- Standalone longform pages: `public/student-guide.html`, `public/codex-first-lesson.html`
+- Shared course-page structure: `site/lesson-01.html`, `site/lesson-03.html`, `site/lesson-06.html`
+- Home page using the same overall layout with more custom sections: `site/index.html`
+- Standalone longform pages: `site/student-guide.html`, `site/codex-first-lesson.html`
 - Shared assets and global styling: `public/styles.css`, `public/screenshots/codex-app-mac.png`
 - Eleventy migration scaffolding: `site/_includes/layouts/base.njk`, `site/_data/site.js`

@@ -56,8 +56,8 @@ Only add page-local styles when the page has unique presentation needs.
 
 Examples:
 - Shared card patterns in `public/styles.css`
-- Page-specific hero styling in `public/index.html`
-- Fully self-contained styling in `public/student-guide.html`
+- Page-specific hero styling in `site/index.html`
+- Fully self-contained styling in `site/student-guide.html`
 
 ---
 
@@ -78,10 +78,10 @@ Use these baseline rules when editing pages:
 
 - Adding a new layout pattern when an existing lesson page already has the needed structure
 - Renaming shared class names casually and breaking `styles.css`
-- Mixing deployment concerns into page markup instead of editing `public/` first
+- Mixing deployment concerns into page markup instead of editing the true source (`site/` for deployable pages, `public/` for shared assets)
 - Treating this repo like a framework app and introducing fake component abstractions that do not exist in the current codebase
 
 Examples to follow:
-- `public/lesson-01.html`
-- `public/lesson-05.html`
-- `public/index.html`
+- `site/lesson-01.html`
+- `site/lesson-05.html`
+- `site/index.html`

@@ -17,10 +17,10 @@ That makes manual consistency especially important.
 ## Forbidden Patterns
 
 - Treating the repo as a React or TypeScript app when it is still plain HTML/CSS/JS
-- Editing only generated `docs/` output and forgetting where the real source now lives (`public/` for legacy pages, `site/` for Eleventy templates)
+- Editing only generated `docs/` output and forgetting where the real source now lives (`site/` for Eleventy templates and deployable pages, `public/` for shared assets)
 - Creating a new visual pattern when `styles.css` already contains a close existing one
 - Copying large inline scripts between pages without checking all linked lesson data and navigation links
-- Maintaining a page manually in both `public/` and `docs/` after that page has moved into Eleventy
+- Maintaining a page manually in both `site/` and `docs/`
 - Changing output URLs or introducing nested output paths that break existing relative links
 
 ---
@@ -28,8 +28,8 @@ That makes manual consistency especially important.
 ## Required Patterns
 
 - Start frontend edits from the true source for that page:
-  - `public/` for legacy hand-authored pages
-  - `site/` for Eleventy-migrated templates, layouts, and data
+  - `site/` for Eleventy-migrated templates, layouts, data, and deployable pages
+  - `public/` for shared assets or any remaining temporary legacy references
 - Reuse existing CSS classes and content block structures where possible
 - Keep interactive JavaScript small, explicit, and colocated with the page it controls
 - Verify that navigation, search, and progress behavior still work after edits
@@ -58,15 +58,15 @@ Minimum manual checks for page changes:
 ## Code Review Checklist
 
 - Does the change match the existing static-site structure?
-- Was the correct source directory edited (`public/` or `site/`) instead of patching generated output in `docs/`?
+- Was the correct source directory edited (`site/` or `public/`) instead of patching generated output in `docs/`?
 - Were shared classes in `public/styles.css` reused before adding new ones?
-- If a repeated page pattern changed, were sibling lesson pages checked too?
+- If a repeated page pattern changed, were the shared layouts, partials, or sibling pages checked too?
 - If a deployable page changed, was the `docs/` build output updated appropriately?
 - Does the page still work without any framework runtime or build step in the browser?
 - If Eleventy was involved, does the generated output keep existing flat URLs and asset references intact?
 
 Examples to compare against:
-- `public/index.html`
-- `public/lesson-01.html`
+- `site/index.html`
+- `site/lesson-01.html`
 - `public/styles.css`
 - `site/_includes/layouts/base.njk`

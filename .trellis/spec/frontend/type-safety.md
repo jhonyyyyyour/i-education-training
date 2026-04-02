@@ -19,7 +19,7 @@ There are no separate type definition files.
 Data structures are usually inline arrays or objects inside page scripts.
 
 Examples:
-- hardcoded `lessons` arrays in `public/index.html`, `public/lesson-01.html`, `public/lesson-06.html`
+- centralized content data in `site/_data/contentIndex.js`
 - progress data stored as a JSON array in `localStorage`
 
 When adding data structures, keep them small and obvious enough that a reader can infer the shape immediately from the code.

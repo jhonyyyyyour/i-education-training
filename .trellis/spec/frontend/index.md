@@ -10,7 +10,7 @@ The frontend in this repository is a static site built from plain HTML, CSS, and
 
 During the Eleventy migration:
 
-- `public/` remains the legacy hand-authored page source and shared asset source
+- `public/` remains the shared static asset source (for example `styles.css`, `brand-logo.svg`, and `screenshots/`) and may keep temporary legacy references during migration cleanup
 - `site/` is the source of truth for Eleventy-migrated pages, layouts, includes, and shared data
 - `docs/` is the generated deployment output for GitHub Pages
 
