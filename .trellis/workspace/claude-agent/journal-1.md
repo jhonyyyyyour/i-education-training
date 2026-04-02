@@ -141,3 +141,38 @@ Migrated remaining resource and standalone pages into the Eleventy pipeline and 
 ### Next Steps
 
 - None - task complete
+
+
+## Session 5: Finalize Eleventy deploy cleanup
+
+**Date**: 2026-04-02
+**Task**: Finalize Eleventy deploy cleanup
+
+### Summary
+
+Aligned local preview, generated output, and Trellis docs with the Eleventy deploy workflow.
+
+### Main Changes
+
+- Finalized the Eleventy deploy workflow so `npm start` now builds the site and previews the generated `docs/` output instead of relying on the old `public/` preview model.
+- Updated Trellis command docs and backend specs to reflect `site/` as migrated-page source, `docs/` as generated deploy output, and removed stale manual `public/` -> `docs/` mirror guidance.
+- Rebuilt generated `docs/` output, added a root `favicon.ico` passthrough, and verified preview responses for homepage, lesson page, favicon, 404, and path traversal cases.
+
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `0972b37` | (see git log) |
+
+### Testing
+
+- [OK] (Add test results)
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
