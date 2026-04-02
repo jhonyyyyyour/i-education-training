@@ -245,11 +245,31 @@ python3 ./.trellis/scripts/task.py create "<title>" --slug <task-name>
 After code is committed, use:
 
 ```bash
+cat > /tmp/trellis-session-content.md <<'EOF'
+- <main change 1>
+- <main change 2>
+- <tests / verification summary>
+EOF
+
+python3 ./.trellis/scripts/add_session.py \
+  --title "Session Title" \
+  --commit "abc1234" \
+  --summary "Brief summary" \
+  --content-file /tmp/trellis-session-content.md
+```
+
+If you do not need detailed session notes, a summary-only call is still valid:
+
+```bash
 python3 ./.trellis/scripts/add_session.py \
   --title "Session Title" \
   --commit "abc1234" \
   --summary "Brief summary"
 ```
+
+Important pitfall:
+- In Claude Code and other non-interactive runners, `add_session.py` may treat stdin as non-TTY and wait on `stdin.read()` when no `--content-file` is supplied
+- If the command appears to hang, rerun it with `--content-file` instead of relying on implicit stdin
 
 This automatically:
 1. Detects current journal file

@@ -24,13 +24,31 @@ python3 ./.trellis/scripts/task.py archive <task-name>
 ### Step 2: One-Click Add Session
 
 ```bash
-# Method 1: Simple parameters
+# Recommended in Claude Code / non-interactive environments: pass details via file
+cat > /tmp/trellis-session-content.md <<'EOF'
+| Feature | Description |
+|---------|-------------|
+| New API | Added user authentication endpoint |
+| Frontend | Updated login form |
+
+**Updated Files**:
+- `packages/api/modules/auth/router.ts`
+- `apps/web/modules/auth/components/login-form.tsx`
+EOF
+
+python3 ./.trellis/scripts/add_session.py \
+  --title "Session Title" \
+  --commit "hash1,hash2" \
+  --summary "Brief summary of what was done" \
+  --content-file /tmp/trellis-session-content.md
+
+# Simple parameters also work when you do not need extra detail
 python3 ./.trellis/scripts/add_session.py \
   --title "Session Title" \
   --commit "hash1,hash2" \
   --summary "Brief summary of what was done"
 
-# Method 2: Pass detailed content via stdin
+# stdin piping is only safe when the caller will close stdin properly
 cat << 'EOF' | python3 ./.trellis/scripts/add_session.py --title "Title" --commit "hash"
 | Feature | Description |
 |---------|-------------|
@@ -42,6 +60,10 @@ cat << 'EOF' | python3 ./.trellis/scripts/add_session.py --title "Title" --commi
 - `apps/web/modules/auth/components/login-form.tsx`
 EOF
 ```
+
+**Important pitfall**:
+- In Claude Code / other non-interactive runners, `add_session.py` may see `stdin` as non-TTY and wait on `stdin.read()` if you do **not** provide `--content-file`
+- If your call appears to hang, rerun it with `--content-file` instead of relying on implicit stdin behavior
 
 **Auto-completes**:
 - [OK] Appends session to journal-N.md

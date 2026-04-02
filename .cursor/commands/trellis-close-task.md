@@ -128,7 +128,26 @@ Examples:
 
 ### 5. Record the session
 
-After the code commit is done, append the work to Trellis journal:
+After the code commit is done, append the work to Trellis journal.
+
+**Recommended in Claude Code / non-interactive environments**: write details to a temp file and pass `--content-file` so `add_session.py` does not block on `stdin.read()`.
+
+```bash
+cat > /tmp/trellis-session-content.md <<'EOF'
+- <main change 1>
+- <main change 2>
+- <tests / verification summary>
+EOF
+
+python3 ./.trellis/scripts/add_session.py \
+  --title "Session Title" \
+  --commit "<commit-hash>" \
+  --summary "Brief summary" \
+  --content-file /tmp/trellis-session-content.md \
+  --no-commit
+```
+
+If you truly do not need detailed content, a summary-only call is still fine:
 
 ```bash
 python3 ./.trellis/scripts/add_session.py \
@@ -137,6 +156,8 @@ python3 ./.trellis/scripts/add_session.py \
   --summary "Brief summary" \
   --no-commit
 ```
+
+Avoid relying on implicit stdin in Claude Code unless you are certain the caller will close stdin correctly.
 
 Then commit the journal update separately if needed, following repo style.
 
