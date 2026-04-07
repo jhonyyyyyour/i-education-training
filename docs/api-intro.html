@@ -3,12 +3,89 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Shared Metadata Preview</title>
+    <title>AI 常见词入门：API、Token、Skills、Agent</title>
     
-    <meta name="description" content="Preview page for centralized Eleventy metadata and shared includes." />
+    <meta name="description" content="团队原创内容：用大白话讲清 LLM、Prompt、Hallucination、Token、API、Agent、Skills、RAG、Context。" />
     
     <link rel="icon" href="favicon.ico" sizes="any" />
     <link rel="stylesheet" href="styles.css" />
+    
+<style>
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0 28px;
+    color: #3b332c;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .article-meta span {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #f7f2ec;
+    border: 1px solid #ece2d5;
+    color: #2c241d;
+  }
+
+  .glossary-section {
+    margin: 0 0 10px;
+  }
+
+  .glossary-section p {
+    max-width: 860px;
+    font-size: 16px;
+    line-height: 1.95;
+    color: #181818;
+    margin: 0 0 12px;
+  }
+
+  .glossary-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .article-outro {
+    margin: 40px 0 20px;
+    padding-top: 24px;
+    border-top: 1px solid #ede2d6;
+  }
+
+  .article-outro p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #181818;
+    margin: 0 0 10px;
+  }
+
+  .article-origin {
+    margin-top: 20px;
+    color: #3f3831;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .article-origin a {
+    color: #c7682e;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  @media (max-width: 720px) {
+    .glossary-section p {
+      font-size: 15px;
+    }
+
+    .article-meta {
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+  }
+</style>
+
     
   </head>
   <body>
@@ -20,7 +97,7 @@
   <div class="sidebar-section">
     <div class="sidebar-title">课程</div>
     
-    <a href="lesson-01.html" class="sidebar-link active">第一课 · Codex入门</a>
+    <a href="lesson-01.html" class="sidebar-link">第一课 · Codex入门</a>
     
     <a href="lesson-02.html" class="sidebar-link">第二课 · 上手 Codex</a>
     
@@ -34,7 +111,7 @@
     
     <a href="lesson-07.html" class="sidebar-link">第七课 · Skills推荐</a>
     
-    <a href="api-intro.html" class="sidebar-link">第八课 · AI常见词入门</a>
+    <a href="api-intro.html" class="sidebar-link active">第八课 · AI常见词入门</a>
     
   </div>
   
@@ -54,232 +131,124 @@
 </aside>
 
   <main class="main">
-    
-<div class="back-link"><a href="index.html">← 返回首页</a></div>
+    <div class="back-link"><a href="index.html">← 返回首页</a></div>
+<div class="page-label">第八课 · AI常见词入门</div>
+<h1>AI 常见词入门</h1>
+<div class="article-meta" id="sec-what">
+  <span>API</span>
+  <span>Token</span>
+  <span>Skills</span>
+  <span>Agent</span>
+  <span>RAG</span>
+  <span>Context</span>
+</div>
 
-<span class="page-label">共享数据预览</span>
-
-<h1>集中站点元数据预览</h1>
-<p class="subtitle">这个页面用于验证 sidebar、搜索、课程目录、最新动态与进度统计都已接入统一 Eleventy 数据源。</p>
-
-<section class="card" style="padding: 24px; margin-bottom: 24px;">
-  <h2 style="margin-bottom: 12px;">共享索引摘要</h2>
-  <ul style="padding-left: 24px; color: #666666;">
-    <li>Sidebar entries: <strong>10</strong></li>
-    <li>Progress total: <strong>8</strong></li>
-    <li>Catalog entries: <strong>8</strong></li>
-    <li>Latest updates: <strong>7</strong></li>
-  </ul>
+<section class="glossary-section" id="sec-llm">
+  <h2>一、LLM（大语言模型）</h2>
+  <p>经常听到 LLM 就是豆包啊 GPT 这些，所谓超级话痨学霸。你就把它当成一个读过全世界所有书的人，知识量巨大，什么都能聊。不管是 ChatGPT 还是 Claude，它们本质上都是 LLM。</p>
+  <p>它能干嘛呢：它是大脑，负责思考和回答。缺的就是不会主动找你，人会主动反馈沟通的，所以后面需要借用 Agent。</p>
 </section>
 
-<div class="hero-bottom-grid" style="margin-bottom: 32px;">
-  <div class="update-banner">
-  <div class="update-banner-title"><strong><span class="update-title-cn">最新动态</span><span class="update-title-en">Latest updates</span></strong></div>
-  <div class="update-table-head">
-    <div class="update-col-label">DATE 日期</div>
-    <div class="update-col-label">CATEGORY 类别</div>
-    <div class="update-col-label">TITLE 标题</div>
-  </div>
-  
-  
-  <a href="lesson-07.html" class="update-item">
-    <span class="update-date">4月3日</span>
-    <span class="update-tag">更新</span>
-    <span class="update-text">第七课 · Skills推荐清单：补充 6 个值得优先安装的 Skills，并重点拆解 OfficeCLI 的实际价值</span>
-  </a>
-  
-  
-  
-  <a href="lesson-07.html" class="update-item">
-    <span class="update-date">4月2日</span>
-    <span class="update-tag">新增</span>
-    <span class="update-text">第七课 · Skills推荐与使用：整理官方与第三方 Skills 的优先安装顺序和搭配思路</span>
-  </a>
-  
-  
-  
-  <a href="rtk-install-guide.html" class="update-item">
-    <span class="update-date">4月1日</span>
-    <span class="update-tag">更新</span>
-    <span class="update-text">RTK 安装与配置教程：补齐安装、初始化与配置说明，适合作为最新工具页入口</span>
-  </a>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+<section class="glossary-section" id="sec-prompt">
+  <h2>二、Prompt（提示词）</h2>
+  <p>这个大家不陌生，前几年玩 MJ，就是抄各种提示词。所谓的魔法。当然现在依然重要，只不过现在可以用自然语言沟通了。</p>
+  <p>翻成人话就是：以前用百度是“搜关键词”，现在用 AI 是“提需求”。你对 AI 说的每一句话，比如“帮我写个请假条”“把这段话改成小红书风格”，这就叫 Prompt。</p>
+  <p>想要用得好：需求提得越细，活儿干得越好。这跟甲方给设计师提需求是一个道理。</p>
+</section>
 
-  
-  <details class="update-more">
-    <summary class="update-more-toggle">
-      <span>查看更多更新</span>
-      <span class="update-more-count">+4</span>
-    </summary>
-    <div class="update-more-list">
-      
-      
-      
-      
-      
-      
-      
-      
-      <a href="lesson-06.html" class="update-item">
-        <span class="update-date">4月1日</span>
-        <span class="update-tag">新增</span>
-        <span class="update-text">第六课 · 模型对比：国产vs国外大模型，2026年3月最新数据</span>
-      </a>
-      
-      
-      
-      <a href="lesson-02.html" class="update-item">
-        <span class="update-date">4月1日</span>
-        <span class="update-tag">更新</span>
-        <span class="update-text">第二课新增：定时任务、Skills管理、全局规则、推理深度档位</span>
-      </a>
-      
-      
-      
-      <a href="#brand-panel" class="update-item">
-        <span class="update-date">3月30日</span>
-        <span class="update-tag">更新</span>
-        <span class="update-text">首页视觉升级：新增正派青年AIGC品牌标识，统一站点风格</span>
-      </a>
-      
-      
-      
-      <a href="lesson-04.html" class="update-item">
-        <span class="update-date">3月30日</span>
-        <span class="update-tag">新增</span>
-        <span class="update-text">第四课 · Agent：用大白话解释Agent是什么、为什么非做不可</span>
-      </a>
-      
-      
-    </div>
-  </details>
-  
-</div>
+<section class="glossary-section" id="sec-hallucination">
+  <h2>三、Hallucination（幻觉）</h2>
+  <p><strong>人话翻译：</strong>一本正经胡说八道。因为 AI 是靠预测下一个字来回答的，有时候它其实不知道答案，但为了把话接下去，它会编得特自信。</p>
+  <p>比如你问它“林黛玉倒拔垂杨柳的情节”，它可能真给你编一段出来。这就是“出现幻觉了”。也会编一些没有的历史故事，本质上 LLM 还是靠学习到的知识去猜测。</p>
+  <p>所以别指望 AI 给的答案能达到 100% 正确，但现在够用了，很多时候已经能达到非常高的可用度。</p>
+</section>
 
-  <div id="site-progress" class="site-progress">
-    <div class="site-progress-head">
-      <span class="site-progress-label">📚 学习进度</span>
-      <span id="progress-text" class="site-progress-text"></span>
-    </div>
-    <div class="site-progress-track">
-      <div id="progress-bar" class="site-progress-bar"></div>
-    </div>
-    <p class="site-progress-note">进度总数现在来自 `site/_data/progress.js`。</p>
+<section class="glossary-section" id="sec-token">
+  <h2>四、Token</h2>
+  <p>我们经常会看到“你用了多少 Token”，玩 openclaw 的时候尤其会遇到。它的意思其实很简单：<strong>AI 的计费单位</strong>。</p>
+  <p>AI 不按“字数”算钱，也不按“时间”算钱，它按 Token 算。你让 AI 做事，AI 也要吃“饭”才能做。</p>
+  <p>换算上，大概 1000 个 Token 约等于 700 个英文单词，或者 400 到 500 个汉字。你跟它聊得越多，消耗的 Token 越多。</p>
+</section>
+
+<section class="glossary-section" id="sec-api">
+  <h2>五、API（接口）</h2>
+  <p><strong>人话翻译：</strong>不管饭的服务员。</p>
+  <p>假设你想在自己的 Excel 里直接用 AI 功能，但你又不想自己造一个 AI。这时候你需要 API。它就像个服务员，把你 Excel 里的问题拿去给 AI 大厨（模型），大厨做好了，它再端回来给你。</p>
+  <p>场景上，凡是那种“一键生成图”的工具软件，背后很多都是在通过 API 偷偷喊 AI 干活。包括你用 lovart、liblibu 这些，也都是在调用别的模型 API 在干活。</p>
+  <p>比如你做一个玩偶陪伴，像用豆包，就可以买个豆包的 API 作为玩偶陪伴对话。</p>
+</section>
+
+<section class="glossary-section" id="sec-agent">
+  <h2>六、Agent（智能体）</h2>
+  <p><strong>人话翻译：</strong>带脑子的全能助理。这是去年最火的词。普通的 AI 是“你问一句，它回一句”。Agent 是“你给个目标，它自己去想办法”。</p>
+  <p>比如你说：“帮我策划一次去日本的旅行。”普通 AI 会给你写个只有文字的攻略；Agent 会先查机票价格，再看酒店库存，甚至帮你把预订链接都找好。它能拆解任务，还能自己用工具。</p>
+</section>
+
+<section class="glossary-section">
+  <h2>七、Skills / Tools（技能 / 工具）</h2>
+  <p><strong>人话翻译：</strong>给 AI 装的外挂。原本的 AI 大脑（LLM）是不能联网、不能画画的，只能打字。Skills 就是给它装上“手”和“眼”。</p>
+  <p>这就是为什么 openclaw 那么强大，因为它有各种 Skills。装个 Search Skill，它就能联网搜新闻了；装个 Python Skill，它就能帮你跑代码分析数据了。</p>
+</section>
+
+<section class="glossary-section" id="sec-rag">
+  <h2>八、RAG（检索增强生成）</h2>
+  <p>有些答案模型本来是没有的，比如你给你男朋友定的规矩，AI 是不知道的。</p>
+  <p><strong>人话翻译：</strong>开卷考试。你要问 AI 你们公司的内部规定，它肯定不知道，因为它没学过。RAG 就是先把你们公司的手册、文档甩给它。你提问的时候，它先去翻书，翻到了再回答你。</p>
+  <p>这就叫“开卷考试”，不仅准，还不瞎编。</p>
+</section>
+
+<section class="glossary-section">
+  <h2>九、OpenClaw（龙虾）</h2>
+  <p><strong>人话翻译：</strong>AI 自动化流水线。这也是我最近常提的一个神器。</p>
+  <p>如果你想拥有一个自己的 Agent，比如你想找参考灵感，它就帮你搜集、整理、打包给你，或者生成 html 网页。你要做海报，它就自己登录你的即梦 AI 账号给你做海报。</p>
+</section>
+
+<section class="glossary-section">
+  <h2>十、Context（上下文）</h2>
+  <p>就是“聊天记忆”。你跟豆包聊天，你问她上礼拜你们说了啥，她是不记得的。</p>
+  <p>为什么 openclaw 能跟你连续聊天？因为它记得你们刚才说了啥。这个“记忆容量”就是 Context。如果记忆容量不够，聊着聊着它就会忘记你名字，或者忘了前文设定。</p>
+</section>
+
+<div class="article-outro">
+  <p>当然 AI 会变得越来越简单，就像上个月咱们装 openclaw 还需要搞个大半天，现在直接一键部署安装。</p>
+  <p>但在这个时代，单纯会用工具已经不稀奇了。如果一个人既有极好的品味，又有有趣的想法，再加上 AI 的效率，这种组合才是真的稀缺。</p>
+  <p>别把自己限制成只会做图的人。你可以做网页、写内容、跑流程、搭系统，很多空白都还等着你去填。</p>
+  <div class="article-origin">
+    内容来源：团队公众号原文《什么是API、Skills Token》。
+    <a href="https://mp.weixin.qq.com/s/CTbue9jGFJQGFdabDDxmNw" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
   </div>
 </div>
 
-<h2 id="course-catalog">课程目录</h2>
-
-<a href="lesson-01.html" class="course-item">
-  <div class="course-left">
-    <span class="course-num">01</span>
-    <div>
-      <div class="course-title">Codex 入门：装好、打开、体验一下</div>
-      <div class="course-desc">Mac/Windows · 跟着做30分钟 · 做出第一个网页</div>
-    </div>
-  </div>
-  <span class="course-arrow">→</span>
-</a>
-
-<a href="lesson-02.html" class="course-item">
-  <div class="course-left">
-    <span class="course-num">02</span>
-    <div>
-      <div class="course-title">上手 Codex：文件夹管理</div>
-      <div class="course-desc">文件夹 + 线程 · 组织项目 · 实战入门</div>
-    </div>
-  </div>
-  <span class="course-arrow">→</span>
-</a>
-
-<a href="lesson-03.html" class="course-item">
-  <div class="course-left">
-    <span class="course-num">03</span>
-    <div>
-      <div class="course-title">AI提问入门：问得好才能答得好</div>
-      <div class="course-desc">4步提问法 · 3个实战场景 · 万能模板</div>
-    </div>
-  </div>
-  <span class="course-arrow">→</span>
-</a>
-
-<a href="lesson-04.html" class="course-item">
-  <div class="course-left">
-    <span class="course-num">04</span>
-    <div>
-      <div class="course-title">Agent是什么？为什么一定要做？</div>
-      <div class="course-desc">通俗解释 · 面向零基础 · 无技术术语</div>
-    </div>
-  </div>
-  <span class="course-arrow">→</span>
-</a>
-
-<a href="lesson-05.html" class="course-item">
-  <div class="course-left">
-    <span class="course-num">05</span>
-    <div>
-      <div class="course-title">Skills是什么？怎么用？</div>
-      <div class="course-desc">Skills入门 · 实战案例 · 安装与使用</div>
-    </div>
-  </div>
-  <span class="course-arrow">→</span>
-</a>
-
-<a href="lesson-06.html" class="course-item">
-  <div class="course-left">
-    <span class="course-num">06</span>
-    <div>
-      <div class="course-title">国产 vs 国外大模型对比</div>
-      <div class="course-desc">2026年3月最新 · 各模型优势 · 推荐场景 · 选型指南</div>
-    </div>
-  </div>
-  <span class="course-arrow">→</span>
-</a>
-
-<a href="lesson-07.html" class="course-item">
-  <div class="course-left">
-    <span class="course-num">07</span>
-    <div>
-      <div class="course-title">6个值得优先装的 Skills</div>
-      <div class="course-desc">6个值得优先安装的 Skills · OfficeCLI重点讲解 · 新手安装顺序与组合</div>
-    </div>
-  </div>
-  <span class="course-arrow">→</span>
-</a>
-
-<a href="rtk-install-guide.html" class="course-item non-lesson">
-  <div class="course-left">
-    <span class="course-num non-lesson-num">工具</span>
-    <div>
-      <div class="course-title">RTK 安装与配置教程</div>
-      <div class="course-desc">重点讲 Windows · 二进制安装 · Claude Code 初始化</div>
-    </div>
-  </div>
-  <span class="course-arrow-link">↗</span>
-</a>
-
-
-
-<div data-progress-scope="1" id="lesson-complete-btn" class="lesson-complete">
-  <button type="button" onclick="markComplete(1)" id="completeBtn" class="complete-btn">
-    ✅ 标记为已学习
-  </button>
-  <p id="complete-tip" class="complete-tip"></p>
+<div class="bottom-nav">
+  <a href="lesson-07.html" class="nav-prev">← 上一课：Skills推荐</a>
 </div>
-
-<footer>正派青年AIGC · AI教育培训 · 让每个人都能体验AI的魅力</footer>
+<footer>正派青年AIGC · AI教育培训 · 第八课 AI常见词入门</footer>
 <div class="spacer"></div>
 
   </main>
+  
+  <aside class="toc">
+    <div class="toc-title">目录</div>
+    
+    <a href="#sec-llm" class="toc-link">LLM</a>
+    
+    <a href="#sec-prompt" class="toc-link">Prompt</a>
+    
+    <a href="#sec-hallucination" class="toc-link">Hallucination</a>
+    
+    <a href="#sec-token" class="toc-link">Token</a>
+    
+    <a href="#sec-api" class="toc-link">API</a>
+    
+    <a href="#sec-agent" class="toc-link">Agent / Skills</a>
+    
+    <a href="#sec-rag" class="toc-link">RAG / Context</a>
+    
+    <button class="search-trigger" type="button">
+      🔍 搜索课程
+      <span class="kbd">⌘K</span>
+    </button>
+  </aside>
   
 </div>
 <div class="search-overlay" id="searchOverlay">

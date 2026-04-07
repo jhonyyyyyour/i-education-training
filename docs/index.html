@@ -207,15 +207,23 @@ body { line-height: 1.6; font-size: 18px; }
     .update-item { display: grid; grid-template-columns: 128px 112px minmax(0, 1fr); column-gap: 24px; align-items: start; }
     .update-table-head { padding: 0 0 14px; border-bottom: 1px solid #e7ddd2; }
     .update-col-label { font-size: 13px; color: #8a857f; letter-spacing: 0.04em; }
-    .update-item { padding: 20px 0; border-bottom: 1px solid #eee4d9; text-decoration: none; transition: background 0.16s ease, transform 0.16s ease; }
+    .update-item { padding: 16px 0; border-bottom: 1px solid #eee4d9; text-decoration: none; transition: background 0.16s ease, transform 0.16s ease; }
     .update-item:last-child { border-bottom: none; padding-bottom: 10px; }
     .update-item:hover { background: #fff9f2; transform: translateX(4px); }
     .update-date { font-size: 16px; color: #908880; line-height: 1.45; }
     .update-tag { display: inline-flex; align-items: center; justify-content: flex-start; width: fit-content; font-size: 15px; font-weight: 600; color: #ca743c; text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
-    .update-text { font-size: 17px; color: #4b4b48; line-height: 1.6; }
+    .update-text {
+      font-size: 17px;
+      color: #4b4b48;
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
     .update-item:hover .update-text,
     .update-item:hover .update-date { color: #2f2f2c; }
-    .site-progress { display: none; padding: 18px 20px; border-radius: 18px; background: linear-gradient(135deg, #fff8f4, #fff3ec); border: 1px solid #f0d8c0; min-height: 100%; }
+    .site-progress { display: none; padding: 18px 20px; border-radius: 18px; background: linear-gradient(135deg, #fff8f4, #fff3ec); border: 1px solid #f0d8c0; min-height: auto; align-self: start; }
     .site-progress-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
     .site-progress-label { font-size: 13px; font-weight: 700; color: #d46a2f; }
     .site-progress-text { font-size: 12px; color: #b0aaa0; }
@@ -319,10 +327,10 @@ body { line-height: 1.6; font-size: 18px; }
       .update-banner-title strong { display: flex; align-items: baseline; gap: 8px; font-size: 24px; white-space: nowrap; overflow-x: auto; }
       .update-banner-title .update-title-en { font-size: 14px; }
       .update-table-head { display: none; }
-      .update-item { grid-template-columns: 1fr; row-gap: 10px; padding: 18px 0; }
+      .update-item { grid-template-columns: 1fr; row-gap: 8px; padding: 16px 0; }
       .update-date { font-size: 14px; }
       .update-tag { font-size: 14px; text-underline-offset: 4px; }
-      .update-text { font-size: 16px; }
+      .update-text { font-size: 16px; -webkit-line-clamp: 3; }
       .hero-summary { grid-template-columns: 1fr; }
       .hero-actions { margin-bottom: 20px; }
       .hero-primary,
@@ -361,6 +369,8 @@ body { line-height: 1.6; font-size: 18px; }
     <a href="lesson-06.html" class="sidebar-link">第六课 · 模型对比</a>
     
     <a href="lesson-07.html" class="sidebar-link">第七课 · Skills推荐</a>
+    
+    <a href="api-intro.html" class="sidebar-link">第八课 · AI常见词入门</a>
     
   </div>
   
@@ -446,11 +456,14 @@ body { line-height: 1.6; font-size: 18px; }
     <div class="update-col-label">TITLE 标题</div>
   </div>
   
+  
   <a href="lesson-07.html" class="update-item">
     <span class="update-date">4月3日</span>
     <span class="update-tag">更新</span>
     <span class="update-text">第七课 · Skills推荐清单：补充 6 个值得优先安装的 Skills，并重点拆解 OfficeCLI 的实际价值</span>
   </a>
+  
+  
   
   <a href="lesson-07.html" class="update-item">
     <span class="update-date">4月2日</span>
@@ -458,35 +471,72 @@ body { line-height: 1.6; font-size: 18px; }
     <span class="update-text">第七课 · Skills推荐与使用：整理官方与第三方 Skills 的优先安装顺序和搭配思路</span>
   </a>
   
+  
+  
   <a href="rtk-install-guide.html" class="update-item">
     <span class="update-date">4月1日</span>
     <span class="update-tag">更新</span>
     <span class="update-text">RTK 安装与配置教程：补齐安装、初始化与配置说明，适合作为最新工具页入口</span>
   </a>
   
-  <a href="lesson-06.html" class="update-item">
-    <span class="update-date">4月1日</span>
-    <span class="update-tag">新增</span>
-    <span class="update-text">第六课 · 模型对比：国产vs国外大模型，2026年3月最新数据</span>
-  </a>
   
-  <a href="lesson-02.html" class="update-item">
-    <span class="update-date">4月1日</span>
-    <span class="update-tag">更新</span>
-    <span class="update-text">第二课新增：定时任务、Skills管理、全局规则、推理深度档位</span>
-  </a>
   
-  <a href="#brand-panel" class="update-item">
-    <span class="update-date">3月30日</span>
-    <span class="update-tag">更新</span>
-    <span class="update-text">首页视觉升级：新增正派青年AIGC品牌标识，统一站点风格</span>
-  </a>
   
-  <a href="lesson-04.html" class="update-item">
-    <span class="update-date">3月30日</span>
-    <span class="update-tag">新增</span>
-    <span class="update-text">第四课 · Agent：用大白话解释Agent是什么、为什么非做不可</span>
-  </a>
+  
+  
+  
+  
+  
+  
+
+  
+  <details class="update-more">
+    <summary class="update-more-toggle">
+      <span>查看更多更新</span>
+      <span class="update-more-count">+4</span>
+    </summary>
+    <div class="update-more-list">
+      
+      
+      
+      
+      
+      
+      
+      
+      <a href="lesson-06.html" class="update-item">
+        <span class="update-date">4月1日</span>
+        <span class="update-tag">新增</span>
+        <span class="update-text">第六课 · 模型对比：国产vs国外大模型，2026年3月最新数据</span>
+      </a>
+      
+      
+      
+      <a href="lesson-02.html" class="update-item">
+        <span class="update-date">4月1日</span>
+        <span class="update-tag">更新</span>
+        <span class="update-text">第二课新增：定时任务、Skills管理、全局规则、推理深度档位</span>
+      </a>
+      
+      
+      
+      <a href="#brand-panel" class="update-item">
+        <span class="update-date">3月30日</span>
+        <span class="update-tag">更新</span>
+        <span class="update-text">首页视觉升级：新增正派青年AIGC品牌标识，统一站点风格</span>
+      </a>
+      
+      
+      
+      <a href="lesson-04.html" class="update-item">
+        <span class="update-date">3月30日</span>
+        <span class="update-tag">新增</span>
+        <span class="update-text">第四课 · Agent：用大白话解释Agent是什么、为什么非做不可</span>
+      </a>
+      
+      
+    </div>
+  </details>
   
 </div>
 
@@ -663,7 +713,7 @@ if(sidebarToggle) sidebarToggle.onclick = () => sidebar.classList.toggle('expand
 
 <script>
 (function(){
-  var progressConfig = {"storageKey":"ai-course-progress","total":7,"entries":[{"id":"lesson-01","url":"lesson-01.html","badge":1,"displayBadge":"01","title":"Codex 入门：装好、打开、体验一下"},{"id":"lesson-02","url":"lesson-02.html","badge":2,"displayBadge":"02","title":"上手 Codex：文件夹管理"},{"id":"lesson-03","url":"lesson-03.html","badge":3,"displayBadge":"03","title":"AI提问入门：问得好才能答得好"},{"id":"lesson-04","url":"lesson-04.html","badge":4,"displayBadge":"04","title":"Agent是什么？为什么一定要做？"},{"id":"lesson-05","url":"lesson-05.html","badge":5,"displayBadge":"05","title":"Skills是什么？怎么用？"},{"id":"lesson-06","url":"lesson-06.html","badge":6,"displayBadge":"06","title":"国产 vs 国外大模型对比"},{"id":"lesson-07","url":"lesson-07.html","badge":7,"displayBadge":"07","title":"6个值得优先装的 Skills"}]};
+  var progressConfig = {"storageKey":"ai-course-progress","total":8,"entries":[{"id":"lesson-01","url":"lesson-01.html","badge":1,"displayBadge":"01","title":"Codex 入门：装好、打开、体验一下"},{"id":"lesson-02","url":"lesson-02.html","badge":2,"displayBadge":"02","title":"上手 Codex：文件夹管理"},{"id":"lesson-03","url":"lesson-03.html","badge":3,"displayBadge":"03","title":"AI提问入门：问得好才能答得好"},{"id":"lesson-04","url":"lesson-04.html","badge":4,"displayBadge":"04","title":"Agent是什么？为什么一定要做？"},{"id":"lesson-05","url":"lesson-05.html","badge":5,"displayBadge":"05","title":"Skills是什么？怎么用？"},{"id":"lesson-06","url":"lesson-06.html","badge":6,"displayBadge":"06","title":"国产 vs 国外大模型对比"},{"id":"lesson-07","url":"lesson-07.html","badge":7,"displayBadge":"07","title":"6个值得优先装的 Skills"},{"id":"api-intro","url":"api-intro.html","badge":8,"displayBadge":"08","title":"AI 常见词大白话入门：API、Token、Skills、Agent"}]};
   var key = progressConfig.storageKey;
   var total = progressConfig.total;
   var done = JSON.parse(localStorage.getItem(key) || '[]');
@@ -713,7 +763,7 @@ if(sidebarToggle) sidebarToggle.onclick = () => sidebar.classList.toggle('expand
 
 <script>
 (function(){
-  var entries = [{"id":"lesson-01","url":"lesson-01.html","title":"Codex 入门：装好、打开、体验一下","navTitle":"第一课 · Codex入门","description":"Mac/Windows · 跟着做30分钟 · 做出第一个网页","group":"course","contentType":"lesson","order":1,"badge":1,"displayBadge":"01","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-02","url":"lesson-02.html","title":"上手 Codex：文件夹管理","navTitle":"第二课 · 上手 Codex","description":"文件夹 + 线程 · 组织项目 · 实战入门","group":"course","contentType":"lesson","order":2,"badge":2,"displayBadge":"02","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-03","url":"lesson-03.html","title":"AI提问入门：问得好才能答得好","navTitle":"第三课 · AI提问","description":"4步提问法 · 3个实战场景 · 万能模板","group":"course","contentType":"lesson","order":3,"badge":3,"displayBadge":"03","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-04","url":"lesson-04.html","title":"Agent是什么？为什么一定要做？","navTitle":"第四课 · Agent","description":"通俗解释 · 面向零基础 · 无技术术语","group":"course","contentType":"lesson","order":4,"badge":4,"displayBadge":"04","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-05","url":"lesson-05.html","title":"Skills是什么？怎么用？","navTitle":"第五课 · Skills","description":"Skills入门 · 实战案例 · 安装与使用","group":"course","contentType":"lesson","order":5,"badge":5,"displayBadge":"05","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-06","url":"lesson-06.html","title":"国产 vs 国外大模型对比","navTitle":"第六课 · 模型对比","description":"2026年3月最新 · 各模型优势 · 推荐场景 · 选型指南","group":"course","contentType":"lesson","order":6,"badge":6,"displayBadge":"06","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-07","url":"lesson-07.html","title":"6个值得优先装的 Skills","navTitle":"第七课 · Skills推荐","description":"6个值得优先安装的 Skills · OfficeCLI重点讲解 · 新手安装顺序与组合","group":"course","contentType":"lesson","order":7,"badge":7,"displayBadge":"07","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"rtk-install-guide","url":"rtk-install-guide.html","title":"RTK 安装与配置教程","navTitle":"RTK 安装与配置教程","description":"重点讲 Windows · 二进制安装 · Claude Code 初始化","group":"resource","contentType":"tool","order":9,"badge":"工具","displayBadge":"工具","trackProgress":false,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"non-lesson"},{"id":"learning-channels","url":"learning-channels.html","title":"学习渠道","navTitle":"学习渠道","description":"公众号 · B站UP主 · 学习平台推荐","group":"resource","contentType":"resource","order":70,"badge":"资源","displayBadge":"资源","trackProgress":false,"showInSidebar":true,"showInCatalog":false,"searchable":true,"catalogVariant":"non-lesson"}];
+  var entries = [{"id":"lesson-01","url":"lesson-01.html","title":"Codex 入门：装好、打开、体验一下","navTitle":"第一课 · Codex入门","description":"Mac/Windows · 跟着做30分钟 · 做出第一个网页","group":"course","contentType":"lesson","order":1,"badge":1,"displayBadge":"01","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-02","url":"lesson-02.html","title":"上手 Codex：文件夹管理","navTitle":"第二课 · 上手 Codex","description":"文件夹 + 线程 · 组织项目 · 实战入门","group":"course","contentType":"lesson","order":2,"badge":2,"displayBadge":"02","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-03","url":"lesson-03.html","title":"AI提问入门：问得好才能答得好","navTitle":"第三课 · AI提问","description":"4步提问法 · 3个实战场景 · 万能模板","group":"course","contentType":"lesson","order":3,"badge":3,"displayBadge":"03","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-04","url":"lesson-04.html","title":"Agent是什么？为什么一定要做？","navTitle":"第四课 · Agent","description":"通俗解释 · 面向零基础 · 无技术术语","group":"course","contentType":"lesson","order":4,"badge":4,"displayBadge":"04","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-05","url":"lesson-05.html","title":"Skills是什么？怎么用？","navTitle":"第五课 · Skills","description":"Skills入门 · 实战案例 · 安装与使用","group":"course","contentType":"lesson","order":5,"badge":5,"displayBadge":"05","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-06","url":"lesson-06.html","title":"国产 vs 国外大模型对比","navTitle":"第六课 · 模型对比","description":"2026年3月最新 · 各模型优势 · 推荐场景 · 选型指南","group":"course","contentType":"lesson","order":6,"badge":6,"displayBadge":"06","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"lesson-07","url":"lesson-07.html","title":"6个值得优先装的 Skills","navTitle":"第七课 · Skills推荐","description":"6个值得优先安装的 Skills · OfficeCLI重点讲解 · 新手安装顺序与组合","group":"course","contentType":"lesson","order":7,"badge":7,"displayBadge":"07","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"api-intro","url":"api-intro.html","title":"AI 常见词大白话入门：API、Token、Skills、Agent","navTitle":"第八课 · AI常见词入门","description":"用大白话讲清 API、Token、Skills、Agent、RAG、Context 是什么","group":"course","contentType":"lesson","order":8,"badge":8,"displayBadge":"08","trackProgress":true,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"lesson"},{"id":"rtk-install-guide","url":"rtk-install-guide.html","title":"RTK 安装与配置教程","navTitle":"RTK 安装与配置教程","description":"重点讲 Windows · 二进制安装 · Claude Code 初始化","group":"resource","contentType":"tool","order":9,"badge":"工具","displayBadge":"工具","trackProgress":false,"showInSidebar":true,"showInCatalog":true,"searchable":true,"catalogVariant":"non-lesson"},{"id":"learning-channels","url":"learning-channels.html","title":"学习渠道","navTitle":"学习渠道","description":"公众号 · B站UP主 · 学习平台推荐","group":"resource","contentType":"resource","order":70,"badge":"资源","displayBadge":"资源","trackProgress":false,"showInSidebar":true,"showInCatalog":false,"searchable":true,"catalogVariant":"non-lesson"}];
 
   function openSearch() {
     var overlay = document.getElementById('searchOverlay');

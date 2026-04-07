@@ -185,7 +185,24 @@ const entries = [
     showInCatalog: false,
     searchable: false,
     catalogVariant: "non-lesson"
-  }
+  },
+  {
+    id: "api-intro",
+    url: "api-intro.html",
+    title: "AI 常见词大白话入门：API、Token、Skills、Agent",
+    navTitle: "第八课 · AI常见词入门",
+    description: "用大白话讲清 API、Token、Skills、Agent、RAG、Context 是什么",
+    group: "course",
+    contentType: "lesson",
+    order: 8,
+    badge: 8,
+    displayBadge: "08",
+    trackProgress: true,
+    showInSidebar: true,
+    showInCatalog: true,
+    searchable: true,
+    catalogVariant: "lesson"
+  },
 ];
 
 const sortedEntries = entries.slice().sort((left, right) => left.order - right.order);
