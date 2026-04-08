@@ -1,18 +1,23 @@
 const contentIndex = require("./contentIndex");
 
-const catalogIds = [
-  "lesson-01",
-  "lesson-02",
-  "lesson-03",
-  "lesson-04",
-  "lesson-05",
-  "lesson-06",
-  "lesson-07",
-  "rtk-install-guide"
-];
+const catalogItems = contentIndex.entries.filter((entry) => (
+  entry.group === "course" && entry.showInCatalog
+));
 
 module.exports = {
   latestUpdates: [
+    {
+      date: "4月8日",
+      category: "新增",
+      text: "第九课 · OpenClaw入门：直接接入教程仓库入口，先把学习地图搭起来",
+      url: "openclaw-course.html"
+    },
+    {
+      date: "4月8日",
+      category: "新增",
+      text: "第八课 · AI常见词入门：集中讲 API、Token、Agent、Skills、RAG 等高频概念",
+      url: "api-intro.html"
+    },
     {
       date: "4月3日",
       category: "更新",
@@ -56,5 +61,5 @@ module.exports = {
       url: "lesson-04.html"
     }
   ],
-  catalogItems: catalogIds.map((id) => contentIndex.byId[id]).filter(Boolean)
+  catalogItems
 };
