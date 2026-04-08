@@ -1,617 +1,609 @@
 ---
-layout: layouts/base.njk
-title: "RTK 是什么？安装与配置教程 · 重点讲 Windows"
+layout: layouts/course-shell.njk
+title: "RTK 安装与配置教程"
+description: "重点讲 Windows 场景、二进制安装、Claude Code 初始化与常见问题。"
+currentPageUrl: rtk-install-guide.html
 permalink: rtk-install-guide.html
+tocItems:
+  - href: "#sec-what-is-rtk"
+    label: "RTK 是什么"
+  - href: "#sec-verify"
+    label: "先确认装的是不是对的 RTK"
+  - href: "#sec-install-paths"
+    label: "你该选哪条安装路径"
+  - href: "#sec-windows"
+    label: "Windows 安装主线"
+  - href: "#sec-agents"
+    label: "init 与工具接入"
+  - href: "#sec-faq"
+    label: "常见问题"
+  - href: "#sec-sources"
+    label: "官方链接"
 inlineStyles: |
   <style>
-      :root {
-        --bg: #faf7f2;
-        --ink: #1a1612;
-        --muted: #7a6e63;
-        --line: rgba(42, 32, 20, 0.10);
-        --card: rgba(255, 252, 247, 0.92);
-        --brand: #d4622a;
-        --brand-light: #f0a57a;
-        --accent: #1a7a6e;
-        --shadow: 0 24px 64px rgba(42, 32, 16, 0.10);
-        --radius: 28px;
+    .rtk-hero-card {
+      border: 1px solid #eadaca;
+      border-radius: 24px;
+      background: linear-gradient(180deg, #fffdfb, #fff8f3);
+      box-shadow: 0 16px 34px rgba(31, 24, 18, 0.05);
+      padding: 24px 26px;
+      margin: 18px 0 24px;
+    }
+
+    .rtk-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #fff3ea;
+      border: 1px solid #f0c8a8;
+      color: #d46a2f;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+    }
+
+    .rtk-hero-copy {
+      font-size: 16px;
+      line-height: 1.9;
+      color: #5f5a54;
+      margin-bottom: 0;
+    }
+
+    .rtk-result-card {
+      border-radius: 22px;
+      background: linear-gradient(145deg, #1d1b18, #2a2520);
+      padding: 24px 26px;
+      color: #f5efe6;
+      margin: 22px 0 28px;
+      box-shadow: 0 18px 34px rgba(24, 24, 24, 0.15);
+    }
+
+    .rtk-result-card h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #fff8f1;
+    }
+
+    .rtk-result-card p,
+    .rtk-result-card li {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.85;
+      color: rgba(245, 239, 230, 0.92);
+    }
+
+    .rtk-result-card ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .rtk-panel {
+      border: 1px solid #e9e1d7;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #fffdfb, #fff9f5);
+      padding: 26px 28px;
+      margin: 18px 0;
+      box-shadow: 0 12px 26px rgba(31, 24, 18, 0.04);
+    }
+
+    .rtk-panel h2 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      color: #1a1a1a;
+    }
+
+    .rtk-panel-desc {
+      color: #7a6e63;
+      font-size: 14px;
+      margin: 0 0 18px;
+      line-height: 1.8;
+    }
+
+    .rtk-step {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(42, 32, 20, 0.10);
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 18px;
+    }
+
+    .rtk-step:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .rtk-step:first-of-type {
+      padding-top: 10px;
+    }
+
+    .rtk-step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #d46a2f, #e07a42);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .rtk-step h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .rtk-step p {
+      margin: 0;
+      color: #66605a;
+      font-size: 15px;
+      line-height: 1.82;
+    }
+
+    .rtk-code {
+      margin: 12px 0 0;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #1d1b18;
+      color: #f9f4ee;
+      font-size: 13px;
+      line-height: 1.75;
+      overflow-x: auto;
+    }
+
+    .rtk-tip,
+    .rtk-warning {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-size: 14px;
+      line-height: 1.78;
+    }
+
+    .rtk-tip {
+      background: #f0f7f6;
+      border: 1px solid rgba(26, 122, 110, 0.18);
+      color: #1a7a6e;
+    }
+
+    .rtk-warning {
+      background: #fff5ee;
+      border: 1px solid rgba(212, 98, 42, 0.18);
+      color: #9b4a23;
+    }
+
+    .rtk-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .rtk-mini-card {
+      border: 1px solid rgba(42, 32, 20, 0.10);
+      border-radius: 18px;
+      background: #fff;
+      padding: 18px 18px 16px;
+    }
+
+    .rtk-mini-card h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .rtk-mini-card p,
+    .rtk-mini-card li {
+      margin: 0;
+      color: #6d655e;
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    .rtk-mini-card ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .rtk-faq-item {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(42, 32, 20, 0.10);
+    }
+
+    .rtk-faq-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .rtk-faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 0 0 6px;
+      color: #1a1a1a;
+    }
+
+    .rtk-faq-a {
+      font-size: 14px;
+      color: #66605a;
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    .rtk-source-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .rtk-source-item {
+      border: 1px solid rgba(42, 32, 20, 0.10);
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: #fff;
+    }
+
+    .rtk-source-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+      color: #1a1a1a;
+    }
+
+    .rtk-source-item p {
+      margin: 0;
+      color: #7a6e63;
+      font-size: 13px;
+      line-height: 1.7;
+      word-break: break-all;
+    }
+
+    .rtk-source-item a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(212, 106, 47, 0.32);
+    }
+
+    .rtk-source-item a:hover {
+      color: #d46a2f;
+      border-bottom-color: #d46a2f;
+    }
+
+    @media (max-width: 760px) {
+      .rtk-panel {
+        padding: 22px 20px;
       }
 
-      * { box-sizing: border-box; }
-
-      body {
-        margin: 0;
-        color: var(--ink);
-        font-family: "Hiragino Sans GB", "PingFang SC", "Microsoft YaHei", sans-serif;
-        background: var(--bg);
-        min-height: 100vh;
-        line-height: 1.7;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      code {
-        font-family: "SFMono-Regular", Menlo, Consolas, monospace;
-        font-size: 0.95em;
-      }
-
-      .page {
-        width: min(100%, 1120px);
-        margin: 0 auto;
-        padding: 48px 20px 100px;
-      }
-
-      .hero {
-        text-align: center;
-        padding: 48px 24px 36px;
-      }
-
-      .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px 14px;
-        border-radius: 999px;
-        background: #fff3ea;
-        border: 1px solid #f0c8a8;
-        color: var(--brand);
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.03em;
-      }
-
-      .hero h1 {
-        margin: 20px 0 16px;
-        font-size: clamp(32px, 7vw, 54px);
-        line-height: 1.08;
-        letter-spacing: -0.04em;
-        font-weight: 800;
-      }
-
-      .hero-sub {
-        font-size: 17px;
-        color: var(--muted);
-        max-width: 46ch;
-        margin: 0 auto;
-        line-height: 1.8;
-      }
-
-      .hero-tagline {
-        margin-top: 18px;
-        font-size: 15px;
-        color: var(--accent);
-        font-weight: 600;
-      }
-
-      .card {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        padding: 28px 30px;
-        margin-top: 20px;
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(12px);
-      }
-
-      .card h2 {
-        margin: 0 0 8px;
-        font-size: 22px;
-        letter-spacing: -0.03em;
-        font-weight: 800;
-      }
-
-      .card-desc {
-        color: var(--muted);
-        font-size: 14px;
-        margin: 0 0 18px;
-      }
-
-      .result-card {
-        border-radius: 20px;
-        background: linear-gradient(145deg, #1d1b18, #2a2520);
-        padding: 24px 26px;
-        color: #f5efe6;
-        margin-top: 20px;
-      }
-
-      .result-card h3 {
-        margin: 0 0 10px;
-        font-size: 14px;
-        font-weight: 700;
-        color: #f0a868;
-        letter-spacing: 0.05em;
-      }
-
-      .result-card p,
-      .result-card li {
-        margin: 0;
-        font-size: 14px;
-        line-height: 1.8;
-        opacity: 0.92;
-      }
-
-      .result-card ul {
-        margin: 12px 0 0;
-        padding-left: 18px;
-        display: grid;
-        gap: 8px;
-      }
-
-      .step {
-        padding: 24px 0;
-        border-bottom: 1px solid var(--line);
-        display: grid;
-        grid-template-columns: 44px 1fr;
-        gap: 18px;
-      }
-
-      .step:last-child { border-bottom: none; }
-
-      .step-num {
-        width: 44px;
-        height: 44px;
-        border-radius: 14px;
-        background: linear-gradient(135deg, var(--brand), var(--brand-light));
-        color: #fff;
-        display: grid;
-        place-items: center;
-        font-size: 18px;
-        font-weight: 800;
-        flex-shrink: 0;
-      }
-
-      .step h3 {
-        margin: 0 0 6px;
-        font-size: 17px;
-        font-weight: 700;
-      }
-
-      .step p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.75;
-      }
-
-      pre {
-        margin: 12px 0 0;
-        padding: 14px 16px;
-        border-radius: 14px;
-        background: #1d1b18;
-        color: #f9f4ee;
-        font-size: 13px;
-        line-height: 1.75;
-        overflow-x: auto;
-      }
-
-      .tip-box {
-        margin-top: 14px;
-        padding: 14px 16px;
-        border-radius: 14px;
-        background: #f0f7f6;
-        border: 1px solid rgba(26, 122, 110, 0.18);
-        font-size: 14px;
-        color: var(--accent);
-        line-height: 1.75;
-      }
-
-      .warning-box {
-        margin-top: 14px;
-        padding: 14px 16px;
-        border-radius: 14px;
-        background: #fff5ee;
-        border: 1px solid rgba(212, 98, 42, 0.18);
-        font-size: 14px;
-        color: #9b4a23;
-        line-height: 1.75;
-      }
-
-      .grid-2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+      .rtk-step {
+        grid-template-columns: 1fr;
         gap: 12px;
-        margin-top: 16px;
       }
 
-      .mini-card {
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        background: #fff;
-        padding: 18px 18px 16px;
+      .rtk-grid {
+        grid-template-columns: 1fr;
       }
 
-      .mini-card h3 {
-        margin: 0 0 8px;
-        font-size: 16px;
-        font-weight: 700;
+      .rtk-result-card,
+      .rtk-hero-card {
+        padding: 20px;
       }
-
-      .mini-card p,
-      .mini-card li {
-        margin: 0;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.72;
-      }
-
-      .mini-card ul {
-        margin: 10px 0 0;
-        padding-left: 18px;
-        display: grid;
-        gap: 8px;
-      }
-
-      .faq-item {
-        padding: 16px 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .faq-item:last-child { border-bottom: none; }
-
-      .faq-q {
-        font-size: 15px;
-        font-weight: 700;
-        margin: 0 0 6px;
-      }
-
-      .faq-a {
-        font-size: 14px;
-        color: var(--muted);
-        margin: 0;
-        line-height: 1.75;
-      }
-
-      .source-list {
-        display: grid;
-        gap: 10px;
-        margin-top: 12px;
-      }
-
-      .source-item {
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 14px 16px;
-        background: #fff;
-      }
-
-      .source-item strong {
-        display: block;
-        margin-bottom: 4px;
-        font-size: 15px;
-      }
-
-      .source-item p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 13px;
-        line-height: 1.7;
-        word-break: break-all;
-      }
-
-      .footer {
-        text-align: center;
-        margin-top: 40px;
-        padding-top: 28px;
-        border-top: 1px solid var(--line);
-        color: var(--muted);
-        font-size: 13px;
-      }
-
-      @media (max-width: 700px) {
-        .page { padding: 32px 16px 80px; }
-        .card { padding: 22px 20px; }
-        .hero { padding: 32px 16px 28px; }
-        .grid-2 { grid-template-columns: 1fr; }
-        .step { grid-template-columns: 1fr; gap: 12px; }
-      }
-    
+    }
   </style>
 ---
-  <div class="page">
-    <header class="hero">
-      <div class="hero-badge">🛠️ RTK 安装与配置教程 / 2026-04-01 整理</div>
-      <h1>RTK 是什么？<br>怎么安装和配置</h1>
-      <p class="hero-sub">
-        RTK（Rust Token Killer）是一个给 AI Coding 场景用的命令行代理工具，作用是压缩和过滤终端输出，减少大模型在读命令结果时消耗的 token。
-        配好之后，你最直接能感受到的变化是：终端输出更短、更干净，AI 不再被大段噪音淹没，长会话里更省 token。
-      </p>
-      <p class="hero-tagline">官方给出的典型数据是节省 60% - 90% token；README 里的 30 分钟 Claude Code 会话示例约节省 80%。</p>
-    </header>
+<div class="back-link"><a href="index.html">← 返回首页</a></div>
+<div class="page-label">资源 · RTK 教程</div>
+<h1>RTK 安装与配置教程</h1>
+<p class="subtitle">重点讲 Windows 场景、二进制安装、Claude Code 初始化与常见问题。</p>
 
-    <div class="result-card">
-      <h3>配好之后你会得到什么</h3>
-      <p>RTK 的价值不是“多装一个工具”，而是让 AI 读命令结果时更省、更稳、更聚焦。</p>
+<section class="rtk-hero-card" id="sec-what-is-rtk">
+  <div class="rtk-kicker">🛠️ RTK 安装与配置教程 / 2026-04-01 整理</div>
+  <p class="rtk-hero-copy">
+    RTK（Rust Token Killer）是一个给 AI Coding 场景用的命令行代理工具，作用是压缩和过滤终端输出，减少大模型在读命令结果时消耗的 token。配好之后，你最直接能感受到的变化是：终端输出更短、更干净，AI 不再被大段噪音淹没，长会话里更省 token。
+  </p>
+</section>
+
+<div class="highlight-box">
+  <strong>一句话理解：</strong>RTK 的价值不是“多装一个工具”，而是让 AI 读命令结果时更省、更稳、更聚焦。官方给出的典型数据是节省 60% - 90% token；README 里的 30 分钟 Claude Code 会话示例约节省 80%。
+</div>
+
+<section class="rtk-result-card">
+  <h2>配好之后你会得到什么</h2>
+  <ul>
+    <li>常见命令输出会被压缩，减少无关噪音。</li>
+    <li>官方资料给出的典型节省区间是 <strong>60% - 90%</strong> token。</li>
+    <li>README 的 30 分钟 Claude Code 会话示例里，总 token 从约 <strong>118,000</strong> 降到约 <strong>23,900</strong>，约节省 <strong>80%</strong>。</li>
+    <li>Windows 用户也可以不用 cargo，直接下预编译二进制就能开始。</li>
+  </ul>
+</section>
+
+<section class="rtk-panel" id="sec-verify">
+  <h2>先确认你装的是不是“对的 RTK”</h2>
+  <p class="rtk-panel-desc">官方文档反复强调，安装前和安装后都要做这一步，因为存在同名项目冲突。</p>
+
+  <div class="rtk-step">
+    <div class="rtk-step-num">1</div>
+    <div>
+      <h3>先跑这三个命令</h3>
+      <p>不管你是第一次安装，还是怀疑自己已经装过，都先验证当前机器上的 RTK 到底是什么。</p>
+      <pre class="rtk-code"><code>rtk --version
+rtk gain
+which rtk   # Windows PowerShell 可改用: where.exe rtk</code></pre>
+    </div>
+  </div>
+
+  <div class="rtk-step">
+    <div class="rtk-step-num">2</div>
+    <div>
+      <h3>正确结果是什么</h3>
+      <p>如果 <code>rtk gain</code> 能显示 token 节省统计，你装的是 Rust Token Killer。若 <code>rtk --version</code> 能跑，但 <code>rtk gain</code> 提示不是有效命令，你多半装成了另一个同名项目。</p>
+      <div class="rtk-warning">
+        常见误装：<strong>Rust Type Kit</strong>。它不是做 token 压缩的，也不带 <code>rtk gain</code>。
+      </div>
+    </div>
+  </div>
+
+  <div class="rtk-step">
+    <div class="rtk-step-num">3</div>
+    <div>
+      <h3>误装后怎么处理</h3>
+      <p>如果你是通过 cargo 装错的，先卸载，再走下面推荐的安装路径。</p>
+      <pre class="rtk-code"><code>cargo uninstall rtk</code></pre>
+    </div>
+  </div>
+</section>
+
+<section class="rtk-panel" id="sec-install-paths">
+  <h2>你该选哪条安装路径</h2>
+  <p class="rtk-panel-desc">按“是否需要编译环境”和“是不是 Windows”来选，最不容易绕路。</p>
+
+  <div class="rtk-grid">
+    <div class="rtk-mini-card">
+      <h3>路径 A：Quick Install</h3>
+      <p>适合 Linux / macOS 用户，想最快装上。</p>
+      <pre class="rtk-code"><code>curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh | sh</code></pre>
       <ul>
-        <li>常见命令输出会被压缩，减少无关噪音。</li>
-        <li>官方资料给出的典型节省区间是 <strong>60% - 90%</strong> token。</li>
-        <li>README 的 30 分钟 Claude Code 会话示例里，总 token 从约 <strong>118,000</strong> 降到约 <strong>23,900</strong>，约节省 <strong>80%</strong>。</li>
-        <li>Windows 用户也可以不用 cargo，直接下预编译二进制就能开始。</li>
+        <li>这是官方 INSTALL 文档里的快捷安装方式。</li>
+        <li>默认安装到 <code>~/.local/bin</code>。</li>
+        <li>Windows 不走这条。</li>
       </ul>
     </div>
 
-    <div class="card">
-      <h2>先确认你装的是不是“对的 RTK”</h2>
-      <p class="card-desc">官方文档反复强调，安装前和安装后都要做这一步，因为存在同名项目冲突。</p>
-
-      <div class="step">
-        <div class="step-num">1</div>
-        <div>
-          <h3>先跑这三个命令</h3>
-          <p>不管你是第一次安装，还是怀疑自己已经装过，都先验证当前机器上的 RTK 到底是什么。</p>
-          <pre><code>rtk --version
-rtk gain
-which rtk   # Windows PowerShell 可改用: where.exe rtk</code></pre>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">2</div>
-        <div>
-          <h3>正确结果是什么</h3>
-          <p>如果 <code>rtk gain</code> 能显示 token 节省统计，你装的是 Rust Token Killer。若 <code>rtk --version</code> 能跑，但 <code>rtk gain</code> 提示不是有效命令，你多半装成了另一个同名项目。</p>
-          <div class="warning-box">
-            常见误装：<strong>Rust Type Kit</strong>。它不是做 token 压缩的，也不带 <code>rtk gain</code>。
-          </div>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">3</div>
-        <div>
-          <h3>误装后怎么处理</h3>
-          <p>如果你是通过 cargo 装错的，先卸载，再走下面推荐的安装路径。</p>
-          <pre><code>cargo uninstall rtk</code></pre>
-        </div>
-      </div>
+    <div class="rtk-mini-card">
+      <h3>路径 B：Cargo</h3>
+      <p>适合已经装好 Rust，想按源码路径安装的人。</p>
+      <pre class="rtk-code"><code>cargo install --git https://github.com/rtk-ai/rtk</code></pre>
+      <ul>
+        <li>这是当前最稳的 cargo 安装方式。</li>
+        <li>推荐显式写 <code>--git</code>，避免同名包混淆。</li>
+        <li>装完一定再跑一次 <code>rtk gain</code> 验证。</li>
+      </ul>
     </div>
 
-    <div class="card">
-      <h2>你该选哪条安装路径</h2>
-      <p class="card-desc">按“是否需要编译环境”和“是不是 Windows”来选，最不容易绕路。</p>
-
-      <div class="grid-2">
-        <div class="mini-card">
-          <h3>路径 A：Quick Install</h3>
-          <p>适合 Linux / macOS 用户，想最快装上。</p>
-          <pre><code>curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh | sh</code></pre>
-          <ul>
-            <li>这是官方 INSTALL 文档里的快捷安装方式。</li>
-            <li>默认安装到 <code>~/.local/bin</code>。</li>
-            <li>Windows 不走这条。</li>
-          </ul>
-        </div>
-
-        <div class="mini-card">
-          <h3>路径 B：Cargo</h3>
-          <p>适合已经装好 Rust，想按源码路径安装的人。</p>
-          <pre><code>cargo install --git https://github.com/rtk-ai/rtk</code></pre>
-          <ul>
-            <li>这是当前最稳的 cargo 安装方式。</li>
-            <li>推荐显式写 <code>--git</code>，避免同名包混淆。</li>
-            <li>装完一定再跑一次 <code>rtk gain</code> 验证。</li>
-          </ul>
-        </div>
-
-        <div class="mini-card">
-          <h3>路径 C：预编译二进制</h3>
-          <p>适合没有 cargo、只想直接下载来用的人，尤其是 Windows。</p>
-          <pre><code>从 Releases 页面下载对应平台压缩包
+    <div class="rtk-mini-card">
+      <h3>路径 C：预编译二进制</h3>
+      <p>适合没有 cargo、只想直接下载来用的人，尤其是 Windows。</p>
+      <pre class="rtk-code"><code>从 Releases 页面下载对应平台压缩包
 macOS: *.tar.gz
 Linux: *.tar.gz
 Windows: rtk-x86_64-pc-windows-msvc.zip</code></pre>
-          <ul>
-            <li>不用装 Rust。</li>
-            <li>下载、解压、加 PATH 就能跑。</li>
-            <li>这是 Windows 新手最省事的路线。</li>
-          </ul>
-        </div>
-
-        <div class="mini-card">
-          <h3>不推荐的做法</h3>
-          <p>不要把下面这条当默认方案：</p>
-          <pre><code>cargo install rtk</code></pre>
-          <ul>
-            <li>因为存在“装到同名错误项目”的风险。</li>
-            <li>如果你真的这么装了，至少要马上用 <code>rtk gain</code> 复核。</li>
-          </ul>
-        </div>
-      </div>
+      <ul>
+        <li>不用装 Rust。</li>
+        <li>下载、解压、加 PATH 就能跑。</li>
+        <li>这是 Windows 新手最省事的路线。</li>
+      </ul>
     </div>
 
-    <div class="card">
-      <h2>Windows 用户最推荐的配置路线</h2>
-      <p class="card-desc">如果你主要是为了在 Claude Code、Cursor、Copilot 这类 AI Coding 工具里用 RTK，Windows 直接走“预编译二进制 + init”最省心。</p>
+    <div class="rtk-mini-card">
+      <h3>不推荐的做法</h3>
+      <p>不要把下面这条当默认方案：</p>
+      <pre class="rtk-code"><code>cargo install rtk</code></pre>
+      <ul>
+        <li>因为存在“装到同名错误项目”的风险。</li>
+        <li>如果你真的这么装了，至少要马上用 <code>rtk gain</code> 复核。</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-      <div class="step">
-        <div class="step-num">1</div>
-        <div>
-          <h3>下载 Windows 预编译包</h3>
-          <p>打开 RTK 的 Releases 页面，下载 <code>rtk-x86_64-pc-windows-msvc.zip</code>。</p>
-          <div class="tip-box">
-            这一步不需要 cargo，也不需要 Rust 工具链。
-          </div>
-        </div>
-      </div>
+<section class="rtk-panel" id="sec-windows">
+  <h2>Windows 用户最推荐的配置路线</h2>
+  <p class="rtk-panel-desc">如果你主要是为了在 Claude Code、Cursor、Copilot 这类 AI Coding 工具里用 RTK，Windows 直接走“预编译二进制 + init”最省心。</p>
 
-      <div class="step">
-        <div class="step-num">2</div>
-        <div>
-          <h3>解压到一个固定目录</h3>
-          <p>建议放到你自己容易记住的位置，比如：</p>
-          <pre><code>C:\Users\你的用户名\tools\rtk
+  <div class="rtk-step">
+    <div class="rtk-step-num">1</div>
+    <div>
+      <h3>下载 Windows 预编译包</h3>
+      <p>打开 RTK 的 Releases 页面，下载 <code>rtk-x86_64-pc-windows-msvc.zip</code>。</p>
+      <div class="rtk-tip">这一步不需要 cargo，也不需要 Rust 工具链。</div>
+    </div>
+  </div>
+
+  <div class="rtk-step">
+    <div class="rtk-step-num">2</div>
+    <div>
+      <h3>解压到一个固定目录</h3>
+      <p>建议放到你自己容易记住的位置，比如：</p>
+      <pre class="rtk-code"><code>C:\Users\你的用户名\tools\rtk
 # 或
 C:\tools\rtk</code></pre>
-          <p>关键点不是目录名，而是后面要把这个目录加入 PATH。</p>
-        </div>
-      </div>
+      <p>关键点不是目录名，而是后面要把这个目录加入 PATH。</p>
+    </div>
+  </div>
 
-      <div class="step">
-        <div class="step-num">3</div>
-        <div>
-          <h3>把 rtk.exe 所在目录加入 PATH</h3>
-          <p>最稳的办法是用系统环境变量界面，把上面的目录加入用户级 Path。你也可以先临时加到当前 PowerShell 会话里测试：</p>
-          <pre><code>$env:Path += ";C:\Users\你的用户名\tools\rtk"
+  <div class="rtk-step">
+    <div class="rtk-step-num">3</div>
+    <div>
+      <h3>把 rtk.exe 所在目录加入 PATH</h3>
+      <p>最稳的办法是用系统环境变量界面，把上面的目录加入用户级 Path。你也可以先临时加到当前 PowerShell 会话里测试：</p>
+      <pre class="rtk-code"><code>$env:Path += ";C:\Users\你的用户名\tools\rtk"
 rtk --version
 rtk gain</code></pre>
-          <div class="tip-box">
-            如果临时 PATH 能跑，说明二进制没问题。接下来再把它写进永久环境变量即可。
-          </div>
-        </div>
-      </div>
+      <div class="rtk-tip">如果临时 PATH 能跑，说明二进制没问题。接下来再把它写进永久环境变量即可。</div>
+    </div>
+  </div>
 
-      <div class="step">
-        <div class="step-num">4</div>
-        <div>
-          <h3>初始化 Claude Code</h3>
-          <p>RTK 不只是“装上就结束”，通常还要把 hook 接到 AI 工具里，才会自动把 Bash 命令改写成 <code>rtk ...</code>。</p>
-          <pre><code>rtk init -g
+  <div class="rtk-step">
+    <div class="rtk-step-num">4</div>
+    <div>
+      <h3>初始化 Claude Code</h3>
+      <p>RTK 不只是“装上就结束”，通常还要把 hook 接到 AI 工具里，才会自动把 Bash 命令改写成 <code>rtk ...</code>。</p>
+      <pre class="rtk-code"><code>rtk init -g
 # 如果你不想交互确认，可用：
 rtk init -g --auto-patch
 
 rtk init --show</code></pre>
-          <p><code>rtk init -g</code> 会安装 hook、写入 RTK.md，并尝试补丁 Claude Code 的 <code>settings.json</code>。完成后要重启 Claude Code。</p>
-        </div>
-      </div>
+      <p><code>rtk init -g</code> 会安装 hook、写入 RTK.md，并尝试补丁 Claude Code 的 <code>settings.json</code>。完成后要重启 Claude Code。</p>
+    </div>
+  </div>
 
-      <div class="step">
-        <div class="step-num">5</div>
-        <div>
-          <h3>最后做一次真实验证</h3>
-          <p>打开新的终端或重启 AI 工具后，至少跑下面这些：</p>
-          <pre><code>rtk --version
+  <div class="rtk-step">
+    <div class="rtk-step-num">5</div>
+    <div>
+      <h3>最后做一次真实验证</h3>
+      <p>打开新的终端或重启 AI 工具后，至少跑下面这些：</p>
+      <pre class="rtk-code"><code>rtk --version
 rtk gain
 rtk init --show</code></pre>
-          <p>如果你已经在用 Claude Code，还可以再试一个常见命令，例如 <code>git status</code>，看输出是否变得更紧凑。</p>
-        </div>
-      </div>
+      <p>如果你已经在用 Claude Code，还可以再试一个常见命令，例如 <code>git status</code>，看输出是否变得更紧凑。</p>
     </div>
+  </div>
+</section>
 
-    <div class="card">
-      <h2>如果你已经装了 cargo，推荐这样装</h2>
-      <p class="card-desc">这条路径更适合开发者，尤其是已经有 Rust 环境的人。</p>
+<section class="rtk-panel">
+  <h2>如果你已经装了 cargo，推荐这样装</h2>
+  <p class="rtk-panel-desc">这条路径更适合开发者，尤其是已经有 Rust 环境的人。</p>
 
-      <div class="step">
-        <div class="step-num">1</div>
-        <div>
-          <h3>直接从 GitHub 仓库安装</h3>
-          <pre><code>cargo install --git https://github.com/rtk-ai/rtk</code></pre>
-          <p>这样能明确指向 Rust Token Killer 仓库，不容易装错。</p>
-        </div>
-      </div>
+  <div class="rtk-step">
+    <div class="rtk-step-num">1</div>
+    <div>
+      <h3>直接从 GitHub 仓库安装</h3>
+      <pre class="rtk-code"><code>cargo install --git https://github.com/rtk-ai/rtk</code></pre>
+      <p>这样能明确指向 Rust Token Killer 仓库，不容易装错。</p>
+    </div>
+  </div>
 
-      <div class="step">
-        <div class="step-num">2</div>
-        <div>
-          <h3>如果命令找不到，多半是 PATH 没配</h3>
-          <p>官方 Troubleshooting 里专门提到：很多人编译成功了，但 <code>~/.cargo/bin</code> 没在 PATH 里。</p>
-          <pre><code># bash / zsh
+  <div class="rtk-step">
+    <div class="rtk-step-num">2</div>
+    <div>
+      <h3>如果命令找不到，多半是 PATH 没配</h3>
+      <p>官方 Troubleshooting 里专门提到：很多人编译成功了，但 <code>~/.cargo/bin</code> 没在 PATH 里。</p>
+      <pre class="rtk-code"><code># bash / zsh
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # 然后重新打开终端，或 source 对应配置文件</code></pre>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">3</div>
-        <div>
-          <h3>Windows 上要注意版本别太老</h3>
-          <p>官方 Troubleshooting 提到，Windows 对 <code>.CMD</code> / <code>.BAT</code> 包装脚本的解析问题在 <code>v0.23.1+</code> 已修复。现在只要用较新的 RTK 版本，一般不需要你自己补 workaround。</p>
-        </div>
-      </div>
     </div>
+  </div>
 
-    <div class="card">
-      <h2>Claude Code / Cursor / 其他工具怎么配</h2>
-      <p class="card-desc">RTK 的价值不只是单独跑命令，而是接到 AI 工具的 hook 里，让命令自动改写。</p>
+  <div class="rtk-step">
+    <div class="rtk-step-num">3</div>
+    <div>
+      <h3>Windows 上要注意版本别太老</h3>
+      <p>官方 Troubleshooting 提到，Windows 对 <code>.CMD</code> / <code>.BAT</code> 包装脚本的解析问题在 <code>v0.23.1+</code> 已修复。现在只要用较新的 RTK 版本，一般不需要你自己补 workaround。</p>
+    </div>
+  </div>
+</section>
 
-      <div class="grid-2">
-        <div class="mini-card">
-          <h3>Claude Code</h3>
-          <pre><code>rtk init -g
+<section class="rtk-panel" id="sec-agents">
+  <h2>Claude Code / Cursor / 其他工具怎么配</h2>
+  <p class="rtk-panel-desc">RTK 的价值不只是单独跑命令，而是接到 AI 工具的 hook 里，让命令自动改写。</p>
+
+  <div class="rtk-grid">
+    <div class="rtk-mini-card">
+      <h3>Claude Code</h3>
+      <pre class="rtk-code"><code>rtk init -g
 # 或
 rtk init -g --auto-patch</code></pre>
-          <p>这是默认主线。官方说明会安装 hook 到 <code>~/.claude/hooks/rtk-rewrite.sh</code>，并处理 RTK.md / settings.json。</p>
-        </div>
+      <p>这是默认主线。官方说明会安装 hook 到 <code>~/.claude/hooks/rtk-rewrite.sh</code>，并处理 RTK.md / settings.json。</p>
+    </div>
 
-        <div class="mini-card">
-          <h3>Cursor</h3>
-          <pre><code>rtk init -g --agent cursor</code></pre>
-          <p>会写入 Cursor 的 hook 配置，适合你已经把主力环境放在 Cursor。</p>
-        </div>
+    <div class="rtk-mini-card">
+      <h3>Cursor</h3>
+      <pre class="rtk-code"><code>rtk init -g --agent cursor</code></pre>
+      <p>会写入 Cursor 的 hook 配置，适合你已经把主力环境放在 Cursor。</p>
+    </div>
 
-        <div class="mini-card">
-          <h3>Gemini CLI</h3>
-          <pre><code>rtk init -g --gemini</code></pre>
-          <p>适合想把同一套 token 压缩逻辑接到 Gemini CLI 上的人。</p>
-        </div>
+    <div class="rtk-mini-card">
+      <h3>Gemini CLI</h3>
+      <pre class="rtk-code"><code>rtk init -g --gemini</code></pre>
+      <p>适合想把同一套 token 压缩逻辑接到 Gemini CLI 上的人。</p>
+    </div>
 
-        <div class="mini-card">
-          <h3>Codex / Copilot / Cline</h3>
-          <pre><code>rtk init -g --codex
+    <div class="rtk-mini-card">
+      <h3>Codex / Copilot / Cline</h3>
+      <pre class="rtk-code"><code>rtk init -g --codex
 rtk init -g --copilot
 rtk init --agent cline</code></pre>
-          <p>不同工具的接入方式不同，但思路一样：先装 RTK，再跑对应的 init 命令，最后重启工具。</p>
-        </div>
-      </div>
+      <p>不同工具的接入方式不同，但思路一样：先装 RTK，再跑对应的 init 命令，最后重启工具。</p>
     </div>
-
-    <div class="card">
-      <h2>常见问题</h2>
-
-      <div class="faq-item">
-        <p class="faq-q">Q: 没有 cargo，能不能直接下载二进制文件？</p>
-        <p class="faq-a">A: 可以，尤其 Windows 很适合这样做。去 Releases 下载 <code>rtk-x86_64-pc-windows-msvc.zip</code>，解压后把 <code>rtk.exe</code> 所在目录加到 PATH，再跑 <code>rtk --version</code> 和 <code>rtk gain</code> 验证即可。</p>
-      </div>
-
-      <div class="faq-item">
-        <p class="faq-q">Q: 为什么 <code>rtk --version</code> 能跑，但 <code>rtk gain</code> 不行？</p>
-        <p class="faq-a">A: 这通常说明你装错了同名项目，装成了 Rust Type Kit。先卸载，再改用 <code>cargo install --git https://github.com/rtk-ai/rtk</code> 或直接下载官方预编译二进制。</p>
-      </div>
-
-      <div class="faq-item">
-        <p class="faq-q">Q: Windows 上 <code>rtk lint</code>、<code>rtk vitest</code> 报 “program not found” 怎么办？</p>
-        <p class="faq-a">A: 官方 Troubleshooting 提到这是旧版在 Windows 解析 <code>.CMD</code>/<code>.BAT</code> 包装脚本时的已知问题，升级到 <code>v0.23.1+</code> 或更新版本即可。</p>
-      </div>
-
-      <div class="faq-item">
-        <p class="faq-q">Q: 明明装好了，Claude Code 里还是没生效？</p>
-        <p class="faq-a">A: 先跑 <code>rtk init --show</code> 检查 hook 状态，再重启 Claude Code。若你选择了手动配置模式，还要确认 <code>settings.json</code> 里确实已经注册 RTK 的 PreToolUse hook。</p>
-      </div>
-
-      <div class="faq-item">
-        <p class="faq-q">Q: Quick Install 为什么不推荐给 Windows？</p>
-        <p class="faq-a">A: 因为官方快捷脚本主要是 Linux/macOS 路线。Windows 用户直接下载 zip 并配 PATH，更直观，也更少碰到 shell 差异问题。</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>这页主要依据</h2>
-      <p class="card-desc">内容按你给的三个入口整理，安装命令和判断标准都以官方仓库文档为准。</p>
-
-      <div class="source-list">
-        <div class="source-item">
-          <strong>RTK 仓库</strong>
-          <p><a href="https://github.com/rtk-ai/rtk" target="_blank" rel="noreferrer">https://github.com/rtk-ai/rtk</a></p>
-        </div>
-        <div class="source-item">
-          <strong>INSTALL.md</strong>
-          <p><a href="https://github.com/rtk-ai/rtk/blob/master/INSTALL.md" target="_blank" rel="noreferrer">https://github.com/rtk-ai/rtk/blob/master/INSTALL.md</a></p>
-        </div>
-        <div class="source-item">
-          <strong>TROUBLESHOOTING.md</strong>
-          <p><a href="https://github.com/rtk-ai/rtk/blob/master/docs/TROUBLESHOOTING.md" target="_blank" rel="noreferrer">https://github.com/rtk-ai/rtk/blob/master/docs/TROUBLESHOOTING.md</a></p>
-        </div>
-        <div class="source-item">
-          <strong>Releases</strong>
-          <p><a href="https://github.com/rtk-ai/rtk/releases" target="_blank" rel="noreferrer">https://github.com/rtk-ai/rtk/releases</a></p>
-        </div>
-      </div>
-    </div>
-
-    <footer class="footer">
-      RTK 安装与配置教程 · 重点覆盖 Windows 场景、二进制安装、Claude Code 初始化
-    </footer>
   </div>
+</section>
+
+<section class="rtk-panel" id="sec-faq">
+  <h2>常见问题</h2>
+
+  <div class="rtk-faq-item">
+    <p class="rtk-faq-q">Q: 没有 cargo，能不能直接下载二进制文件？</p>
+    <p class="rtk-faq-a">A: 可以，尤其 Windows 很适合这样做。去 Releases 下载 <code>rtk-x86_64-pc-windows-msvc.zip</code>，解压后把 <code>rtk.exe</code> 所在目录加到 PATH，再跑 <code>rtk --version</code> 和 <code>rtk gain</code> 验证即可。</p>
+  </div>
+
+  <div class="rtk-faq-item">
+    <p class="rtk-faq-q">Q: 为什么 <code>rtk --version</code> 能跑，但 <code>rtk gain</code> 不行？</p>
+    <p class="rtk-faq-a">A: 这通常说明你装错了同名项目，装成了 Rust Type Kit。先卸载，再改用 <code>cargo install --git https://github.com/rtk-ai/rtk</code> 或直接下载官方预编译二进制。</p>
+  </div>
+
+  <div class="rtk-faq-item">
+    <p class="rtk-faq-q">Q: Windows 上 <code>rtk lint</code>、<code>rtk vitest</code> 报 “program not found” 怎么办？</p>
+    <p class="rtk-faq-a">A: 官方 Troubleshooting 提到这是旧版在 Windows 解析 <code>.CMD</code>/<code>.BAT</code> 包装脚本时的已知问题，升级到 <code>v0.23.1+</code> 或更新版本即可。</p>
+  </div>
+
+  <div class="rtk-faq-item">
+    <p class="rtk-faq-q">Q: 明明装好了，Claude Code 里还是没生效？</p>
+    <p class="rtk-faq-a">A: 先跑 <code>rtk init --show</code> 检查 hook 状态，再重启 Claude Code。若你选择了手动配置模式，还要确认 <code>settings.json</code> 里确实已经注册 RTK 的 PreToolUse hook。</p>
+  </div>
+
+  <div class="rtk-faq-item">
+    <p class="rtk-faq-q">Q: Quick Install 为什么不推荐给 Windows？</p>
+    <p class="rtk-faq-a">A: 因为官方快捷脚本主要是 Linux/macOS 路线。Windows 用户直接下载 zip 并配 PATH，更直观，也更少碰到 shell 差异问题。</p>
+  </div>
+</section>
+
+<section class="rtk-panel" id="sec-sources">
+  <h2>这页主要依据</h2>
+  <p class="rtk-panel-desc">内容按你给的三个入口整理，安装命令和判断标准都以官方仓库文档为准。</p>
+
+  <div class="rtk-source-list">
+    <div class="rtk-source-item">
+      <strong>RTK 仓库</strong>
+      <p><a href="https://github.com/rtk-ai/rtk" target="_blank" rel="noopener noreferrer">https://github.com/rtk-ai/rtk</a></p>
+    </div>
+    <div class="rtk-source-item">
+      <strong>INSTALL.md</strong>
+      <p><a href="https://github.com/rtk-ai/rtk/blob/master/INSTALL.md" target="_blank" rel="noopener noreferrer">https://github.com/rtk-ai/rtk/blob/master/INSTALL.md</a></p>
+    </div>
+    <div class="rtk-source-item">
+      <strong>TROUBLESHOOTING.md</strong>
+      <p><a href="https://github.com/rtk-ai/rtk/blob/master/docs/TROUBLESHOOTING.md" target="_blank" rel="noopener noreferrer">https://github.com/rtk-ai/rtk/blob/master/docs/TROUBLESHOOTING.md</a></p>
+    </div>
+    <div class="rtk-source-item">
+      <strong>Releases</strong>
+      <p><a href="https://github.com/rtk-ai/rtk/releases" target="_blank" rel="noopener noreferrer">https://github.com/rtk-ai/rtk/releases</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>RTK 安装与配置教程 · 重点覆盖 Windows 场景、二进制安装、Claude Code 初始化</footer>
+<div class="spacer"></div>

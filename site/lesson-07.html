@@ -1,308 +1,470 @@
 ---
 layout: layouts/course-shell.njk
 title: "第七课 · Skills推荐清单"
-description: "6个值得优先安装的 Skills · OfficeCLI重点讲解 · 新手安装顺序与组合"
+description: "分享 6 个我觉得应该先装的 Skills · 小红书长文风重制版 · OfficeCLI 单独重点讲解"
 currentPageUrl: lesson-07.html
 permalink: lesson-07.html
 tocItems:
-  - href: "#sec-why"
-    label: "为什么先看这课"
-  - href: "#sec-choose"
-    label: "什么值得先装"
-  - href: "#sec-recommend"
-    label: "6个优先推荐"
+  - href: "#sec-intro"
+    label: "为什么重做这页"
+  - href: "#sec-six"
+    label: "6 个优先推荐"
   - href: "#sec-officecli"
-    label: "为什么重点看OfficeCLI"
-  - href: "#sec-combo"
-    label: "怎么搭配更省时间"
+    label: "为什么重点看 OfficeCLI"
   - href: "#sec-order"
-    label: "新手安装顺序"
-  - href: "#sec-rules"
-    label: "最后记住3条"
+    label: "更稳的安装顺序"
+  - href: "#sec-summary"
+    label: "最后的提醒"
 inlineStyles: |
   <style>
-      .skill-card { border: 1px solid #e9e9e7; border-radius: 12px; padding: 18px 20px; margin-bottom: 12px; background: #ffffff; transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s; }
-      .skill-card:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.07); transform: translateY(-2px); border-color: #d4b8a0; }
-      .skill-card h4 { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-      .skill-card p { font-size: 14px; color: #666666; line-height: 1.7; margin-bottom: 0; }
-      .skill-tag { display: inline-flex; align-items: center; justify-content: center; padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.02em; background: #f7f1ea; border: 1px solid #e7d8c7; color: #8f7c6c; }
-      .skill-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-      .skill-links a { display: inline-flex; align-items: center; gap: 4px; padding: 5px 10px; border-radius: 999px; border: 1px solid #e9e9e7; background: #faf9f7; font-size: 12px; color: #4f4a44; text-decoration: none; }
-      .skill-links a:hover { color: #d46a2f; border-color: #d8b79e; background: #fff9f3; }
-      .combo-card { border: 1px solid #e7e1d8; border-radius: 14px; padding: 18px 20px; background: linear-gradient(180deg, #fffdfa, #fffaf6); margin-bottom: 12px; }
-      .combo-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-      .combo-card p { font-size: 14px; color: #666666; margin-bottom: 0; line-height: 1.7; }
-      .metric-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 18px 0 22px; }
-      .metric-card { border: 1px solid #ece4da; border-radius: 14px; padding: 16px 18px; background: linear-gradient(180deg, #fffdfb, #fff8f3); }
-      .metric-card strong { display: block; font-size: 22px; font-weight: 800; color: #1f1f1f; margin-bottom: 6px; }
-      .metric-card span { display: block; font-size: 13px; line-height: 1.6; color: #7a726b; }
-      .spotlight-card { border: 1px solid #e8d7c4; border-radius: 18px; padding: 22px 24px; background: linear-gradient(135deg, #fffaf4, #fffefb); box-shadow: 0 8px 24px rgba(212,106,47,0.08); margin: 16px 0 18px; }
-      .spotlight-card h4 { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 16px; font-weight: 800; margin-bottom: 10px; line-height: 1.5; }
-      .spotlight-card p { font-size: 14px; color: #666666; line-height: 1.7; margin-bottom: 0; }
-      .bullet-list { margin: 14px 0 0; padding-left: 18px; color: #666666; font-size: 14px; }
-      .bullet-list li { margin-bottom: 8px; line-height: 1.7; }
-      .bullet-list code { padding: 2px 6px; border-radius: 6px; background: #f7f3ee; font-size: 11px; color: #8a5d3b; }
-      @media (max-width: 900px) {
-        .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .essay-lead {
+      margin: 18px 0 30px;
+      padding: 0 8px 0 2px;
+    }
+
+    .essay-lead p {
+      font-size: 19px;
+      line-height: 1.95;
+      color: #2f2b28;
+      margin-bottom: 18px;
+    }
+
+    .essay-divider {
+      width: 100%;
+      height: 1px;
+      margin: 28px 0 36px;
+      background: linear-gradient(90deg, rgba(77, 58, 45, 0.16), rgba(77, 58, 45, 0.04));
+    }
+
+    .essay-section {
+      margin-bottom: 42px;
+    }
+
+    .essay-section h2 {
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+      color: #181818;
+    }
+
+    .essay-section p {
+      font-size: 19px;
+      line-height: 1.95;
+      color: #302c29;
+      margin-bottom: 18px;
+    }
+
+    .essay-link-block {
+      border: 1px solid #e9ddd0;
+      border-radius: 22px;
+      padding: 18px 20px;
+      background: linear-gradient(180deg, #fffdfb, #fff8f2);
+      margin: 22px 0 18px;
+    }
+
+    .essay-link-block .label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #bf7445;
+      text-transform: uppercase;
+    }
+
+    .essay-link-block a,
+    .essay-link-row a {
+      color: #1f1f1f;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(212, 106, 47, 0.35);
+    }
+
+    .essay-link-block a:hover,
+    .essay-link-row a:hover {
+      color: #d46a2f;
+      border-bottom-color: #d46a2f;
+    }
+
+    .essay-link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 22px;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .essay-note {
+      margin: 20px 0;
+      padding: 18px 20px;
+      border-left: 4px solid #d46a2f;
+      border-radius: 0 16px 16px 0;
+      background: linear-gradient(90deg, #fff7f0, #fffdfb);
+      box-shadow: 0 8px 18px rgba(212, 106, 47, 0.06);
+    }
+
+    .essay-note p,
+    .essay-note li {
+      font-size: 17px;
+      line-height: 1.85;
+      color: #49423c;
+      margin-bottom: 0;
+    }
+
+    .terminal-shell {
+      margin: 22px 0 18px;
+      border-radius: 24px;
+      padding: 18px 20px;
+      background: #1f1f1f;
+      box-shadow: 0 16px 30px rgba(24, 24, 24, 0.16);
+      overflow-x: auto;
+    }
+
+    .terminal-shell code {
+      font-family: "SF Mono", "Menlo", monospace;
+      font-size: 16px;
+      color: #f6e5d7;
+      white-space: pre-wrap;
+      word-break: break-all;
+      line-height: 1.8;
+    }
+
+    .mini-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 22px 0 12px;
+    }
+
+    .mini-point {
+      border: 1px solid #ebe0d4;
+      border-radius: 20px;
+      padding: 18px 18px 16px;
+      background: #fffdfb;
+    }
+
+    .mini-point strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+      color: #181818;
+      line-height: 1.45;
+    }
+
+    .mini-point span {
+      display: block;
+      font-size: 15px;
+      color: #6d655e;
+      line-height: 1.75;
+    }
+
+    .ordered-flow {
+      counter-reset: flow-step;
+      display: grid;
+      gap: 16px;
+      margin: 22px 0 10px;
+    }
+
+    .ordered-flow-item {
+      position: relative;
+      border: 1px solid #ebe0d4;
+      border-radius: 22px;
+      padding: 18px 20px 18px 74px;
+      background: linear-gradient(180deg, #fffdfb, #fff8f4);
+    }
+
+    .ordered-flow-item::before {
+      counter-increment: flow-step;
+      content: counter(flow-step);
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: #fff1e5;
+      color: #d46a2f;
+      font-size: 15px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ordered-flow-item strong {
+      display: block;
+      font-size: 18px;
+      color: #181818;
+      margin-bottom: 8px;
+    }
+
+    .ordered-flow-item span {
+      display: block;
+      font-size: 15px;
+      line-height: 1.75;
+      color: #67615a;
+    }
+
+    .summary-box {
+      margin-top: 28px;
+      border: 1px solid #eadaca;
+      border-radius: 26px;
+      padding: 24px 26px;
+      background: linear-gradient(135deg, #fff8f1, #fffefb);
+      box-shadow: 0 14px 30px rgba(212, 106, 47, 0.08);
+    }
+
+    .summary-box h2 {
+      margin-bottom: 12px;
+    }
+
+    .summary-box p {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 900px) {
+      .essay-section h2 {
+        font-size: 31px;
       }
-      @media (max-width: 640px) {
-        .metric-grid { grid-template-columns: 1fr; }
-        .spotlight-card { padding: 18px 18px 16px; }
+
+      .essay-section p,
+      .essay-lead p {
+        font-size: 17px;
       }
+
+      .mini-points {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .essay-section h2 {
+        font-size: 26px;
+      }
+
+      .essay-section p,
+      .essay-lead p {
+        font-size: 16px;
+        line-height: 1.85;
+      }
+
+      .essay-link-row {
+        gap: 12px;
+        font-size: 15px;
+      }
+
+      .terminal-shell code {
+        font-size: 14px;
+      }
+
+      .ordered-flow-item {
+        padding: 16px 16px 16px 62px;
+      }
+
+      .ordered-flow-item::before {
+        left: 16px;
+        top: 16px;
+        width: 32px;
+        height: 32px;
+      }
+    }
   </style>
 ---
 <div style="margin-bottom: 16px;"><a href="index.html" style="font-size: 14px; color: #999; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">← 返回首页</a></div>
-    <div class="page-label">第七课 · Skills推荐</div>
-    <h1>6个值得优先装的 Skills<br>先把最能立刻出结果的那批装上</h1>
-    <p class="subtitle">这一课不再讲概念，而是直接回答三个问题：先装什么、为什么值得装、哪些组合最能立刻省时间。若你经常处理 Word、Excel、PPT，OfficeCLI 尤其值得单独重点了解。</p>
+<div class="page-label">第七课 · Skills推荐</div>
+<h1>分享 6 个我觉得应该先装的 Skills</h1>
+<p class="subtitle">这一课不讲概念，直接告诉你哪些 Skills 最值得先装、分别适合什么场景，以及新手最稳的安装顺序。</p>
 
-    <div class="metric-grid">
-      <div class="metric-card">
-        <strong>前端质感</strong>
-        <span>Frontend Design 先定审美方向，再让 AI 写页面，结果通常比“直接开写”稳定得多。</span>
-      </div>
-      <div class="metric-card">
-        <strong>文档交付</strong>
-        <span>docx、xlsx、pdf、pptx 让 AI 更稳定地读写常见办公文件，不用每次都从零摸索。</span>
-      </div>
-      <div class="metric-card">
-        <strong>Office 自动化</strong>
-        <span>OfficeCLI 能让 AI 直接操作 Word、Excel、PPT，而且不要求本机先装 Office。</span>
-      </div>
-      <div class="metric-card">
-        <strong>长期效率</strong>
-        <span>Web Access、Claude-mem、Skill-Creator 负责联网、记忆和沉淀流程，越用越省时间。</span>
-      </div>
+<div class="essay-lead" id="sec-intro">
+  <p>如果你刚开始用 Skills，最容易踩的坑就是一上来装太多，结果每个都知道一点，但没有一个真正用顺手。这一页我帮你先筛掉那些“以后再说”的，把最值得优先安装的 6 类挑出来。</p>
+  <p>你可以把它理解成一份新手起步清单：先装哪些最容易出结果，分别适合什么场景，装上以后最直接能省掉哪一段手工时间，我都按顺序写在下面。</p>
+  <p>每一段我都放了入口链接。你可以从头按顺序装，也可以先跳到最符合你当前工作的那一类，比如页面、文档、表格、联网搜索、长期记忆或者自己的工作流沉淀。</p>
+</div>
+
+<div class="essay-divider"></div>
+
+<section class="essay-section" id="sec-six">
+  <h2>一、Frontend Design</h2>
+  <p>如果你经常让 AI 做页面，你会很快发现，问题往往不是“它能不能写出来”，而是“写出来为什么一股模板味”。很多页面不是功能不行，而是布局、留白、信息层级和气质感全都没立住。</p>
+  <p>Frontend Design 这种 Skill 的价值，就是先把页面的审美方向、用户对象、主次关系想清楚，再动手写代码。它会逼 AI 先回答“这页到底想让人感觉到什么”，而不是一上来就把卡片、按钮、渐变背景全堆上去。</p>
+  <div class="essay-link-block">
+    <span class="label">链接</span>
+    <div class="essay-link-row">
+      <a href="https://github.com/anthropics/skills/tree/main/skills/frontend-design" target="_blank" rel="noopener noreferrer">frontend-design ↗</a>
     </div>
+  </div>
+  <div class="essay-note">
+    <p><strong>最适合谁：</strong>做落地页、培训页、提案页、演示型网站的人。你如果做的是“给别人看”的页面，这个 Skill 往往应该排在最前面。</p>
+  </div>
+</section>
 
-    <h2 id="sec-why">为什么这节课值得先看</h2>
-    <p>很多人学完 Skills 的概念，下一步就会卡在“该先装哪个”。真正的问题不是“有没有更多 Skill”，而是“哪一个装上就能马上改善结果质量、减少重复劳动，或者直接让 AI 多交一份可用成果”。</p>
-    <p>更稳的做法，是先把最容易立刻产生结果的那一批装上，再决定要不要继续扩展。这样不容易变成“装了一堆、真正常用的却没几个”，也更容易判断哪个 Skill 真的值。</p>
-
-    <div class="highlight-box">
-      <strong>先记住一句话：</strong>推荐顺序不看“谁最火”，而看“谁最先帮你省下一段完整的手工时间”。能直接改善页面质量、读写文档、联网操作、长期记忆和个人工作流沉淀的，优先级都很高。
+<section class="essay-section">
+  <h2>二、办公四件套：docx、xlsx、pdf、pptx</h2>
+  <p>先把一个误区说清楚：<strong>不装这些 Skill，AI 本来也能读取你上传的 Word、Excel、PDF、PPT。</strong> 所以如果你只是偶尔丢一个文件进去，让它“帮我看看里面写了什么”，那确实不一定非装不可。</p>
+  <p>这组 Skill 真正的价值，不在“能不能读”，而在<strong>能不能更稳定地处理、修改、生成和反复复用</strong>。比如你不只是想“看一下这个表”，而是想批量清洗 Excel、按固定格式输出 Word、把 PDF 内容整理成结构化结果、或者继续生成一份能交付的 PPT，这时候 Skill 就比纯聊天稳得多。</p>
+  <div class="essay-note">
+    <p><strong>一句话区别：</strong>不装时更像“临时帮你看文件”；装了以后更像“围绕这类文件长期干活”，特别适合高频、批量、格式要求高的场景。</p>
+  </div>
+  <div class="mini-points">
+    <div class="mini-point">
+      <strong>docx</strong>
+      <span>适合反复写报告、方案、纪要这类正式文档，重点是版式和持续修改更稳。</span>
     </div>
-
-    <h2 id="sec-choose">什么样的 Skill 值得先装</h2>
-    <p>判断一个 Skill 值不值得进入第一梯队，可以先看下面 4 个标准：</p>
-
-    <div class="step-grid">
-      <div class="step-box">
-        <div class="step-num-circle">1</div>
-        <h4>高频重复</h4>
-        <p>这件事你是不是每周都会碰到？频率越高，越值得尽早固化成 Skill 或工具能力。</p>
-      </div>
-      <div class="step-box">
-        <div class="step-num-circle">2</div>
-        <h4>结果明确</h4>
-        <p>输入和输出越清晰，越适合交给 Skill。比如页面生成、文档导出、站内检索、整理会议纪要。</p>
-      </div>
-      <div class="step-box">
-        <div class="step-num-circle">3</div>
-        <h4>提升明显</h4>
-        <p>装上后能明显提升成品质量，或直接缩短一段完整流程，这种收益最应该优先拿到。</p>
-      </div>
-      <div class="step-box">
-        <div class="step-num-circle">4</div>
-        <h4>可持续复用</h4>
-        <p>不是只帮你一次，而是未来还会反复用。这样的 Skill 才值得你花时间安装和熟悉。</p>
-      </div>
+    <div class="mini-point">
+      <strong>xlsx</strong>
+      <span>适合大量表格、公式、清洗、汇总，不只是读取，而是持续批量处理。</span>
     </div>
-
-    <div class="template-block">
-      <div class="label">一个简单筛选公式</div>
-      <p>高频 + 结果明确 + 效果提升明显 + 以后还会重复用 = 值得先装</p>
+    <div class="mini-point">
+      <strong>pdf</strong>
+      <span>适合整批资料抽重点、拆表格、做整理，尤其是多个 PDF 连续处理时更值。</span>
     </div>
-
-    <h2 id="sec-recommend">更值得优先安装的 6 个 Skills</h2>
-    <p class="section-intro">下面这 6 个，覆盖了前端生成、文档处理、联网研究、卡壳救火、长期记忆和自建工作流六条主线。不是要求你一次装满，而是帮你找到最先该装的那几个。</p>
-
-    <div class="skill-card">
-      <h4><span class="skill-tag">官方</span>1. Frontend Design：先把审美方向想清楚，再让 AI 动手</h4>
-      <p>很多 AI 做前端，问题不在“能不能写出来”，而在“写出来有没有质感”。Frontend Design 的价值，就是先逼 AI 想清楚页面的目的、气质、限制条件和差异化方向，再决定排版、留白、配色和动效。对于落地页、演示页、数据可视化页面，这种先想后写的约束通常非常有用。</p>
-      <div class="skill-links">
-        <a href="https://github.com/anthropics/skills/tree/main/skills/frontend-design" target="_blank" rel="noopener noreferrer">frontend-design ↗</a>
-      </div>
+    <div class="mini-point">
+      <strong>pptx</strong>
+      <span>适合把提纲继续推进成真正能汇报的演示稿，而不是只停在聊天里的大纲。</span>
     </div>
-
-    <div class="skill-card">
-      <h4><span class="skill-tag">官方</span>2. 办公四件套：docx、xlsx、pdf、pptx</h4>
-      <p>如果你的工作经常要写总结、做表格、整理资料、出汇报稿，这一组几乎都是第一梯队。它们的价值不只是“支持某种文件格式”，而是让 AI 更稳定地围绕文档做读取、整理、改写和输出，少走很多“临时写脚本、格式又不稳定”的弯路。</p>
-      <div class="skill-links">
-        <a href="https://github.com/anthropics/skills/tree/main/skills/docx" target="_blank" rel="noopener noreferrer">docx ↗</a>
-        <a href="https://github.com/anthropics/skills/tree/main/skills/xlsx" target="_blank" rel="noopener noreferrer">xlsx ↗</a>
-        <a href="https://github.com/anthropics/skills/tree/main/skills/pdf" target="_blank" rel="noopener noreferrer">pdf ↗</a>
-        <a href="https://github.com/anthropics/skills/tree/main/skills/pptx" target="_blank" rel="noopener noreferrer">pptx ↗</a>
-      </div>
+  </div>
+  <div class="essay-link-block">
+    <span class="label">链接</span>
+    <div class="essay-link-row">
+      <a href="https://github.com/anthropics/skills/tree/main/skills/docx" target="_blank" rel="noopener noreferrer">docx ↗</a>
+      <a href="https://github.com/anthropics/skills/tree/main/skills/xlsx" target="_blank" rel="noopener noreferrer">xlsx ↗</a>
+      <a href="https://github.com/anthropics/skills/tree/main/skills/pdf" target="_blank" rel="noopener noreferrer">pdf ↗</a>
+      <a href="https://github.com/anthropics/skills/tree/main/skills/pptx" target="_blank" rel="noopener noreferrer">pptx ↗</a>
     </div>
+  </div>
+</section>
 
-    <div class="skill-card">
-      <h4><span class="skill-tag">第三方</span>3. Web Access：把联网搜索和浏览器操作连成一个动作</h4>
-      <p>如果你经常不是只查公开网页，而是要进站内搜内容、利用登录状态看资料、在多个标签页之间来回操作，Web Access 这一类 Skill 就比单纯的网页抓取更实用。它适合做账号内检索、平台内容调研、公众号或社区资料收集，也适合那些“必须带着真实浏览器上下文去完成”的工作。</p>
-      <div class="skill-links">
-        <a href="https://github.com/eze-is/web-access" target="_blank" rel="noopener noreferrer">web-access ↗</a>
-      </div>
+<section class="essay-section">
+  <h2>三、Web Access</h2>
+  <p>Web Access 这类 Skill 的价值，不是“能上网”这么简单，而是把联网搜索、真实页面浏览、账号内操作这三件事连到了一起。很多资料不是公开网页搜一下就能拿到，而是必须带着浏览器上下文去点、去翻、去进入站内页面。</p>
+  <p>比如你要看平台里的内容、处理登录后的页面、抓一组连续资料、或者做那种“必须真进浏览器才能完成”的任务，这时候 Web Access 就比单纯的网页抓取顺手得多。</p>
+  <div class="essay-link-block">
+    <span class="label">链接</span>
+    <div class="essay-link-row">
+      <a href="https://github.com/eze-is/web-access" target="_blank" rel="noopener noreferrer">web-access ↗</a>
     </div>
+  </div>
+</section>
 
-    <div class="skill-card">
-      <h4><span class="skill-tag">第三方</span>4. PUA：AI 一旦开始摆烂，就把它从原地打转里拽出来</h4>
-      <p>PUA 不是拿来常开常驻的，而是适合在 AI 修 bug、排查问题、分析流程时明显开始磨洋工、重复重试、甩锅用户的时候再触发。它更像一个“打断惯性思路”的救火器：逼 AI 换角度、换方法、重新审视问题，而不是在同一个错误方向上继续耗时间。</p>
-      <div class="skill-links">
-        <a href="https://github.com/tanweai/pua" target="_blank" rel="noopener noreferrer">pua ↗</a>
-      </div>
+<section class="essay-section">
+  <h2>四、PUA</h2>
+  <p>这个名字听起来有点玩笑，但它的实际用途挺明确：当 AI 开始摆烂、重复试错、绕圈子、甩锅用户的时候，把它从原来的思路里拽出来。它不是常开型 Skill，更像一个救火工具。</p>
+  <p>所以我对它的建议一直都不是“上来就装”，而是“当你已经明显发现 AI 在这类任务里会反复原地打转，那就该准备一个能打断惯性的东西”。从这个角度说，PUA 更像一个纠偏器。</p>
+  <div class="essay-link-block">
+    <span class="label">链接</span>
+    <div class="essay-link-row">
+      <a href="https://github.com/tanweai/pua" target="_blank" rel="noopener noreferrer">pua ↗</a>
     </div>
+  </div>
+</section>
 
-    <div class="skill-card">
-      <h4><span class="skill-tag">第三方</span>5. Claude-mem：给长期项目补上一层跨会话记忆</h4>
-      <p>只要你做的是持续多天、多周甚至多月的项目，长期记忆几乎总会产生价值。Claude-mem 的核心意义，是把对话里的关键信息压缩保存，并在新会话里按需取回。这样你不必每次都从头重讲背景，更适合长期维护项目、连续迭代内容、反复追踪同一个主题。</p>
-      <div class="skill-links">
-        <a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener noreferrer">claude-mem ↗</a>
-      </div>
+<section class="essay-section">
+  <h2>五、Claude-mem</h2>
+  <p>长期项目最怕什么？不是今天做不出来，而是明天又要从头解释一遍背景。Claude-mem 这类记忆型 Skill 的意义，就是把关键信息压缩成可复用的记忆，让下一个会话能继续接上，而不是重新开荒。</p>
+  <p>如果你做的是一个会持续好多天、好多周的项目，记忆能力其实不是“锦上添花”，而是非常现实的效率工具。你越是反复改同一套内容、同一个站点、同一类流程，它的价值越明显。</p>
+  <div class="essay-link-block">
+    <span class="label">链接</span>
+    <div class="essay-link-row">
+      <a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener noreferrer">claude-mem ↗</a>
     </div>
+  </div>
+  <div class="essay-note">
+    <p><strong>顺手说一句：</strong>现在不少人也会把这种长期记忆能力接到 OpenClaw、Codex 一类工作流里，所以它不是只能给 Claude 用，核心是“你的智能体有没有长期项目上下文”这件事。</p>
+  </div>
+</section>
 
-    <div class="skill-card">
-      <h4><span class="skill-tag">官方</span>6. Skill-Creator：从“用别人的 Skill”走到“做自己的 Skill”</h4>
-      <p>真正长期有价值的，不只是多装几个现成 Skill，而是把自己反复使用的工作流沉淀下来。Skill-Creator 解决的，就是“怎么把一个模糊的想法，变成一个可复用的最小 Skill”。当你已经知道某个动作未来还会重复很多次，就该开始考虑把它固化成自己的版本。</p>
-      <div class="skill-links">
-        <a href="https://github.com/anthropics/skills/tree/main/skills/skill-creator" target="_blank" rel="noopener noreferrer">skill-creator ↗</a>
-      </div>
+<section class="essay-section">
+  <h2>六、Skill-Creator</h2>
+  <p>装别人的 Skill 当然省事，但真正长期有价值的，还是你能不能把自己反复用的那条流程沉淀下来。Skill-Creator 的作用，就是把“我经常会做这件事”变成“以后我可以直接复用这一套”。</p>
+  <p>这一步不用太早。通常是你已经跑通了几个真实场景，知道哪些动作未来还会反复发生，再来做自己的 Skill，会更稳，也更不会造出一堆以后不用的空壳。</p>
+  <div class="essay-link-block">
+    <span class="label">链接</span>
+    <div class="essay-link-row">
+      <a href="https://github.com/anthropics/skills/tree/main/skills/skill-creator" target="_blank" rel="noopener noreferrer">skill-creator ↗</a>
     </div>
+  </div>
+</section>
 
-    <h2 id="sec-officecli">为什么 OfficeCLI 值得重点讲</h2>
-    <p>如果你的工作里经常碰 Word、Excel、PPT，OfficeCLI 不应该只被当成“顺手看看”的扩展，而应该直接进入第一批安装名单。</p>
-
-    <div class="spotlight-card">
-      <h4><span class="skill-tag">重点工具</span>OfficeCLI：让 AI 直接创建、读取、修改 Office 文档</h4>
-      <p>它的核心价值，不是单纯“能处理 Office 文件”，而是把 Word、Excel、PowerPoint 变成 AI 直接可操作的对象：无需安装 Office，本体是单一二进制，支持 CLI、MCP、结构化 JSON 输出，还能让 AI 通过稳定路径定位文档元素。</p>
-      <ul class="bullet-list">
-        <li><strong>一行接入：</strong><code>curl -fsSL https://officecli.ai/SKILL.md</code>，让智能体先读取 Skill 说明，再自动完成安装和使用。</li>
-        <li><strong>覆盖范围完整：</strong>既能创建、读取，也能修改 docx、xlsx、pptx，不只是单向导出。</li>
-        <li><strong>更适合 AI 协作：</strong>支持 <code>--json</code> 输出、路径式元素定位、内置帮助和错误提示，比让 AI 每次从零拼脚本稳定得多。</li>
-        <li><strong>适合反复迭代：</strong>PPT 有实时预览能力，适合一边改一边看效果；还有 MCP 服务器，便于接进常用 AI 工具。</li>
-      </ul>
-      <div class="skill-links">
-        <a href="https://github.com/iOfficeAI/OfficeCLI/blob/main/README_zh.md" target="_blank" rel="noopener noreferrer">OfficeCLI README ↗</a>
-        <a href="https://github.com/iOfficeAI/OfficeCLI/releases" target="_blank" rel="noopener noreferrer">Releases ↗</a>
-        <a href="https://github.com/iOfficeAI/OfficeCLI/wiki" target="_blank" rel="noopener noreferrer">Wiki ↗</a>
-      </div>
+<section class="essay-section" id="sec-officecli">
+  <h2>为什么我会单独重点讲 OfficeCLI</h2>
+  <p>上面那一组官方办公四件套已经很值得装了，但如果你的真实工作经常围着 Word、Excel、PPT 打转，那我还是会建议你把 OfficeCLI 单独拎出来看。因为它不是只做某一种文件格式的 Skill，而是更像给 AI 接上一整套 Office 操作能力。</p>
+  <p>它比较强的地方在于：不要求你本机先装 Office，本体是一个单独的 CLI，而且能让 AI 用更稳定的路径去创建、读取、修改 Office 文档。你不是“碰碰运气让它导一个 PPT”，而是能把 Office 文件当作相对稳定的操作对象来处理。</p>
+  <div class="terminal-shell"><code>curl -fsSL https://officecli.ai/SKILL.md</code></div>
+  <div class="essay-link-block">
+    <span class="label">OfficeCLI 入口</span>
+    <div class="essay-link-row">
+      <a href="https://officecli.ai/SKILL.md" target="_blank" rel="noopener noreferrer">SKILL.md ↗</a>
+      <a href="https://github.com/iOfficeAI/OfficeCLI/blob/main/README_zh.md" target="_blank" rel="noopener noreferrer">README ↗</a>
+      <a href="https://github.com/iOfficeAI/OfficeCLI/releases" target="_blank" rel="noopener noreferrer">Releases ↗</a>
     </div>
-
-    <div class="step-grid">
-      <div class="step-box">
-        <div class="step-num-circle">1</div>
-        <h4>做汇报</h4>
-        <p>AI 先整理结构，再直接生成可继续修改的 PPT，不用来回复制粘贴和手调版式。</p>
-      </div>
-      <div class="step-box">
-        <div class="step-num-circle">2</div>
-        <h4>做文档</h4>
-        <p>Word 报告、方案说明、交付文档都能由 AI 直接创建和修改，不必每次重新搭脚本。</p>
-      </div>
-      <div class="step-box">
-        <div class="step-num-circle">3</div>
-        <h4>做表格</h4>
-        <p>Excel 不只是填数据，还能继续做结构化修改、批量处理和更稳定的自动化生成。</p>
-      </div>
-      <div class="step-box">
-        <div class="step-num-circle">4</div>
-        <h4>接 AI 工具</h4>
-        <p>CLI、MCP、JSON 输出三件套，意味着它非常适合进入长期的 AI 工作流和自动化链路。</p>
-      </div>
+  </div>
+  <div class="mini-points">
+    <div class="mini-point">
+      <strong>写文档</strong>
+      <span>方案、总结、说明文档都能直接创建和持续修改。</span>
     </div>
-
-    <div class="highlight-box">
-      <strong>可以这样理解：</strong>官方的 docx、xlsx、pdf、pptx 更像“围绕某种文件格式完成任务”的 Skills；OfficeCLI 则更像“让 AI 获得一整套 Office 操作能力”的底层工具。若你对文档工作依赖很重，两者搭配通常比二选一更强。
+    <div class="mini-point">
+      <strong>做表格</strong>
+      <span>不是只填数据，而是能围绕 Excel 做更稳定的批量处理。</span>
     </div>
-
-    <h2 id="sec-combo">怎么搭配使用，效果比单装一个更好</h2>
-    <p>真正好用的不是某一个 Skill，而是把几类能力串起来，形成一条完整的工作流。</p>
-
-    <div class="combo-card">
-      <h4>组合 1：Frontend Design → pptx / OfficeCLI</h4>
-      <p>先让 AI 把页面或演示稿的审美方向想清楚，再用 pptx 或 OfficeCLI 继续生成和调整成品。这个组合特别适合培训材料、提案页、落地页和演示文稿。</p>
+    <div class="mini-point">
+      <strong>做汇报</strong>
+      <span>PPT 不再只是聊天里“给你一个提纲”，而是能继续往成品推进。</span>
     </div>
-
-    <div class="combo-card">
-      <h4>组合 2：pdf → docx / xlsx / pptx → OfficeCLI</h4>
-      <p>先用 pdf 读资料、提炼重点，再把结论写成 Word、表格或演示稿；如果后续还要继续细修结构、样式和元素级内容，OfficeCLI 就能把这一段工作接住。</p>
+    <div class="mini-point">
+      <strong>接工作流</strong>
+      <span>CLI、JSON、MCP 都让它特别适合和 AI 自动化链路结合。</span>
     </div>
+  </div>
+</section>
 
-    <div class="combo-card">
-      <h4>组合 3：Web Access → Claude-mem</h4>
-      <p>一个负责带着真实浏览器上下文去搜和操作，另一个负责把长期项目里的关键信息记下来。对于持续做研究、持续看平台内容的人，这组组合越用越顺手。</p>
+<section class="essay-section" id="sec-order">
+  <h2>如果你是新手，我建议这样装</h2>
+  <p>不要一上来全装。那样的结果通常不是效率提升，而是管理负担增加。更稳的方式，是先装一个马上会用到的，再连续跑 3 到 5 次，确认它真的省时间，再决定要不要补下一个。</p>
+  <div class="ordered-flow">
+    <div class="ordered-flow-item">
+      <strong>先看你的工作输出是什么</strong>
+      <span>做页面多，就先装 Frontend Design；做文档、表格、汇报多，就先从办公四件套或 OfficeCLI 开始。</span>
     </div>
-
-    <div class="combo-card">
-      <h4>组合 4：PUA → Skill-Creator</h4>
-      <p>当 AI 在某类问题上总是卡住，就先用 PUA 把惯性思路打断；等你把真正有效的方法跑通之后，再用 Skill-Creator 把它沉淀成自己的固定流程。</p>
+    <div class="ordered-flow-item">
+      <strong>再补联网能力</strong>
+      <span>如果你经常要查站内资料、进真实页面操作，Web Access 很快就会派上用场。</span>
     </div>
-
-    <h2 id="sec-order">给新手更稳的安装顺序</h2>
-    <p>如果你现在一个都没装，不必追求“全装”。更实用的顺序是：</p>
-
-    <div class="step-grid">
-      <div class="step-box">
-        <div class="step-num-circle">1</div>
-        <h4>先装最贴近产出的那一类</h4>
-        <p>做页面多，就先装 Frontend Design；做文档、表格、汇报多，就先装办公四件套。</p>
-      </div>
-      <div class="step-box">
-        <div class="step-num-circle">2</div>
-        <h4>经常碰 Office 文件的，OfficeCLI 直接插队</h4>
-        <p>如果你每天都在和 Word、Excel、PPT 打交道，OfficeCLI 可以直接进第一批，不用等到“以后再看”。</p>
-      </div>
-      <div class="step-box">
-        <div class="step-num-circle">3</div>
-        <h4>再补 Web Access / Claude-mem</h4>
-        <p>一个解决联网与登录态操作，一个解决长期记忆。做研究型、项目型工作时，这两类都很值得补上。</p>
-      </div>
-      <div class="step-box">
-        <div class="step-num-circle">4</div>
-        <h4>把 PUA 作为救火工具</h4>
-        <p>它适合在 AI 真开始摆烂的时候再拿出来，不建议默认一直常开。</p>
-      </div>
-      <div class="step-box">
-        <div class="step-num-circle">5</div>
-        <h4>最后上 Skill-Creator</h4>
-        <p>当你已经跑通几个真实场景，知道哪些动作最值得重复时，再开始做属于自己的 Skill。</p>
-      </div>
+    <div class="ordered-flow-item">
+      <strong>遇到长期项目，再补记忆</strong>
+      <span>当你开始做连续多天的内容、项目、站点维护，Claude-mem 这类能力会很值。</span>
     </div>
-
-    <div class="template-block">
-      <div class="label">安装思路</div>
-      <p>不要一次装满。先装一个马上会用到的，连续用 3-5 次，确认它真的省时间，再决定是否继续扩展。</p>
+    <div class="ordered-flow-item">
+      <strong>最后再做自己的 Skill</strong>
+      <span>等你已经知道哪条流程未来会反复出现，再用 Skill-Creator 把它沉淀下来。</span>
     </div>
+  </div>
+</section>
 
-    <h2 id="sec-rules">最后记住 3 条使用原则</h2>
+<section class="summary-box" id="sec-summary">
+  <h2>最后的提醒</h2>
+  <p>Skills 不是装得越多越厉害，而是装得越准越有用。先把最容易立刻产生成果的那几个装上，让 AI 先帮你省下一段完整的手工时间，再慢慢往联网、记忆、自动化、个人工作流沉淀这几层加。这样你不容易乱，也更容易真的把它们用起来。</p>
+</section>
 
-    <div class="card">
-      <h4>原则 1：先解决真实问题，不要为了收藏而安装</h4>
-      <p>如果一个 Skill 装上后两周都没真正用过，它大概率不是你当前阶段最需要的。</p>
-    </div>
+<div class="essay-link-block" style="margin-top: 22px;">
+  <span class="label">原文参考</span>
+  <p style="font-size: 15px; line-height: 1.85; color: #5d554d; margin: 0 0 10px;">
+    高质量Skills分享，一键拿捏Agent！上周发了给Agent...
+  </p>
+  <div class="essay-link-row">
+    <a href="http://xhslink.com/o/6lMVDPTJfHN" target="_blank" rel="noopener noreferrer">小红书原文链接 ↗</a>
+  </div>
+</div>
 
-    <div class="card">
-      <h4>原则 2：先把一个场景跑通，再追求系统化</h4>
-      <p>真正能帮你省时间的，不是“我装了多少个 Skill”，而是“我有没有把一个常见动作稳定地复用起来”。</p>
-    </div>
-
-    <div class="card">
-      <h4>原则 3：最重要的 Skill，最终会是你自己造的那个</h4>
-      <p>现成 Skill 解决的是通用问题；真正长期升值的，是你知道自己最需要什么，并把它沉淀成一条专属工作流的能力。</p>
-    </div>
-
-    <div class="highlight-box">
-      <strong>这一课的核心收获：</strong>先装最能直接出结果的 Skills——前端设计、文档四件套、联网、记忆、救火、自建工作流。如果你常做 Office 交付，OfficeCLI 应该进入第一批。先跑通一个真实场景，再慢慢把自己的工作流沉淀下来。
-    </div>
-
-    <div class="bottom-nav">
-      <a href="lesson-06.html" class="nav-prev">← 第六课：模型对比</a>
-      <a href="learning-channels.html" class="nav-next-alt">→ 学习渠道</a>
-    </div>
+<div class="bottom-nav">
+  <a href="lesson-06.html" class="nav-prev">← 第六课：模型对比</a>
+  <a href="learning-channels.html" class="nav-next-alt">→ 学习渠道</a>
+</div>
 <div data-progress-scope="7" id="lesson-complete-btn" style="text-align:center;padding:36px 0 20px;border-top:1px solid var(--line);margin-top:44px;">
-      <button onclick="markComplete(7)" id="completeBtn" style="background:linear-gradient(135deg,#d46a2f,#e07a42);color:#fff;border:none;border-radius:50px;padding:14px 36px;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(212,106,47,0.35);transition:all 0.2s;">
-        ✅ 标记为已学习
-      </button>
-      <p id="complete-tip" style="font-size:12px;color:#c0b8b0;margin-top:10px;margin-bottom:0;"></p>
-    </div>
-    <footer>正派青年AIGC · AI教育培训 · 让每个人都能体验AI的魅力</footer>
-    <div class="spacer"></div>
+  <button onclick="markComplete(7)" id="completeBtn" style="background:linear-gradient(135deg,#d46a2f,#e07a42);color:#fff;border:none;border-radius:50px;padding:14px 36px;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(212,106,47,0.35);transition:all 0.2s;">
+    ✅ 标记为已学习
+  </button>
+  <p id="complete-tip" style="font-size:12px;color:#c0b8b0;margin-top:10px;margin-bottom:0;"></p>
+</div>
+<footer>正派青年AIGC · AI教育培训 · 让每个人都能体验AI的魅力</footer>
+<div class="spacer"></div>

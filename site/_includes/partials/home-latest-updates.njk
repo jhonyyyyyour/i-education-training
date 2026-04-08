@@ -6,10 +6,32 @@
     <div class="update-col-label">TITLE 标题</div>
   </div>
   {% for item in homepage.latestUpdates %}
+  {% if loop.index <= 3 %}
   <a href="{{ item.url }}" class="update-item">
     <span class="update-date">{{ item.date }}</span>
     <span class="update-tag">{{ item.category }}</span>
     <span class="update-text">{{ item.text }}</span>
   </a>
+  {% endif %}
   {% endfor %}
+
+  {% if homepage.latestUpdates.length > 3 %}
+  <details class="update-more">
+    <summary class="update-more-toggle">
+      <span>查看更多更新</span>
+      <span class="update-more-count">+{{ homepage.latestUpdates.length - 3 }}</span>
+    </summary>
+    <div class="update-more-list">
+      {% for item in homepage.latestUpdates %}
+      {% if loop.index > 3 %}
+      <a href="{{ item.url }}" class="update-item">
+        <span class="update-date">{{ item.date }}</span>
+        <span class="update-tag">{{ item.category }}</span>
+        <span class="update-text">{{ item.text }}</span>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </details>
+  {% endif %}
 </div>

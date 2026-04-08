@@ -185,7 +185,41 @@ const entries = [
     showInCatalog: false,
     searchable: false,
     catalogVariant: "non-lesson"
-  }
+  },
+  {
+    id: "api-intro",
+    url: "api-intro.html",
+    title: "AI 常见词大白话入门：API、Token、Skills、Agent",
+    navTitle: "第八课 · AI常见词入门",
+    description: "用大白话讲清 API、Token、Skills、Agent、RAG、Context 是什么",
+    group: "course",
+    contentType: "lesson",
+    order: 8,
+    badge: 8,
+    displayBadge: "08",
+    trackProgress: true,
+    showInSidebar: true,
+    showInCatalog: true,
+    searchable: true,
+    catalogVariant: "lesson"
+  },
+  {
+    id: "openclaw-course",
+    url: "openclaw-course.html",
+    title: "OpenClaw 入门：先把教程仓库用起来",
+    navTitle: "第九课 · OpenClaw入门",
+    description: "先看教程仓库 · 安装路线 · 推荐学习顺序",
+    group: "course",
+    contentType: "lesson",
+    order: 9,
+    badge: 9,
+    displayBadge: "09",
+    trackProgress: true,
+    showInSidebar: true,
+    showInCatalog: true,
+    searchable: true,
+    catalogVariant: "lesson"
+  },
 ];
 
 const sortedEntries = entries.slice().sort((left, right) => left.order - right.order);

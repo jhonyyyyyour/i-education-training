@@ -911,11 +911,11 @@ footer {
   }
 
   .layout {
-    flex-direction: column;
-    padding-bottom: 70px; /* 给底栏留空间 */
+    display: block;
+    min-height: auto;
+    padding-bottom: 0;
   }
 
-  /* 侧边栏 → 顶部固定导航 */
   .sidebar {
     width: 100%;
     position: fixed;
@@ -924,21 +924,23 @@ footer {
     right: 0;
     z-index: 100;
     border-right: none;
-    border-bottom: 2px solid var(--line);
+    border-bottom: 1px solid var(--line);
     padding: 0;
-    background: var(--card-bg);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    overflow: hidden;
-    transition: max-height 0.25s ease;
-    max-height: 52px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 24px rgba(24,18,12,0.08);
+    overflow: clip;
+    transition: max-height 0.22s ease, box-shadow 0.22s ease;
+    max-height: 64px;
   }
 
   .sidebar.expanded {
-    max-height: 600px;
+    max-height: calc(100vh - 12px);
+    overflow-y: auto;
   }
 
   .sidebar-logo {
-    padding: 14px 20px;
+    padding: 14px 16px;
     margin-bottom: 0;
     display: flex;
     align-items: center;
@@ -962,63 +964,79 @@ footer {
     display: none;
   }
 
+  .sidebar-logo small {
+    margin-bottom: 4px;
+    font-size: 11px;
+  }
+
+  .sidebar-logo span {
+    font-size: 0.9em;
+  }
+
   .sidebar-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     border: 1px solid var(--line);
-    background: #f7f4ef;
-    color: var(--muted);
+    background: linear-gradient(180deg, #fff8f1, #fff1e4);
+    color: #7d6a59;
+    border-color: #ebd9c7;
     border-radius: 999px;
-    padding: 6px 12px;
-    font-size: 13px;
-    font-weight: 500;
+    padding: 7px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
   }
 
   .sidebar-section {
+    display: none;
+    padding: 0 14px;
+    margin: 0 0 14px;
+  }
+
+  .sidebar .search-trigger {
+    display: none;
+    margin: 0 14px 14px;
+  }
+
+  .sidebar.expanded .sidebar-section,
+  .sidebar.expanded .search-trigger {
     display: block;
   }
 
-  .sidebar.collapsed .sidebar-section {
-    display: none;
-  }
-
-  .sidebar.collapsed .sidebar-toggle::after {
-    content: "";
-  }
-
   .sidebar-link {
-    padding: 10px 12px;
+    padding: 11px 12px;
     font-size: 15px;
-    border-radius: 8px;
-    margin-bottom: 2px;
+    border-radius: 10px;
+    margin-bottom: 4px;
   }
 
   .sidebar-link.active {
     font-size: 15px;
   }
 
-  /* 主内容区 */
   .main {
-    padding: 24px 18px;
-    padding-top: 80px;
+    max-width: 100%;
+    padding: 88px 18px 28px;
   }
 
   h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 30px;
+    margin-bottom: 12px;
+    line-height: 1.14;
   }
 
   .subtitle {
-    font-size: 15px;
-    margin-bottom: 28px;
+    font-size: 16px;
+    margin-bottom: 26px;
+    line-height: 1.7;
   }
 
   h2 {
-    font-size: 18px;
-    margin: 36px 0 14px;
-    padding-top: 28px;
+    font-size: 20px;
+    margin: 34px 0 14px;
+    padding-top: 24px;
   }
 
   p {
@@ -1028,23 +1046,22 @@ footer {
 
   .page-label {
     font-size: 11px;
+    margin-bottom: 8px;
   }
 
   .step-grid {
     grid-template-columns: 1fr;
   }
 
-  /* 返回首页链接 */
   .back-link {
-    margin-bottom: 12px !important;
+    margin-bottom: 14px !important;
   }
 
-  /* 卡片加大圆角和内边距 */
   .card,
   .resource-card,
   .scenario-card {
-    padding: 18px 16px;
-    border-radius: 12px;
+    padding: 16px 15px;
+    border-radius: 14px;
   }
 
   .card h4,
@@ -1057,6 +1074,7 @@ footer {
   .resource-card p,
   .scenario-card p {
     font-size: 14px;
+    line-height: 1.7;
   }
 
   /* 图片圆角统一 */
@@ -1078,25 +1096,28 @@ footer {
     word-break: break-all;
   }
 
-  /* 底部导航 */
   .bottom-nav {
-    padding: 24px 0 20px;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 24px 0 18px;
     margin-top: 32px;
   }
 
   .bottom-nav a {
-    padding: 12px 18px;
+    width: 100%;
+    justify-content: center;
+    padding: 13px 18px;
     font-size: 14px;
     min-height: 44px;
     display: inline-flex;
     align-items: center;
   }
 
-  /* 高亮框 */
   .highlight-box {
     border-radius: 8px;
     padding: 12px 14px;
     font-size: 14px;
+    line-height: 1.75;
   }
 
   /* 场景卡片 */
@@ -1111,17 +1132,15 @@ footer {
     padding: 2px 6px;
   }
 
-  /* footer */
   footer {
     padding: 20px 0;
     font-size: 12px;
   }
 
-  /* 搜索 */
-  .search-overlay { padding-top: 20px; align-items: flex-start; }
-  .search-box { border-radius: 12px 12px 0 0; max-width: 100%; }
+  .search-overlay { padding: 14px 10px 0; align-items: flex-start; }
+  .search-box { border-radius: 16px; max-width: 100%; max-height: min(82vh, 720px); }
+  .search-results { max-height: min(58vh, 520px); }
 
-  /* 恭喜学完 */
   .complete-banner { padding: 20px 16px; }
   .complete-banner h3 { font-size: 16px; }
 }
@@ -1130,6 +1149,68 @@ footer {
 .sidebar-logo {
   cursor: pointer;
   user-select: none;
+}
+
+/* 最新动态折叠 */
+.update-more {
+  margin-top: 6px;
+  border-top: 1px solid #eee4d9;
+}
+
+.update-more[open] {
+  padding-top: 4px;
+}
+
+.update-more-toggle {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 14px 0 8px;
+  cursor: pointer;
+  color: #7f746a;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.update-more-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.update-more-toggle:hover {
+  color: #d46a2f;
+}
+
+.update-more-toggle::after {
+  content: "↓";
+  font-size: 13px;
+  color: #b38c6a;
+  margin-left: 2px;
+  transition: transform 0.18s ease;
+}
+
+.update-more[open] .update-more-toggle::after {
+  transform: rotate(180deg);
+}
+
+.update-more-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: #fff4e9;
+  color: #c9733b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.update-more-list .update-item:first-child {
+  border-top: 1px solid #eee4d9;
 }
 
 /* 手机端进度条和CTA */
@@ -1181,5 +1262,17 @@ footer {
 
   .install-step-note {
     margin-left: 0;
+  }
+
+  .update-more-toggle {
+    padding: 12px 0 8px;
+    font-size: 13px;
+  }
+
+  .update-more-count {
+    min-width: 28px;
+    height: 22px;
+    padding: 0 7px;
+    font-size: 12px;
   }
 }
