@@ -203,6 +203,23 @@ const entries = [
     searchable: true,
     catalogVariant: "lesson"
   },
+  {
+    id: "openclaw-course",
+    url: "openclaw-course.html",
+    title: "OpenClaw 入门：先把教程仓库用起来",
+    navTitle: "第九课 · OpenClaw入门",
+    description: "先看教程仓库 · 安装路线 · 推荐学习顺序",
+    group: "course",
+    contentType: "lesson",
+    order: 9,
+    badge: 9,
+    displayBadge: "09",
+    trackProgress: true,
+    showInSidebar: true,
+    showInCatalog: true,
+    searchable: true,
+    catalogVariant: "lesson"
+  },
 ];
 
 const sortedEntries = entries.slice().sort((left, right) => left.order - right.order);
