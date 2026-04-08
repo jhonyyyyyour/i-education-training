@@ -1,0 +1,6 @@
+{"file": ".trellis/workflow.md", "reason": "Project workflow and conventions"}
+{"file": ".trellis/spec/backend/index.md", "reason": "Backend development guide"}
+{"file": ".trellis/spec/frontend/index.md", "reason": "Frontend development guide"}
+{"file": ".trellis/spec/frontend/directory-structure.md", "reason": "docs remains the generated deployment output in stage 1"}
+{"file": ".trellis/spec/frontend/quality-guidelines.md", "reason": "preserve docs alignment and flat output URLs"}
+{"file": ".trellis/spec/backend/directory-structure.md", "reason": "deployment and preview still target generated docs output"}

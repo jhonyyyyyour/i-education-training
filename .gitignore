@@ -1,6 +1,8 @@
 # Local Netlify folder
 .netlify
 node_modules/
+docs/
+_site/
 .netlify/
 *.log
 

@@ -4,7 +4,7 @@ const path = require('path');
 
 const host = '0.0.0.0';
 const port = Number(process.env.PORT || 3000);
-const siteRoot = path.resolve(__dirname, process.env.STATIC_ROOT || 'docs');
+const siteRoot = path.resolve(__dirname, process.env.STATIC_ROOT || '_site');
 
 const mimeTypes = {
   '.html': 'text/html; charset=utf-8',

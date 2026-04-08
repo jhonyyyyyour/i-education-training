@@ -1,0 +1,7 @@
+{"file": ".trellis/workflow.md", "reason": "Project workflow and conventions"}
+{"file": ".trellis/spec/backend/index.md", "reason": "Backend development guide"}
+{"file": ".trellis/spec/frontend/index.md", "reason": "Frontend development guide"}
+{"file": ".trellis/spec/frontend/directory-structure.md", "reason": "output directory migration must preserve flat URLs and true source directories"}
+{"file": ".trellis/spec/frontend/quality-guidelines.md", "reason": "avoid editing generated output and keep asset references intact"}
+{"file": ".trellis/spec/backend/directory-structure.md", "reason": "local preview must follow generated output directory"}
+{"file": ".trellis/spec/backend/quality-guidelines.md", "reason": "preview server must stay aligned with generated output"}

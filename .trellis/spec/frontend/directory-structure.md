@@ -13,9 +13,9 @@ During the Eleventy migration:
 
 - `public/` remains the shared asset source and optional legacy reference area.
 - `site/` is the Eleventy template source for deployable pages, layouts, includes, and shared data.
-- `docs/` is the generated deployment output for GitHub Pages.
+- `_site/` is the generated deployment output for GitHub Pages.
 
-Do not treat `docs/` as a hand-edited source directory once a page is generated through Eleventy.
+Do not treat `_site/` as a hand-edited source directory once a page is generated through Eleventy.
 
 ---
 
@@ -41,7 +41,7 @@ site/
 │       └── *
 └── *.njk / *.md / *.html
 
-docs/
+_site/
 ├── index.html
 ├── lesson-01.html ... lesson-07.html
 ├── rtk-install-guide.html
@@ -71,7 +71,7 @@ There are two frontend page families:
 
 When adding a new lesson or course page, follow the shared course-page structure first.
 When adding a one-off landing page or guide, keep it self-contained and explicit.
-When migrating repeated page structures, move shared layout/data concerns into `site/` rather than creating another hand-maintained copy in `public/` and `docs/`.
+When migrating repeated page structures, move shared layout/data concerns into `site/` rather than creating another hand-maintained copy in `public/` and `_site/`.
 
 ---
 
@@ -81,7 +81,7 @@ When migrating repeated page structures, move shared layout/data concerns into `
 - Sequential lessons use zero-padded names: `lesson-01.html` through `lesson-07.html`
 - Shared stylesheet is `styles.css`
 - Assets live under `screenshots/` and keep descriptive file names such as `codex-app-mac.png` or `vscode-download.png`
-- Eleventy templates should preserve the existing final flat page names in `docs/`
+- Eleventy templates should preserve the existing final flat page names in `_site/`
 
 Avoid creating framework-style folders such as `components/`, `hooks/`, or `pages/` unless the project architecture actually changes.
 

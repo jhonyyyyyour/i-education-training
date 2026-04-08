@@ -49,7 +49,7 @@ Minimum manual checks for backend-related changes:
 
 - Does the change keep the backend scoped to its actual job?
 - Is `server.js` still easy to understand top to bottom?
-- Are generated `docs/` files still being served correctly in local preview?
+- Are generated `_site/` files still being served correctly in local preview?
 - Are MIME types still correct for any new asset type that was introduced?
 - Are 403, 404, and 500 cases still handled explicitly?
 

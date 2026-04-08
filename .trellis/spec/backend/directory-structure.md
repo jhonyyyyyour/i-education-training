@@ -19,7 +19,7 @@ Because the backend is intentionally minimal, keep backend changes simple and co
 server.js          # Static file server entry point
 package.json       # Runtime metadata and npm scripts
 site/              # Eleventy source for migrated pages, layouts, includes, and data
-docs/              # Generated static output served for local preview and deployment
+_site/             # Generated static output served for local preview and deployment
 public/            # Legacy page reference files and shared asset source for passthrough copy
 netlify.toml       # Alternative deployment target for static publishing
 ```
@@ -57,5 +57,5 @@ Prefer clarity over abstraction.
 ## Examples
 
 - Static file serving flow: `server.js`
-- Generated frontend directory served in local preview: `docs/index.html`, `docs/styles.css`
+- Generated frontend directory served in local preview: `_site/index.html`, `_site/styles.css`
 - Deployment config aligned with generated output: `netlify.toml`

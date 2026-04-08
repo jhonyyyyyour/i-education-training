@@ -21,7 +21,7 @@ module.exports = function (eleventyConfig) {
       input: "site",
       includes: "_includes",
       data: "_data",
-      output: "docs"
+      output: "_site"
     },
     templateFormats: ["njk", "html", "md"],
     htmlTemplateEngine: "njk",

@@ -12,7 +12,7 @@ During the Eleventy migration:
 
 - `public/` remains the shared static asset source (for example `styles.css`, `brand-logo.svg`, and `screenshots/`) and may keep temporary legacy references during migration cleanup
 - `site/` is the source of truth for Eleventy-migrated pages, layouts, includes, and shared data
-- `docs/` is the generated deployment output for GitHub Pages
+- `_site/` is the generated deployment output for GitHub Pages
 
 The guides in this folder describe the conventions that already exist in this repo (no React/Vue, no TypeScript build, no component framework).
 
@@ -34,7 +34,7 @@ The guides in this folder describe the conventions that already exist in this re
 ## How to Use These Guidelines
 
 - When editing pages, start from the true source for that page (`public/` for legacy pages, `site/` for Eleventy-migrated pages).
-- If you add or migrate a page meant to be deployed, verify the generated `docs/` output rather than treating `docs/` as a hand-edited source directory.
+- If you add or migrate a page meant to be deployed, verify the generated `_site/` output rather than treating `_site/` as a hand-edited source directory.
 - If you introduce a new recurring pattern (CSS class, inline script behavior, shared include, or data shape), update the relevant guide so future changes stay consistent.
 
 ---

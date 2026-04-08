@@ -1,0 +1,6 @@
+{"file": ".claude/commands/trellis/finish-work.md", "reason": "Finish work checklist"}
+{"file": ".claude/commands/trellis/check-backend.md", "reason": "Backend check spec"}
+{"file": ".claude/commands/trellis/check-frontend.md", "reason": "Frontend check spec"}
+{"file": ".trellis/spec/frontend/directory-structure.md", "reason": "verify stage 1 keeps docs as generated output"}
+{"file": ".trellis/spec/frontend/quality-guidelines.md", "reason": "verify docs output consistency and URLs"}
+{"file": ".trellis/spec/backend/directory-structure.md", "reason": "verify local preview/deploy assumptions remain consistent"}
